@@ -24,6 +24,15 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func signup() {
+        let singupController = SignupViewController()
+        
+        singupController.modalPresentationStyle = .fullScreen
+        singupController.isModalInPresentation = true
+        
+        present(singupController, animated: true, completion: nil)
+    }
+    
     @IBAction func loginPressed(_ sender: Any) {
         
         // Check Text Fields
