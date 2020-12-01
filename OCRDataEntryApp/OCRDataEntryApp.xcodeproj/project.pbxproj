@@ -10,6 +10,7 @@
 		26858FE325522DAA00D722A6 /* Keyboardy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE225522DAA00D722A6 /* Keyboardy.swift */; };
 		26858FE725522DE800D722A6 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26858FE525522DE800D722A6 /* SignupViewController.xib */; };
 		26858FE825522DE800D722A6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE625522DE800D722A6 /* SignupViewController.swift */; };
+		4F401A192575F1F700B04947 /* OCRDataEntryAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */; };
 		4F4DD8AC254A360F00DF0D5D /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DD8AB254A360F00DF0D5D /* DesignableView.swift */; };
 		83D6D39F3E5A9043BF945F79 /* Pods_OCRDataEntryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56122C887F2E7ADF47B9FE6 /* Pods_OCRDataEntryApp.framework */; };
 		AA2630402569EC3300237088 /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26303F2569EC3300237088 /* DocumentsViewController.swift */; };
@@ -26,11 +27,24 @@
 		FEF2947A253BA52F000070AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEF29478253BA52F000070AF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4F401A1B2575F1F700B04947 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEF29462253BA52E000070AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEF29469253BA52E000070AF;
+			remoteInfo = OCRDataEntryApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		021471A14021E86478E9B724 /* Pods-OCRDataEntryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCRDataEntryApp.release.xcconfig"; path = "Target Support Files/Pods-OCRDataEntryApp/Pods-OCRDataEntryApp.release.xcconfig"; sourceTree = "<group>"; };
 		26858FE225522DAA00D722A6 /* Keyboardy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardy.swift; sourceTree = "<group>"; };
 		26858FE525522DE800D722A6 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		26858FE625522DE800D722A6 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		4F401A162575F1F700B04947 /* OCRDataEntryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCRDataEntryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRDataEntryAppUITests.swift; sourceTree = "<group>"; };
+		4F401A1A2575F1F700B04947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F4DD8AB254A360F00DF0D5D /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		8F007B95C6D9E62709AC69B3 /* Pods-OCRDataEntryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCRDataEntryApp.debug.xcconfig"; path = "Target Support Files/Pods-OCRDataEntryApp/Pods-OCRDataEntryApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A56122C887F2E7ADF47B9FE6 /* Pods_OCRDataEntryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OCRDataEntryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +65,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4F401A132575F1F700B04947 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FEF29467253BA52E000070AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,6 +90,15 @@
 				021471A14021E86478E9B724 /* Pods-OCRDataEntryApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4F401A172575F1F700B04947 /* OCRDataEntryAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */,
+				4F401A1A2575F1F700B04947 /* Info.plist */,
+			);
+			path = OCRDataEntryAppUITests;
 			sourceTree = "<group>";
 		};
 		FDBF561CD2A2B3685B73E694 /* Frameworks */ = {
@@ -95,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				FEF2946C253BA52E000070AF /* OCRDataEntryApp */,
+				4F401A172575F1F700B04947 /* OCRDataEntryAppUITests */,
 				FEF2946B253BA52E000070AF /* Products */,
 				099F4ACA0CC5713649175931 /* Pods */,
 				FDBF561CD2A2B3685B73E694 /* Frameworks */,
@@ -105,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				FEF2946A253BA52E000070AF /* OCRDataEntryApp.app */,
+				4F401A162575F1F700B04947 /* OCRDataEntryAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,6 +172,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4F401A152575F1F700B04947 /* OCRDataEntryAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F401A1F2575F1F800B04947 /* Build configuration list for PBXNativeTarget "OCRDataEntryAppUITests" */;
+			buildPhases = (
+				4F401A122575F1F700B04947 /* Sources */,
+				4F401A132575F1F700B04947 /* Frameworks */,
+				4F401A142575F1F700B04947 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F401A1C2575F1F700B04947 /* PBXTargetDependency */,
+			);
+			name = OCRDataEntryAppUITests;
+			productName = OCRDataEntryAppUITests;
+			productReference = 4F401A162575F1F700B04947 /* OCRDataEntryAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		FEF29469253BA52E000070AF /* OCRDataEntryApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FEF2947E253BA52F000070AF /* Build configuration list for PBXNativeTarget "OCRDataEntryApp" */;
@@ -165,10 +215,14 @@
 		FEF29462253BA52E000070AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1120;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = SparkBU;
 				TargetAttributes = {
+					4F401A152575F1F700B04947 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = FEF29469253BA52E000070AF;
+					};
 					FEF29469253BA52E000070AF = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
@@ -188,11 +242,19 @@
 			projectRoot = "";
 			targets = (
 				FEF29469253BA52E000070AF /* OCRDataEntryApp */,
+				4F401A152575F1F700B04947 /* OCRDataEntryAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4F401A142575F1F700B04947 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FEF29468253BA52E000070AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,6 +313,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4F401A122575F1F700B04947 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F401A192575F1F700B04947 /* OCRDataEntryAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FEF29466253BA52E000070AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,6 +340,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4F401A1C2575F1F700B04947 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEF29469253BA52E000070AF /* OCRDataEntryApp */;
+			targetProxy = 4F401A1B2575F1F700B04947 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		FEF29478253BA52F000070AF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -282,6 +360,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4F401A1D2575F1F700B04947 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OCRDataEntryAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.OCRDataEntryAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OCRDataEntryApp;
+			};
+			name = Debug;
+		};
+		4F401A1E2575F1F700B04947 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OCRDataEntryAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.OCRDataEntryAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OCRDataEntryApp;
+			};
+			name = Release;
+		};
 		FEF2947C253BA52F000070AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -441,6 +555,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4F401A1F2575F1F800B04947 /* Build configuration list for PBXNativeTarget "OCRDataEntryAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F401A1D2575F1F700B04947 /* Debug */,
+				4F401A1E2575F1F700B04947 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FEF29465253BA52E000070AF /* Build configuration list for PBXProject "OCRDataEntryApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
