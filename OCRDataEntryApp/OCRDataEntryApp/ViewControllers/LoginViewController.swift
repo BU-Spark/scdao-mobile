@@ -32,6 +32,14 @@ class LoginViewController: UIViewController {
         
         present(singupController, animated: true, completion: nil)
     }
+    @IBAction func up() {
+        let singupController = UploadViewController()
+        
+        singupController.modalPresentationStyle = .fullScreen
+        singupController.isModalInPresentation = true
+        
+        present(singupController, animated: true, completion: nil)
+    }
     
     @IBAction func loginPressed(_ sender: Any) {
         
