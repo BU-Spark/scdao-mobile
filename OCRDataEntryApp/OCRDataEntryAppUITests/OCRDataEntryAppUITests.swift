@@ -48,4 +48,96 @@ class OCRDataEntryAppUITests: XCTestCase {
             }
         }
     }
+    func testMakeNewUser() {
+        app.launch()
+        app.buttons["signupButton"].tap()
+        let emailAddressTextField = application.ViewControllers.SignupViewController.textFields["emailField"]
+        emailAddressTextField.tap()
+        emailAddressTextField.typeText("testuser@bu.edu")
+        
+        let usernameTextField = application.ViewControllers.SignupViewController.textFields["usernameField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Test User")
+        
+        let passwordTextField = application.ViewControllers.SignupViewController.textFields["passwordField"]
+        passwordTextField.tap()
+        passwordTextField.typeText("Password2020!")
+        
+        let confirmPasswordTextField = application.ViewControllers.SignupViewController.textFields["confirmPasswordField"]
+        confirmPasswordTextField.tap()
+        confirmPasswordTextField.typeText("Password2020!")
+        
+        app.buttons["signinButton"].tap()
+        //what button should we use in the assert?
+        XCTAssertTrue(app.buttons["Unknown"].exists)
+    }
+    func testMakeNewUser() {
+        app.launch()
+        app.buttons["signupButton"].tap()
+        let emailAddressTextField = application.ViewControllers.SignupViewController.textFields["emailField"]
+        emailAddressTextField.tap()
+        emailAddressTextField.typeText("testuseratbudotedu")
+        
+        let usernameTextField = application.ViewControllers.SignupViewController.textFields["usernameField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Test User")
+        
+        let passwordTextField = application.ViewControllers.SignupViewController.textFields["passwordField"]
+        passwordTextField.tap()
+        passwordTextField.typeText("Password2020!")
+        
+        let confirmPasswordTextField = application.ViewControllers.SignupViewController.textFields["confirmPasswordField"]
+        confirmPasswordTextField.tap()
+        confirmPasswordTextField.typeText("Password2020!")
+        
+        app.buttons["signinButton"].tap()
+        //Assert should check if a warning popped up about email being invalid
+        XCTAssertTrue(app.buttons["Unknown"].exists)
+    }
+    func testMakeNewUser() {
+        app.launch()
+        app.buttons["signupButton"].tap()
+        let emailAddressTextField = application.ViewControllers.SignupViewController.textFields["emailField"]
+        emailAddressTextField.tap()
+        emailAddressTextField.typeText("testuser@bu.edu")
+        
+        let usernameTextField = application.ViewControllers.SignupViewController.textFields["usernameField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Test User")
+        
+        let passwordTextField = application.ViewControllers.SignupViewController.textFields["passwordField"]
+        passwordTextField.tap()
+        passwordTextField.typeText("123")
+        
+        let confirmPasswordTextField = application.ViewControllers.SignupViewController.textFields["confirmPasswordField"]
+        confirmPasswordTextField.tap()
+        confirmPasswordTextField.typeText("123")
+        
+        app.buttons["signinButton"].tap()
+        //Assert should check if a warning popped up about pasdsowrd being too short
+        XCTAssertTrue(app.buttons["Unknown"].exists)
+    }
+    func testMakeNewUser() {
+        app.launch()
+        app.buttons["signupButton"].tap()
+        let emailAddressTextField = application.ViewControllers.SignupViewController.textFields["emailField"]
+        emailAddressTextField.tap()
+        emailAddressTextField.typeText("testuser@bu.edu")
+        
+        let usernameTextField = application.ViewControllers.SignupViewController.textFields["usernameField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Test User")
+        
+        let passwordTextField = application.ViewControllers.SignupViewController.textFields["passwordField"]
+        passwordTextField.tap()
+        passwordTextField.typeText("Password2020!")
+        
+        let confirmPasswordTextField = application.ViewControllers.SignupViewController.textFields["confirmPasswordField"]
+        confirmPasswordTextField.tap()
+        confirmPasswordTextField.typeText("nope")
+        
+        app.buttons["signinButton"].tap()
+        //Assert should check if a warning popped up about passwords not matching
+        XCTAssertTrue(app.buttons["Unknown"].exists)
+    }
 }
