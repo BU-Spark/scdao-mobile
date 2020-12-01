@@ -56,21 +56,22 @@ class WailUITest: XCTestCase {
 //        let app = XCUIApplication()
         app.launch()
         app.buttons["Sign Up"].tap()
-        let email = app.otherElements.textFields["Email"]
+        let email = app.textFields["Email"]
         email.tap()
         email.typeText("WAIL@BU.EDU")
        
-        let Username = app.otherElements.textFields["Username"]
+        let Username = app.textFields["Username"]
         Username.tap()
         Username.typeText("WAIL")
 
-        let password = app.otherElements.textFields["Password"]
+        let password = app.secureTextFields["Password"]
         password.tap()
-        password.typeText("WAI")
+        password.typeText("wai")
+        print(app.debugDescription)
 
-        let Confim_Password = app.otherElements.textFields["Confirm Password"]
-        Confim_Password.tap()
-        Confim_Password.typeText("WAI")
+        let Confirm_Password = app.secureTextFields["Confirm password"]
+        Confirm_Password.tap()
+        Confirm_Password.typeText("wai")
 
         app.buttons["SignUp"].tap()
         
