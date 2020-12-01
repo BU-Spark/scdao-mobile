@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26651E532575F90E006A0D5F /* WailUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26651E522575F90E006A0D5F /* WailUITest.swift */; };
 		26858FE325522DAA00D722A6 /* Keyboardy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE225522DAA00D722A6 /* Keyboardy.swift */; };
 		26858FE725522DE800D722A6 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26858FE525522DE800D722A6 /* SignupViewController.xib */; };
 		26858FE825522DE800D722A6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE625522DE800D722A6 /* SignupViewController.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		021471A14021E86478E9B724 /* Pods-OCRDataEntryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCRDataEntryApp.release.xcconfig"; path = "Target Support Files/Pods-OCRDataEntryApp/Pods-OCRDataEntryApp.release.xcconfig"; sourceTree = "<group>"; };
+		26651E522575F90E006A0D5F /* WailUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WailUITest.swift; sourceTree = "<group>"; };
 		26858FE225522DAA00D722A6 /* Keyboardy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardy.swift; sourceTree = "<group>"; };
 		26858FE525522DE800D722A6 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		26858FE625522DE800D722A6 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */,
 				4F401A1A2575F1F700B04947 /* Info.plist */,
+				26651E522575F90E006A0D5F /* WailUITest.swift */,
 			);
 			path = OCRDataEntryAppUITests;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26651E532575F90E006A0D5F /* WailUITest.swift in Sources */,
 				4F401A192575F1F700B04947 /* OCRDataEntryAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

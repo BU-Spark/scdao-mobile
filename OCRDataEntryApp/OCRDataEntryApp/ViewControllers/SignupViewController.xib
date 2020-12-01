@@ -32,7 +32,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uWF-cv-4Vc">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scdao logo" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-XC-Azc">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scdaologoRR" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-XC-Azc">
                             <rect key="frame" x="0.0" y="45" width="375" height="128"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="128" id="BpS-32-d7Y"/>
@@ -146,7 +146,7 @@
         </view>
     </objects>
     <resources>
-        <image name="scdao logo" width="300" height="299"/>
+        <image name="scdaologoRR" width="384" height="384"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

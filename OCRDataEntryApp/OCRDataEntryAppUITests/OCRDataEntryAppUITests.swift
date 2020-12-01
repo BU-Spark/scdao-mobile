@@ -48,4 +48,119 @@ class OCRDataEntryAppUITests: XCTestCase {
             }
         }
     }
+    func testMakeNewUser() {
+        app.launch()
+        app.buttons["signupButton"].tap()
+        let emailAddressTextField = app.textFields["emailField"]
+        emailAddressTextField.tap()
+        emailAddressTextField.typeText("testuser@bu.edu")
+        
+        let usernameTextField = app.textFields["usernameField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Test User")
+        
+        let passwordTextField = app.textFields["passwordField"]
+        passwordTextField.tap()
+        passwordTextField.typeText("Password2020!")
+        
+        let confirmPasswordTextField = app.textFields["confirmPasswordField"]
+        confirmPasswordTextField.tap()
+        confirmPasswordTextField.typeText("Password2020!")
+        
+        app.buttons["signinButton"].tap()
+        //what button should we use in the assert?
+        XCTAssertTrue(app.buttons["back"].exists)
+    }
+    func testRejectbadEmail() {
+        app.launch()
+        app.buttons["signupButton"].tap()
+        let emailAddressTextField = app.textFields["emailField"]
+        emailAddressTextField.tap()
+        emailAddressTextField.typeText("testuseratbudotedu")
+        
+        let usernameTextField = app.textFields["usernameField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Test User")
+        
+        let passwordTextField = app.textFields["passwordField"]
+        passwordTextField.tap()
+        passwordTextField.typeText("Password2020!")
+        
+        let confirmPasswordTextField = app.textFields["confirmPasswordField"]
+        confirmPasswordTextField.tap()
+        confirmPasswordTextField.typeText("Password2020!")
+        
+        app.buttons["signinButton"].tap()
+        //Assert should check if a warning popped up about email being invalid
+        XCTAssert(app.alerts.staticTexts["Email is invalid"].exists)
+    }
+    func testRejectShortPassword() {
+        app.launch()
+        app.buttons["signupButton"].tap()
+        let emailAddressTextField = app.textFields["emailField"]
+        emailAddressTextField.tap()
+        emailAddressTextField.typeText("testuser@bu.edu")
+        
+        let usernameTextField = app.textFields["usernameField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Test User")
+        
+        let passwordTextField = app.textFields["passwordField"]
+        passwordTextField.tap()
+        passwordTextField.typeText("123")
+        
+        let confirmPasswordTextField = app.textFields["confirmPasswordField"]
+        confirmPasswordTextField.tap()
+        confirmPasswordTextField.typeText("123")
+        
+        app.buttons["signinButton"].tap()
+        //Assert should check if a warning popped up about pasdsowrd being too short
+        XCTAssert(app.alerts.staticTexts["Password is too short"].exists)
+    }
+    func testRejectPasswordMismatch() {
+        app.launch()
+        app.buttons["signupButton"].tap()
+        let emailAddressTextField = app.textFields["emailField"]
+        emailAddressTextField.tap()
+        emailAddressTextField.typeText("testuser@bu.edu")
+        
+        let usernameTextField = app.textFields["usernameField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Test User")
+        
+        let passwordTextField = app.textFields["passwordField"]
+        passwordTextField.tap()
+        passwordTextField.typeText("Password2020!")
+        
+        let confirmPasswordTextField = app.textFields["confirmPasswordField"]
+        confirmPasswordTextField.tap()
+        confirmPasswordTextField.typeText("nope")
+        
+        app.buttons["signinButton"].tap()
+        //Assert should check if a warning popped up about passwords not matching
+        XCTAssert(app.alerts.staticTexts["Password dosen't match"].exists)
+    }
+    func testRejectEmptyUsername() {
+        app.launch()
+        app.buttons["signupButton"].tap()
+        let emailAddressTextField = app.textFields["emailField"]
+        emailAddressTextField.tap()
+        emailAddressTextField.typeText("testuser@bu.edu")
+        
+        let usernameTextField = app.textFields["usernameField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("")
+        
+        let passwordTextField = app.textFields["passwordField"]
+        passwordTextField.tap()
+        passwordTextField.typeText("Password2020!")
+        
+        let confirmPasswordTextField = app.textFields["confirmPasswordField"]
+        confirmPasswordTextField.tap()
+        confirmPasswordTextField.typeText("Password2020!")
+        
+        app.buttons["signinButton"].tap()
+        //Assert should check if a warning popped up about passwords not matching
+        XCTAssert(app.alerts.staticTexts["Username shouldn't be empty"].exists)
+    }
 }
