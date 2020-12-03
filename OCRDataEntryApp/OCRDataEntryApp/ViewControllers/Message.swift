@@ -9,8 +9,12 @@
 import Foundation
 
 final class Message: Codable {
-    var email: String
-    var username: String
-    var password: String
+    let username: String
+    let password: String
+    
+    init(username: String, password: String) {
+        self.username = username
+        self.password = password
+    }
     
 }

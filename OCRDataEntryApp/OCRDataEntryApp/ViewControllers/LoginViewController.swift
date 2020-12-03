@@ -56,7 +56,16 @@ class LoginViewController: UIViewController {
         
         // Check to see if login token exists --> segue to home vc if token exists
         
-        let message = Message(message: )
+       // let message = Message(message: username, password)
+        
+        let postRequest = APIRequest(endpoint: "/api/token")
+        
+        //postRequest.save(
+        
+        
+        
+        
+        
         
         
         
