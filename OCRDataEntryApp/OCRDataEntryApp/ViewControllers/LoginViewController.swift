@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import APIRequest
+import Message
 
 class LoginViewController: UIViewController {
     
@@ -56,17 +58,18 @@ class LoginViewController: UIViewController {
         
         // Check to see if login token exists --> segue to home vc if token exists
         
-       // let message = Message(message: username, password)
+        let message = Message(message: username, password)
         
         let postRequest = APIRequest(endpoint: "/api/token")
         
-        //postRequest.save(
-        
-        
-        
-        
-        
-        
+        postRequest.save(message, completion: { result in
+            switch result {
+            case .success(let message):
+                print("The following message has been sent: \(message.message)")
+            case .failure(let error):
+                print("An error occured \(error)")
+            }
+        })
         
         
         // Signing in User
