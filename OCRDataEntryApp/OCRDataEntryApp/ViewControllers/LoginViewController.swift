@@ -45,6 +45,7 @@ class LoginViewController: UIViewController {
         
         // Check Text Fields
         
+        
         // Still need to vaildate text fields [email,username]
         
         
@@ -52,6 +53,12 @@ class LoginViewController: UIViewController {
         
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        // Check to see if login token exists --> segue to home vc if token exists
+        
+        let message = Message(message: )
+        
+        
         
         // Signing in User
         
