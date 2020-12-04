@@ -9,11 +9,11 @@
 import Foundation
 
 final class Message: Codable {
-    let username: String
+    let email: String
     let password: String
     
-    init(username: String, password: String) {
-        self.username = username
+    init(email: String, password: String) {
+        self.email = email
         self.password = password
     }
     
