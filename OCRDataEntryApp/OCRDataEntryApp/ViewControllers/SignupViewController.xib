@@ -32,12 +32,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uWF-cv-4Vc">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scdaologoRR" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-XC-Azc">
-                            <rect key="frame" x="0.0" y="45" width="375" height="128"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="128" id="BpS-32-d7Y"/>
-                            </constraints>
-                        </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zo4-7d-JLP">
                             <rect key="frame" x="24" y="321" width="327" height="44"/>
                             <constraints>
@@ -107,6 +101,12 @@
                                 <action selector="onSignupButtonTap:" destination="-1" eventType="touchUpInside" id="F5Z-dj-amu"/>
                             </connections>
                         </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scdaologoRR" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-XC-Azc">
+                            <rect key="frame" x="0.0" y="113" width="375" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="128" id="BpS-32-d7Y"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -116,6 +116,7 @@
                         <constraint firstAttribute="trailing" secondItem="mOC-Br-M8G" secondAttribute="trailing" constant="24" id="5ec-YJ-i5i"/>
                         <constraint firstItem="9EG-HF-lvc" firstAttribute="top" secondItem="cUA-HG-hT4" secondAttribute="bottom" constant="12" id="AXO-Op-TLJ"/>
                         <constraint firstItem="BOr-YD-OQV" firstAttribute="top" secondItem="FKo-Yq-i0g" secondAttribute="bottom" constant="10" id="Hzl-O7-O0p"/>
+                        <constraint firstItem="Zo4-7d-JLP" firstAttribute="top" secondItem="8Oj-XC-Azc" secondAttribute="bottom" constant="80" id="IRV-qj-gYr"/>
                         <constraint firstItem="cUA-HG-hT4" firstAttribute="top" secondItem="Zo4-7d-JLP" secondAttribute="bottom" constant="12" id="M5D-og-e0h"/>
                         <constraint firstAttribute="trailing" secondItem="FKo-Yq-i0g" secondAttribute="trailing" constant="24" id="Ncs-8H-ijV"/>
                         <constraint firstAttribute="trailing" secondItem="9EG-HF-lvc" secondAttribute="trailing" constant="24" id="QcV-0K-fTh"/>
@@ -128,7 +129,6 @@
                         <constraint firstAttribute="trailing" secondItem="Zo4-7d-JLP" secondAttribute="trailing" constant="24" id="kkj-Z7-e8e"/>
                         <constraint firstItem="9EG-HF-lvc" firstAttribute="leading" secondItem="uWF-cv-4Vc" secondAttribute="leading" constant="24" id="mVB-HP-Eie"/>
                         <constraint firstItem="FKo-Yq-i0g" firstAttribute="leading" secondItem="uWF-cv-4Vc" secondAttribute="leading" constant="24" id="n7K-M2-dKU"/>
-                        <constraint firstItem="8Oj-XC-Azc" firstAttribute="top" secondItem="uWF-cv-4Vc" secondAttribute="top" constant="45" id="xxG-Q5-uZE"/>
                         <constraint firstAttribute="trailing" secondItem="BOr-YD-OQV" secondAttribute="trailing" constant="24" id="yNq-fm-B0Z"/>
                         <constraint firstAttribute="bottom" secondItem="BOr-YD-OQV" secondAttribute="bottom" constant="38" id="yaR-6S-vhH"/>
                     </constraints>

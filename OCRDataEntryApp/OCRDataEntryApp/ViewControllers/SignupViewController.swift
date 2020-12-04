@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 
 final class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet
@@ -202,6 +200,20 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         guard validate() else { return }
         
         // Create User
+        let apiCall = AuthAPI(baseURL: "localhost")
+        
+        apiCall.signup(user: username, pass: password) { [weak self] (isSuccess, error) in
+            guard let this = self else { return }
+            
+            if isSuccess {
+                // Go to Home Screen
+                this.toHome()
+            } else {
+                this.showError("Error creating user")
+            }
+        }
+        
+        /*
         Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
             // Check for errors
             if err != nil {
@@ -222,6 +234,7 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
                 self.toHome()
             }
         }
+ */
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

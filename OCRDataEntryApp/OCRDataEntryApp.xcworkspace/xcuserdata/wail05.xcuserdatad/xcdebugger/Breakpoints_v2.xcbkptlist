@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F4B458F1-27C2-4411-99E5-79C0568DF359"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2578207E-4412-4981-8022-916DD0B550B3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCRDataEntryApp/ViewControllers/AuthAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "perform(endpoint:data:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2578207E-4412-4981-8022-916DD0B550B3 - 476e599b0f15392a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OCRDataEntryApp.AuthAPI.(perform in _4CC169803CA142E25BB4F3F8D15DDEA3)(endpoint: Swift.String, data: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, completion: (Swift.Bool, Swift.Optional&lt;OCRDataEntryApp.AUTHError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "OCRDataEntryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wail05/scdao-new/OCRDataEntryApp/OCRDataEntryApp/ViewControllers/AuthAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "2163">
+               </Location>
+               <Location
+                  uuid = "2578207E-4412-4981-8022-916DD0B550B3 - dda5660a478cb14a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in OCRDataEntryApp.AuthAPI.(perform in _4CC169803CA142E25BB4F3F8D15DDEA3)(endpoint: Swift.String, data: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, completion: (Swift.Bool, Swift.Optional&lt;OCRDataEntryApp.AUTHError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "OCRDataEntryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wail05/scdao-new/OCRDataEntryApp/OCRDataEntryApp/ViewControllers/AuthAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "190">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "496D8B40-6271-4130-9B05-2939F5E6AD39"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCRDataEntryApp/ViewControllers/AuthAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "perform(endpoint:data:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -11,6 +11,7 @@
 		26858FE325522DAA00D722A6 /* Keyboardy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE225522DAA00D722A6 /* Keyboardy.swift */; };
 		26858FE725522DE800D722A6 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26858FE525522DE800D722A6 /* SignupViewController.xib */; };
 		26858FE825522DE800D722A6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE625522DE800D722A6 /* SignupViewController.swift */; };
+		26B3E4202579B962008E5611 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E41F2579B962008E5611 /* AuthAPI.swift */; };
 		4F401A192575F1F700B04947 /* OCRDataEntryAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */; };
 		4F4DD8AC254A360F00DF0D5D /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DD8AB254A360F00DF0D5D /* DesignableView.swift */; };
 		83D6D39F3E5A9043BF945F79 /* Pods_OCRDataEntryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56122C887F2E7ADF47B9FE6 /* Pods_OCRDataEntryApp.framework */; };
@@ -48,6 +49,7 @@
 		26858FE225522DAA00D722A6 /* Keyboardy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardy.swift; sourceTree = "<group>"; };
 		26858FE525522DE800D722A6 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		26858FE625522DE800D722A6 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		26B3E41F2579B962008E5611 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		4F401A162575F1F700B04947 /* OCRDataEntryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCRDataEntryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRDataEntryAppUITests.swift; sourceTree = "<group>"; };
 		4F401A1A2575F1F700B04947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				FE08F5672550B09400627CFE /* HomeViewController.swift */,
 				FEE4EF542579699E0022193A /* APIRequest.swift */,
 				FEE4EF5825797A330022193A /* Message.swift */,
+				26B3E41F2579B962008E5611 /* AuthAPI.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			files = (
 				FE08F5662550B06200627CFE /* LoginViewController.swift in Sources */,
 				9B7801472576063C00EC964B /* UploadViewController.swift in Sources */,
+				26B3E4202579B962008E5611 /* AuthAPI.swift in Sources */,
 				4F4DD8AC254A360F00DF0D5D /* DesignableView.swift in Sources */,
 				26858FE825522DE800D722A6 /* SignupViewController.swift in Sources */,
 				FEF2946E253BA52E000070AF /* AppDelegate.swift in Sources */,
