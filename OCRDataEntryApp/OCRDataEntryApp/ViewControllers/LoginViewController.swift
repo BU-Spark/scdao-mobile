@@ -16,6 +16,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    
+    private var email: String = ""
+    private var password: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,7 +43,48 @@ class LoginViewController: UIViewController {
         present(singupController, animated: true, completion: nil)
     }
     
-    @IBAction func loginPressed(_ sender: Any) {
+    private func validate() -> Bool {
+        print("Email: " + email)
+        print("Pass: " + password)
+        
+        if email.isEmpty  {
+            showInvalid(field: "Email", error: "Email is invalid")
+            return false
+        }
+        
+        
+        if password.isEmpty {
+            showInvalid(field: "Password", error: "Password is too short")
+            return false
+        }
+        
+        return true
+    }
+    
+    private func showInvalid(field: String, error: String) {
+        let alert = UIAlertController(title: field, message: error, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showError(_ error: String) {
+         
+     }
+    
+    @IBAction
+    private func onEmailTextChanged(_ textField: UITextField) {
+        self.email = textField.text ?? ""
+    }
+    
+        
+    @IBAction
+    private func onPasswordTextChanged(_ textField: UITextField) {
+        self.password = textField.text ?? ""
+    }
+    
+    @IBAction func loginPressed(_ button: UIButton) {
         
         // Check Text Fields
         
@@ -49,11 +94,12 @@ class LoginViewController: UIViewController {
         
         // Data Fields
         
-        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.email = (emailTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        self.password = (passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Check to see if login token exists --> segue to home vc if token exists
-        
+        guard validate() else { return }
         // Signing in User
         let apiCall = AuthAPI(baseURL: "localhost")
         
