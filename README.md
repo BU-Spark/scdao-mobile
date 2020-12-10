@@ -21,6 +21,6 @@ The DA’s office process a ton of data via physical forms. Inaccurate reporting
 ### Our Solution
 In this project our team created an iOS app for the DA's Office, so that they can quickly scan physical documents and have them digitized and uploaded to a database where the data is easily searchable and secure.
 
-When a user opens the app the can choose to register or login if they already have an account. From there they will be brought to the documents page where they can select which document they are uploading and then upload a document via their camera role or by taking a picture using the phone's camera.
+When a user opens the app the can choose to register or login if they already have an account. When a user logs in we verify that they are a legitimate user. From there they will be brought to the documents page where they can select which document they are uploading and then upload a document via their camera role or by taking a picture using the phone’s camera. When a document is uploaded it is then stored in the Back End’s database.
 
 This project has the potential to serve as a proof of concept for the Suffolk county DA’s office so that they can develop a more streamlined process that can be shared with DA Offices around the country 
