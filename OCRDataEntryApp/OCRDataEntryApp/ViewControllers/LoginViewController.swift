@@ -43,11 +43,18 @@ class LoginViewController: UIViewController {
         present(singupController, animated: true, completion: nil)
     }
     
+    private func isEmailValid(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        
+        return emailTest.evaluate(with: email)
+    }
+    
     private func validate() -> Bool {
         print("Email: " + email)
         print("Pass: " + password)
         
-        if email.isEmpty  {
+        if email.isEmpty || !isEmailValid(email)  {
             showInvalid(field: "Email", error: "Email is invalid")
             return false
         }
