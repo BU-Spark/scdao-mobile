@@ -115,10 +115,15 @@ class LoginViewController: UIViewController {
             
             if isSuccess {
                 // Go to Home Screen
-                let homeViewController = this.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-                       
-                this.view.window?.rootViewController = homeViewController
-                this.view.window?.makeKeyAndVisible()
+                DispatchQueue.main.async {     //Do UI Code here.
+                    let homeViewController = this.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? TabBarController
+
+                    this.view.window?.rootViewController = homeViewController
+                    this.view.window?.makeKeyAndVisible()
+                    
+                    
+                }
+
             } else {
                 this.errorLabel.text = error!.localizedDescription
                 this.errorLabel.alpha = 1
