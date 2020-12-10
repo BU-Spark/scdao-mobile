@@ -5,3 +5,6 @@
 1. Go to the "ocrdataentryapp/" directory.
 2. Open "OCRDataEntryApp.xcworkspace" on a Mac with Xcode installed.
 3. Run the app with Command+R.
+4. On the login page, login using the following credentials:
+    email: "admin@scdao-api.org"
+    password: "password"
