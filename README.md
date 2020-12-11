@@ -4,7 +4,8 @@
 # Suffolk County District Attorney's Office OCR iOS App
 Front End developed by Eesha Gholap, Wail Attauabi, Neilkaran Rawal, Victor Figueroa, Dingjie Chen 
 ### Link to the Back End
-https://github.com/weirdindiankid/scdao-api-1
+https://github.com/weirdindiankid/scdao-api-1  
+(currently the app is connected to this backend server: http://155.41.90.149)
 
 ## How to run and use the Swift app for iOS:
 1. Go to the "ocrdataentryapp/" directory.
