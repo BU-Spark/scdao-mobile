@@ -18,10 +18,12 @@ final class UploadViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func didTapCameraButton(){
+        #if !targetEnvironment(simulator)
         let vc = UIImagePickerController()
         vc.sourceType = .camera
         vc.delegate = self
         present(vc, animated: true)
+        #endif
     }
     @IBAction func didTapLibraryButton(){
         let vc = UIImagePickerController()
@@ -66,7 +68,13 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             imageView.image = image
-            let apiCall = ImageAPI(baseURL: "localhost")
+            
+            guard let token = UserDefaults.standard.string(forKey: "tokenValue"),
+                  let type = UserDefaults.standard.string(forKey: "tokenType") else {
+                    return
+                  }
+            
+            let apiCall = ImageAPI(baseURL: Config.baseURL, token: token, type: type)
             apiCall.uploadImage(imageToUpload: imageView.image!)
             showAlertButtonTapped()
         } 

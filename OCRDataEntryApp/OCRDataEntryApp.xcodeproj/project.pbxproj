@@ -11,6 +11,7 @@
 		26858FE325522DAA00D722A6 /* Keyboardy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE225522DAA00D722A6 /* Keyboardy.swift */; };
 		26858FE725522DE800D722A6 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26858FE525522DE800D722A6 /* SignupViewController.xib */; };
 		26858FE825522DE800D722A6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE625522DE800D722A6 /* SignupViewController.swift */; };
+		2688493C2583369F007CA780 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688493B2583369F007CA780 /* Config.swift */; };
 		26B3E4202579B962008E5611 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E41F2579B962008E5611 /* AuthAPI.swift */; };
 		4F401A192575F1F700B04947 /* OCRDataEntryAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */; };
 		4F4DD8AC254A360F00DF0D5D /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DD8AB254A360F00DF0D5D /* DesignableView.swift */; };
@@ -51,6 +52,7 @@
 		26858FE225522DAA00D722A6 /* Keyboardy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardy.swift; sourceTree = "<group>"; };
 		26858FE525522DE800D722A6 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		26858FE625522DE800D722A6 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		2688493B2583369F007CA780 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		26B3E41F2579B962008E5611 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		4F401A162575F1F700B04947 /* OCRDataEntryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCRDataEntryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRDataEntryAppUITests.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				FEF29475253BA52F000070AF /* Preview Content */,
 				4F4DD8AB254A360F00DF0D5D /* DesignableView.swift */,
 				FE08F56B2550D26300627CFE /* Constants.swift */,
+				2688493B2583369F007CA780 /* Config.swift */,
 			);
 			path = OCRDataEntryApp;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				9B8F286D2582E25500B59BF0 /* TabBarController.swift in Sources */,
 				9B7801472576063C00EC964B /* UploadViewController.swift in Sources */,
 				26B3E4202579B962008E5611 /* AuthAPI.swift in Sources */,
+				2688493C2583369F007CA780 /* Config.swift in Sources */,
 				4F4DD8AC254A360F00DF0D5D /* DesignableView.swift in Sources */,
 				26858FE825522DE800D722A6 /* SignupViewController.swift in Sources */,
 				FEF2946E253BA52E000070AF /* AppDelegate.swift in Sources */,

@@ -24,6 +24,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+//        #if DEBUG
+//        emailTextField.text = "admin@scdao-api.org"
+//        passwordTextField.text = "password"
+//        #endif
     }
     
     @IBAction func signup() {
@@ -108,27 +113,41 @@ class LoginViewController: UIViewController {
         // Check to see if login token exists --> segue to home vc if token exists
         guard validate() else { return }
         // Signing in User
-        let apiCall = AuthAPI(baseURL: "localhost")
+        let apiCall = AuthAPI(baseURL: Config.baseURL)
         
-        apiCall.signin(user: email, pass: password) { [weak self] (isSuccess, error) in
+        apiCall.signin(user: email, pass: password) { [weak self] (response, error) in
             guard let this = self else { return }
             
-            if isSuccess {
-                // Go to Home Screen
-                DispatchQueue.main.async {     //Do UI Code here.
-                    let homeViewController = this.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? TabBarController
-
-                    this.view.window?.rootViewController = homeViewController
-                    this.view.window?.makeKeyAndVisible()
-                    
-                    
+            if let error = error {
+                DispatchQueue.main.async {
+                    this.errorLabel.text = error.localizedDescription
+                    this.errorLabel.alpha = 1
                 }
+                return
+            }
+            
+            guard let response = response else {
+                DispatchQueue.main.async {
+                    this.errorLabel.text = "Empty response"
+                    this.errorLabel.alpha = 1
+                }
+                return
+            }
+            
+            // Save user token
+            UserDefaults.standard.setValue(response.token, forKey: "tokenValue")
+            UserDefaults.standard.setValue(response.type, forKey: "tokenType")
+            UserDefaults.standard.synchronize()
+            
+            // Go to Home Screen
+            DispatchQueue.main.async {     //Do UI Code here.
+                let homeViewController = this.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? TabBarController
 
-            } else {
-                this.errorLabel.text = error!.localizedDescription
-                this.errorLabel.alpha = 1
+                this.view.window?.rootViewController = homeViewController
+                this.view.window?.makeKeyAndVisible()
+                
+                
             }
         }
     }
-    
 }

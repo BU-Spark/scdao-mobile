@@ -34,8 +34,10 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
     private var originalTopHeight: CGFloat = 0.0
     
     private func isPasswordValid(_ password : String) -> Bool{
-          let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
-          return passwordTest.evaluate(with: password)
+        let passwordRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,}$"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
+        //  let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
+        //  return passwordTest.evaluate(with: password)
     }
     
     private func isEmailValid(_ email: String) -> Bool {
@@ -88,10 +90,18 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func toHome() {
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
         
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
+        DispatchQueue.main.sync {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = storyboard.instantiateViewController(identifier: "LoginVC") as? LoginViewController
+            
+            if homeViewController != nil {
+                view.window?.rootViewController = homeViewController
+                view.window?.makeKeyAndVisible()
+            }
+            
+        }
+        
     }
     
     @IBOutlet
@@ -199,8 +209,10 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         
         guard validate() else { return }
         
+       
+        
         // Create User
-        let apiCall = AuthAPI(baseURL: "localhost")
+        let apiCall = AuthAPI(baseURL: Config.baseURL)
         
         apiCall.signup(user: username, pass: password) { [weak self] (isSuccess, error) in
             guard let this = self else { return }
@@ -208,6 +220,16 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
             if isSuccess {
                 // Go to Home Screen
                 this.toHome()
+                /*
+                // Go to Home Screen
+                DispatchQueue.main.async {     //Do UI Code here.
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? TabBarController
+
+                    this.view.window?.rootViewController = homeViewController
+                    this.view.window?.makeKeyAndVisible()
+                    
+                }*/
             } else {
                 this.showError("Error creating user")
             }
