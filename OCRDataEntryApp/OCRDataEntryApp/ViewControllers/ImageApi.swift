@@ -1,6 +1,9 @@
 //
 //  ImageApi.swift
 //  OCRDataEntryApp
+//  Code borrowed from https://stackoverflow.com/questions/37474265/swift-2-how-do-you-add-authorization-header-to-post-request 
+//  and https://stackoverflow.com/questions/26335656/how-to-upload-images-to-a-server-in-ios-with-swift
+//
 //
 //  Created by Eesha Gholap on 12/4/20.
 //  Copyright © 2020 SparkBU. All rights reserved.
