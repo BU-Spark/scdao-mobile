@@ -100,17 +100,10 @@
                                         <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="y2i-SA-OTu">
-<<<<<<< HEAD
-                                        <rect key="frame" x="0.0" y="445.66666666666663" width="414" height="282.33333333333337"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Testing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pV-r4-2sa">
-                                                <rect key="frame" x="40" y="12" width="334" height="20.333333333333329"/>
-=======
                                         <rect key="frame" x="0.0" y="445.66666666666674" width="414" height="326.33333333333326"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Testing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pV-r4-2sa">
                                                 <rect key="frame" x="40" y="12.333333333333313" width="334" height="20.333333333333329"/>
->>>>>>> 1243729... fixed the tabBar
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -124,11 +117,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qY9-IH-beQ">
-<<<<<<< HEAD
-                                        <rect key="frame" x="0.0" y="736" width="414" height="30"/>
-=======
                                         <rect key="frame" x="0.0" y="780" width="414" height="30"/>
->>>>>>> 1243729... fixed the tabBar
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ffH-el-42L">
                                                 <rect key="frame" x="88.666666666666671" y="0.0" width="236.66666666666663" height="30"/>
@@ -194,17 +183,6 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="line.horizontal.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uR0-DE-XZb">
-<<<<<<< HEAD
-                                <rect key="frame" x="31" y="135" width="22" height="12.333333333333329"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="ksO-eL-NeB"/>
-                                    <constraint firstAttribute="height" constant="22" id="ojg-Bq-TYm"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="p5h-ld-ge0">
-                                <rect key="frame" x="80" y="306" width="214" height="23"/>
-=======
                                 <rect key="frame" x="31" y="47" width="22" height="46.333333333333336"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -235,7 +213,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="p5h-ld-ge0">
                                 <rect key="frame" x="96" y="278" width="214" height="23"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="n4P-q7-mS4"/>
@@ -248,13 +225,8 @@
                                     <action selector="test1:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="0We-CR-8Lw"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0E-wP-4Bb">
-                                <rect key="frame" x="80" y="401" width="214" height="23"/>
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0E-wP-4Bb">
                                 <rect key="frame" x="96" y="368" width="214" height="23"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="tuF-4p-auA"/>
@@ -267,13 +239,8 @@
                                     <action selector="test2:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="Zi8-Bt-T6Q"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-o9-hwi">
-                                <rect key="frame" x="80" y="635" width="214" height="23"/>
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-o9-hwi">
                                 <rect key="frame" x="96" y="602" width="214" height="23"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="LD3-Gh-2ws"/>
@@ -286,58 +253,28 @@
                                     <action selector="test5:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="Czx-0U-WAZ"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JIs-kN-xnb">
-                                <rect key="frame" x="34" y="251" width="306" height="1"/>
-=======
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JIs-kN-xnb">
                                 <rect key="frame" x="50" y="241" width="306" height="1"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.83814513680000002" green="0.61590087410000005" blue="0.095813535150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-<<<<<<< HEAD
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uqu-gD-gZx">
-                                <rect key="frame" x="34" y="450" width="306" height="1"/>
-=======
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uqu-gD-gZx">
                                 <rect key="frame" x="50" y="425" width="306" height="1"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.83814513680000002" green="0.61590087410000005" blue="0.095813535150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-<<<<<<< HEAD
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="n7A-AV-BdM">
-                                <rect key="frame" x="34" y="526" width="306" height="1"/>
-=======
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="n7A-AV-BdM">
                                 <rect key="frame" x="50" y="501" width="306" height="1"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.83814513680000002" green="0.61590087410000005" blue="0.095813535150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-<<<<<<< HEAD
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xX4-vx-WFh">
-                                <rect key="frame" x="34" y="605" width="306" height="1"/>
-=======
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xX4-vx-WFh">
                                 <rect key="frame" x="50" y="572" width="306" height="1"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.83814513680000002" green="0.61590087410000005" blue="0.095813535150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-<<<<<<< HEAD
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jxk-h7-Wjf">
-                                <rect key="frame" x="34" y="691" width="306" height="1"/>
-=======
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jxk-h7-Wjf">
                                 <rect key="frame" x="50" y="658" width="306" height="1"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.83814513680000002" green="0.61590087410000005" blue="0.095813535150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1n-2X-HRw">
-                                <rect key="frame" x="80" y="552" width="214" height="23"/>
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1n-2X-HRw">
                                 <rect key="frame" x="96" y="519" width="214" height="23"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="1Iz-uJ-TBt"/>
@@ -350,37 +287,12 @@
                                     <action selector="test4:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="auo-jp-tdT"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2GD-mo-UlQ">
-                                <rect key="frame" x="34" y="373" width="306" height="1"/>
-=======
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2GD-mo-UlQ">
                                 <rect key="frame" x="50" y="340" width="306" height="1"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.83814513680000002" green="0.61590087410000005" blue="0.095813535150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dS-Sd-D70">
-                                <rect key="frame" x="80" y="205" width="214" height="22"/>
-                                <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="214" id="a1m-dx-Uiv"/>
-                                    <constraint firstAttribute="height" constant="23" id="gsa-cp-3TH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Criminal Compliant Form">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="test:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="Uwu-WX-Rwn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rmg-1z-OYV">
-                                <rect key="frame" x="80" y="477" width="214" height="23"/>
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rmg-1z-OYV">
                                 <rect key="frame" x="96" y="444" width="214" height="23"/>
->>>>>>> 1243729... fixed the tabBar
                                 <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="eEO-gx-G07"/>
@@ -397,36 +309,6 @@
                         <viewLayoutGuide key="safeArea" id="xw4-qA-nzO"/>
                         <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-<<<<<<< HEAD
-                            <constraint firstItem="lUI-o9-hwi" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="80" id="1qC-Eu-Qup"/>
-                            <constraint firstItem="T0E-wP-4Bb" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="80" id="57r-y0-Exh"/>
-                            <constraint firstItem="p5h-ld-ge0" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="80" id="5iz-kB-x9N"/>
-                            <constraint firstItem="T0E-wP-4Bb" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="80" id="6UC-8R-Fa5"/>
-                            <constraint firstItem="Xv5-tk-4yE" firstAttribute="top" secondItem="xw4-qA-nzO" secondAttribute="top" constant="23" id="7jH-0I-11o"/>
-                            <constraint firstItem="n7A-AV-BdM" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="34" id="Dx7-Dc-Lrt"/>
-                            <constraint firstItem="xX4-vx-WFh" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="34" id="G49-hS-bTG"/>
-                            <constraint firstItem="xw4-qA-nzO" firstAttribute="trailing" secondItem="Xv5-tk-4yE" secondAttribute="trailing" constant="27" id="GFd-Vd-ECM"/>
-                            <constraint firstItem="Rmg-1z-OYV" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="80" id="LHv-1g-C8K"/>
-                            <constraint firstItem="Jxk-h7-Wjf" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="34" id="Lne-bT-ohJ"/>
-                            <constraint firstItem="xw4-qA-nzO" firstAttribute="trailing" secondItem="Xv5-tk-4yE" secondAttribute="trailing" constant="27" id="NXD-Gd-0s4"/>
-                            <constraint firstItem="uR0-DE-XZb" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="31" id="Prx-6L-XxT"/>
-                            <constraint firstItem="Jxk-h7-Wjf" firstAttribute="top" secondItem="lUI-o9-hwi" secondAttribute="bottom" constant="34" id="Qhh-7b-mcK"/>
-                            <constraint firstItem="JIs-kN-xnb" firstAttribute="top" secondItem="8dS-Sd-D70" secondAttribute="bottom" constant="34" id="QkE-6b-Vcb"/>
-                            <constraint firstItem="Uqu-gD-gZx" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="34" id="Sqq-PP-za4"/>
-                            <constraint firstItem="z1n-2X-HRw" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="80" id="UbS-En-OOx"/>
-                            <constraint firstItem="Rmg-1z-OYV" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="80" id="XFa-Jx-EA4"/>
-                            <constraint firstItem="Xv5-tk-4yE" firstAttribute="top" secondItem="xw4-qA-nzO" secondAttribute="top" constant="23" id="fwh-xj-mpb"/>
-                            <constraint firstItem="p5h-ld-ge0" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="80" id="o7u-pP-oq2"/>
-                            <constraint firstItem="Uqu-gD-gZx" firstAttribute="top" secondItem="T0E-wP-4Bb" secondAttribute="bottom" constant="34" id="oc4-2e-e3u"/>
-                            <constraint firstItem="2GD-mo-UlQ" firstAttribute="top" secondItem="p5h-ld-ge0" secondAttribute="bottom" constant="34" id="pnc-8d-Ch8"/>
-                            <constraint firstItem="JIs-kN-xnb" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="34" id="raM-QC-P6i"/>
-                            <constraint firstItem="z1n-2X-HRw" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="80" id="rcn-5Y-5Lz"/>
-                            <constraint firstItem="uR0-DE-XZb" firstAttribute="top" secondItem="xw4-qA-nzO" secondAttribute="top" constant="42" id="s7s-07-x0B"/>
-                            <constraint firstItem="n7A-AV-BdM" firstAttribute="top" secondItem="Rmg-1z-OYV" secondAttribute="bottom" constant="34" id="suH-IQ-WkM"/>
-                            <constraint firstItem="xX4-vx-WFh" firstAttribute="top" secondItem="z1n-2X-HRw" secondAttribute="bottom" constant="34" id="tbj-Uz-Q3z"/>
-                            <constraint firstItem="2GD-mo-UlQ" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="34" id="uce-0g-RPA"/>
-                            <constraint firstItem="8dS-Sd-D70" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="80" id="umW-3K-CTE"/>
-=======
                             <constraint firstItem="Rmg-1z-OYV" firstAttribute="trailing" secondItem="z1n-2X-HRw" secondAttribute="trailing" id="0Sd-f4-oTc"/>
                             <constraint firstItem="JIs-kN-xnb" firstAttribute="leading" secondItem="2GD-mo-UlQ" secondAttribute="leading" id="0cd-tA-TGa"/>
                             <constraint firstItem="uR0-DE-XZb" firstAttribute="leading" secondItem="xw4-qA-nzO" secondAttribute="leading" constant="31" id="1dO-iC-UaV"/>
@@ -477,7 +359,6 @@
                             <constraint firstItem="n7A-AV-BdM" firstAttribute="leading" secondItem="xX4-vx-WFh" secondAttribute="leading" id="xhl-FY-UI4"/>
                             <constraint firstItem="xX4-vx-WFh" firstAttribute="leading" secondItem="Jxk-h7-Wjf" secondAttribute="leading" id="ykS-b0-qit"/>
                             <constraint firstItem="Jxk-h7-Wjf" firstAttribute="top" secondItem="2Ww-oq-rLW" secondAttribute="top" constant="658" id="z5W-oi-4nw"/>
->>>>>>> 1243729... fixed the tabBar
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Document" image="doc" catalog="system" id="bZv-Sq-e7t"/>
@@ -540,27 +421,6 @@
                                     <action selector="didTapLibraryButton" destination="9eV-ZQ-1m5" eventType="touchUpInside" id="CWf-02-gxD"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r62-nQ-chb">
-                                <rect key="frame" x="20" y="743" width="374" height="59"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="WKP-EM-rmk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Upload">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                    <color key="titleShadowColor" systemColor="linkColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapUploadButton" destination="9eV-ZQ-1m5" eventType="touchUpInside" id="FS2-7k-xCD"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rD8-UB-MX2">
-                                <rect key="frame" x="37" y="108" width="340" height="534"/>
-                            </imageView>
-=======
->>>>>>> 1243729... fixed the tabBar
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X1O-8W-iYh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -591,22 +451,10 @@
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="doc" catalog="system" width="115" height="128"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
-<<<<<<< HEAD
-        <image name="scdao logo" width="300" height="299"/>
-        <image name="scdaologoRR" width="384" height="384"/>
-        <image name="tray.and.arrow.up.fill" catalog="system" width="128" height="114"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-=======
         <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="scdao logo" width="300" height="299"/>
         <image name="scdaologoRR" width="384" height="384"/>
         <image name="tray.and.arrow.up.fill" catalog="system" width="128" height="114"/>
->>>>>>> 1243729... fixed the tabBar
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
