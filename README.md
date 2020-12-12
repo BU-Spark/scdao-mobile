@@ -28,7 +28,9 @@ This project has the potential to serve as a proof of concept for the Suffolk co
 
 ### Our App
 Starting from the top, you can create a user from the sign up page. Once the user is created, the signup page will re-route you to the log in page to sign in with the email and password you just created. If you resigter as a new user is will give the response from the api call:
+
 response data = {“detail”:“Incorrect username or password”}
+
 Once you log in, the document page will show up from which you can upload your image or scan. Currently, the image that is being accepted is a png, jpeg, or pdf however, due to potential issues with the connection or backend, the image upload sends the following response:  
 response data = {“detail”:“Bad uploaded file format”}
 
