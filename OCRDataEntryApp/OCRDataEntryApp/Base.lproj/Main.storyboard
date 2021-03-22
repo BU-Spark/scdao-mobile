@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -386,58 +387,18 @@
             </objects>
             <point key="canvasLocation" x="2122" y="667"/>
         </scene>
-        <!--Upload-->
+        <!--Access Library-->
         <scene sceneID="rB7-zK-aoY">
             <objects>
                 <viewController id="9eV-ZQ-1m5" customClass="UploadViewController" customModule="OCRDataEntryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ANb-K2-ME2" customClass="UploadViewCOntro">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3h-rG-7dh">
-                                <rect key="frame" x="65" y="718" width="75" height="55.666666666666629"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="PXB-sH-xan"/>
-                                    <constraint firstAttribute="height" constant="58" id="h2W-NG-fhb"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="camera" catalog="system"/>
-                                <connections>
-                                    <action selector="didTapCameraButton" destination="9eV-ZQ-1m5" eventType="touchUpInside" id="QgI-j9-pE6"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rD8-UB-MX2">
-                                <rect key="frame" x="37" y="64" width="340" height="593"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StW-qL-9cE">
-                                <rect key="frame" x="260" y="717.33333333333337" width="81" height="57.333333333333371"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="81" id="bcW-5Q-7br"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" backgroundImage="photo.on.rectangle" catalog="system"/>
-                                <connections>
-                                    <action selector="didTapLibraryButton" destination="9eV-ZQ-1m5" eventType="touchUpInside" id="CWf-02-gxD"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="X1O-8W-iYh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="R3h-rG-7dh" firstAttribute="centerY" secondItem="StW-qL-9cE" secondAttribute="centerY" id="0Ra-KF-Hxo"/>
-                            <constraint firstItem="rD8-UB-MX2" firstAttribute="top" secondItem="X1O-8W-iYh" secondAttribute="top" constant="20" id="7rb-8n-hMn"/>
-                            <constraint firstItem="R3h-rG-7dh" firstAttribute="leading" secondItem="X1O-8W-iYh" secondAttribute="leading" constant="65" id="8xr-v3-twX"/>
-                            <constraint firstItem="X1O-8W-iYh" firstAttribute="trailing" secondItem="StW-qL-9cE" secondAttribute="trailing" constant="73" id="Bnp-tw-c8g"/>
-                            <constraint firstItem="R3h-rG-7dh" firstAttribute="top" secondItem="rD8-UB-MX2" secondAttribute="bottom" constant="60" id="Kfd-VF-5wk"/>
-                            <constraint firstItem="StW-qL-9cE" firstAttribute="top" secondItem="rD8-UB-MX2" secondAttribute="bottom" constant="60.000000000000114" id="LB1-Pf-itg"/>
-                            <constraint firstItem="rD8-UB-MX2" firstAttribute="centerX" secondItem="ANb-K2-ME2" secondAttribute="centerX" id="fjN-yN-hqt"/>
-                            <constraint firstItem="rD8-UB-MX2" firstAttribute="leading" secondItem="X1O-8W-iYh" secondAttribute="leading" constant="37" id="qc9-4S-OpV"/>
-                            <constraint firstItem="X1O-8W-iYh" firstAttribute="bottom" secondItem="R3h-rG-7dh" secondAttribute="bottom" constant="38" id="xbi-yX-t6g"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Upload" image="tray.and.arrow.up.fill" catalog="system" id="kb0-YF-TYx"/>
-                    <connections>
-                        <outlet property="imageView" destination="rD8-UB-MX2" id="729-Rk-wWE"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" title="Access Library" image="tray.and.arrow.up.fill" catalog="system" id="kb0-YF-TYx"/>
+                    <navigationItem key="navigationItem" id="BBY-b7-H8B"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTd-JT-fAi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -446,10 +407,8 @@
     </scenes>
     <color key="tintColor" systemColor="systemBlueColor"/>
     <resources>
-        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="doc" catalog="system" width="115" height="128"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
-        <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="scdao logo" width="300" height="299"/>
         <image name="scdaologoRR" width="384" height="384"/>
         <image name="tray.and.arrow.up.fill" catalog="system" width="128" height="114"/>

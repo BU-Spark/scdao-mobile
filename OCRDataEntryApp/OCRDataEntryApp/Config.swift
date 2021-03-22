@@ -9,5 +9,5 @@
 import Foundation
 
 struct Config {
-    static let baseURL = "dharmesh.mywire.org:3000"
+    static let baseURL = "localhost"
 }
