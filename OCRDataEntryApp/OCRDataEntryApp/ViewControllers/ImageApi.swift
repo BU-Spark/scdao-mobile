@@ -86,7 +86,7 @@ struct ImageAPI {
                 }
             }*/
 
-            let mimetype = "image/jpg"
+            let mimetype = "image/jpeg"
 
             body.appendString(string: "--\(boundary)\r\n")
         body.appendString(string: "Content-Disposition: form-data; file=\"\(filePathKey!).jpg\"; filename=\"file\"; name=\"file\"; type=\"\(mimetype)\"\r\n")
