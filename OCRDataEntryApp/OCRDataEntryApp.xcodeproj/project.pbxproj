@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26651E532575F90E006A0D5F /* WailUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26651E522575F90E006A0D5F /* WailUITest.swift */; };
+		26858FE325522DAA00D722A6 /* Keyboardy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE225522DAA00D722A6 /* Keyboardy.swift */; };
+		26858FE725522DE800D722A6 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26858FE525522DE800D722A6 /* SignupViewController.xib */; };
+		26858FE825522DE800D722A6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE625522DE800D722A6 /* SignupViewController.swift */; };
+		2688493C2583369F007CA780 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688493B2583369F007CA780 /* Config.swift */; };
+		26B3E4202579B962008E5611 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E41F2579B962008E5611 /* AuthAPI.swift */; };
+		4F401A192575F1F700B04947 /* OCRDataEntryAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */; };
+		4F4DD8AC254A360F00DF0D5D /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DD8AB254A360F00DF0D5D /* DesignableView.swift */; };
+		4F8A1DF1257B1A0E006FC6AA /* ImageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A1DF0257B1A0E006FC6AA /* ImageApi.swift */; };
+		83D6D39F3E5A9043BF945F79 /* Pods_OCRDataEntryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56122C887F2E7ADF47B9FE6 /* Pods_OCRDataEntryApp.framework */; };
+		9B7801472576063C00EC964B /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7801452576063C00EC964B /* UploadViewController.swift */; };
+		9B7801482576063C00EC964B /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B7801462576063C00EC964B /* UploadViewController.xib */; };
+		9B8F286D2582E25500B59BF0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F286C2582E25500B59BF0 /* TabBarController.swift */; };
+		AA2630402569EC3300237088 /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26303F2569EC3300237088 /* DocumentsViewController.swift */; };
+		FE08F5612550A09600627CFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE08F5602550A09600627CFE /* LaunchScreen.storyboard */; };
+		FE08F5662550B06200627CFE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE08F5652550B06200627CFE /* LoginViewController.swift */; };
+		FE08F5682550B09400627CFE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE08F5672550B09400627CFE /* HomeViewController.swift */; };
+		FE08F56A2550B73000627CFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE08F5692550B73000627CFE /* GoogleService-Info.plist */; };
+		FE08F56C2550D26300627CFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE08F56B2550D26300627CFE /* Constants.swift */; };
+		FEE4EF552579699E0022193A /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE4EF542579699E0022193A /* APIRequest.swift */; };
+		FEE4EF5925797A330022193A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE4EF5825797A330022193A /* Message.swift */; };
+		FEF2946E253BA52E000070AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF2946D253BA52E000070AF /* AppDelegate.swift */; };
+		FEF29470253BA52E000070AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF2946F253BA52E000070AF /* SceneDelegate.swift */; };
+		FEF29472253BA52E000070AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF29471253BA52E000070AF /* ContentView.swift */; };
+		FEF29474253BA52F000070AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEF29473253BA52F000070AF /* Assets.xcassets */; };
+		FEF29477253BA52F000070AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEF29476253BA52F000070AF /* Preview Assets.xcassets */; };
+		FEF2947A253BA52F000070AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEF29478253BA52F000070AF /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F401A1B2575F1F700B04947 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEF29462253BA52E000070AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEF29469253BA52E000070AF;
+			remoteInfo = OCRDataEntryApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		021471A14021E86478E9B724 /* Pods-OCRDataEntryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCRDataEntryApp.release.xcconfig"; path = "Target Support Files/Pods-OCRDataEntryApp/Pods-OCRDataEntryApp.release.xcconfig"; sourceTree = "<group>"; };
+		26651E522575F90E006A0D5F /* WailUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WailUITest.swift; sourceTree = "<group>"; };
+		26858FE225522DAA00D722A6 /* Keyboardy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardy.swift; sourceTree = "<group>"; };
+		26858FE525522DE800D722A6 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		26858FE625522DE800D722A6 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		2688493B2583369F007CA780 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		26B3E41F2579B962008E5611 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		4F401A162575F1F700B04947 /* OCRDataEntryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCRDataEntryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRDataEntryAppUITests.swift; sourceTree = "<group>"; };
+		4F401A1A2575F1F700B04947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F4DD8AB254A360F00DF0D5D /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		4F8A1DF0257B1A0E006FC6AA /* ImageApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageApi.swift; sourceTree = "<group>"; };
+		8F007B95C6D9E62709AC69B3 /* Pods-OCRDataEntryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCRDataEntryApp.debug.xcconfig"; path = "Target Support Files/Pods-OCRDataEntryApp/Pods-OCRDataEntryApp.debug.xcconfig"; sourceTree = "<group>"; };
+		9B7801452576063C00EC964B /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		9B7801462576063C00EC964B /* UploadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadViewController.xib; sourceTree = "<group>"; };
+		9B8F286C2582E25500B59BF0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A56122C887F2E7ADF47B9FE6 /* Pods_OCRDataEntryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OCRDataEntryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA26303F2569EC3300237088 /* DocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
+		FE08F5602550A09600627CFE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FE08F5652550B06200627CFE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FE08F5672550B09400627CFE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FE08F5692550B73000627CFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FE08F56B2550D26300627CFE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FEE4EF542579699E0022193A /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		FEE4EF5825797A330022193A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		FEF2946A253BA52E000070AF /* OCRDataEntryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCRDataEntryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEF2946D253BA52E000070AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FEF2946F253BA52E000070AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FEF29471253BA52E000070AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FEF29473253BA52F000070AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FEF29476253BA52F000070AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FEF29479253BA52F000070AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FEF2947B253BA52F000070AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F401A132575F1F700B04947 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEF29467253BA52E000070AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D6D39F3E5A9043BF945F79 /* Pods_OCRDataEntryApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		099F4ACA0CC5713649175931 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F007B95C6D9E62709AC69B3 /* Pods-OCRDataEntryApp.debug.xcconfig */,
+				021471A14021E86478E9B724 /* Pods-OCRDataEntryApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4F401A172575F1F700B04947 /* OCRDataEntryAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4F401A182575F1F700B04947 /* OCRDataEntryAppUITests.swift */,
+				4F401A1A2575F1F700B04947 /* Info.plist */,
+				26651E522575F90E006A0D5F /* WailUITest.swift */,
+			);
+			path = OCRDataEntryAppUITests;
+			sourceTree = "<group>";
+		};
+		FDBF561CD2A2B3685B73E694 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A56122C887F2E7ADF47B9FE6 /* Pods_OCRDataEntryApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE08F5622550B01500627CFE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				26858FE625522DE800D722A6 /* SignupViewController.swift */,
+				AA26303F2569EC3300237088 /* DocumentsViewController.swift */,
+				26858FE525522DE800D722A6 /* SignupViewController.xib */,
+				9B7801452576063C00EC964B /* UploadViewController.swift */,
+				4F8A1DF0257B1A0E006FC6AA /* ImageApi.swift */,
+				9B7801462576063C00EC964B /* UploadViewController.xib */,
+				FE08F5652550B06200627CFE /* LoginViewController.swift */,
+				FE08F5672550B09400627CFE /* HomeViewController.swift */,
+				FEE4EF542579699E0022193A /* APIRequest.swift */,
+				FEE4EF5825797A330022193A /* Message.swift */,
+				26B3E41F2579B962008E5611 /* AuthAPI.swift */,
+				9B8F286C2582E25500B59BF0 /* TabBarController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FEF29461253BA52E000070AF = {
+			isa = PBXGroup;
+			children = (
+				FEF2946C253BA52E000070AF /* OCRDataEntryApp */,
+				4F401A172575F1F700B04947 /* OCRDataEntryAppUITests */,
+				FEF2946B253BA52E000070AF /* Products */,
+				099F4ACA0CC5713649175931 /* Pods */,
+				FDBF561CD2A2B3685B73E694 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FEF2946B253BA52E000070AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEF2946A253BA52E000070AF /* OCRDataEntryApp.app */,
+				4F401A162575F1F700B04947 /* OCRDataEntryAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FEF2946C253BA52E000070AF /* OCRDataEntryApp */ = {
+			isa = PBXGroup;
+			children = (
+				FE08F5622550B01500627CFE /* ViewControllers */,
+				FEF2946D253BA52E000070AF /* AppDelegate.swift */,
+				FEF2946F253BA52E000070AF /* SceneDelegate.swift */,
+				FEF29471253BA52E000070AF /* ContentView.swift */,
+				26858FE225522DAA00D722A6 /* Keyboardy.swift */,
+				FEF29473253BA52F000070AF /* Assets.xcassets */,
+				FEF29478253BA52F000070AF /* Main.storyboard */,
+				FE08F5602550A09600627CFE /* LaunchScreen.storyboard */,
+				FEF2947B253BA52F000070AF /* Info.plist */,
+				FE08F5692550B73000627CFE /* GoogleService-Info.plist */,
+				FEF29475253BA52F000070AF /* Preview Content */,
+				4F4DD8AB254A360F00DF0D5D /* DesignableView.swift */,
+				FE08F56B2550D26300627CFE /* Constants.swift */,
+				2688493B2583369F007CA780 /* Config.swift */,
+			);
+			path = OCRDataEntryApp;
+			sourceTree = "<group>";
+		};
+		FEF29475253BA52F000070AF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FEF29476253BA52F000070AF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F401A152575F1F700B04947 /* OCRDataEntryAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F401A1F2575F1F800B04947 /* Build configuration list for PBXNativeTarget "OCRDataEntryAppUITests" */;
+			buildPhases = (
+				4F401A122575F1F700B04947 /* Sources */,
+				4F401A132575F1F700B04947 /* Frameworks */,
+				4F401A142575F1F700B04947 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F401A1C2575F1F700B04947 /* PBXTargetDependency */,
+			);
+			name = OCRDataEntryAppUITests;
+			productName = OCRDataEntryAppUITests;
+			productReference = 4F401A162575F1F700B04947 /* OCRDataEntryAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		FEF29469253BA52E000070AF /* OCRDataEntryApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEF2947E253BA52F000070AF /* Build configuration list for PBXNativeTarget "OCRDataEntryApp" */;
+			buildPhases = (
+				CE8D32FC6923364724CED2E1 /* [CP] Check Pods Manifest.lock */,
+				FEF29466253BA52E000070AF /* Sources */,
+				FEF29467253BA52E000070AF /* Frameworks */,
+				FEF29468253BA52E000070AF /* Resources */,
+				D2E4126933693C5BC4F50003 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OCRDataEntryApp;
+			productName = OCRDataEntryApp;
+			productReference = FEF2946A253BA52E000070AF /* OCRDataEntryApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FEF29462253BA52E000070AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1220;
+				ORGANIZATIONNAME = SparkBU;
+				TargetAttributes = {
+					4F401A152575F1F700B04947 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = FEF29469253BA52E000070AF;
+					};
+					FEF29469253BA52E000070AF = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = FEF29465253BA52E000070AF /* Build configuration list for PBXProject "OCRDataEntryApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FEF29461253BA52E000070AF;
+			productRefGroup = FEF2946B253BA52E000070AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FEF29469253BA52E000070AF /* OCRDataEntryApp */,
+				4F401A152575F1F700B04947 /* OCRDataEntryAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F401A142575F1F700B04947 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEF29468253BA52E000070AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B7801482576063C00EC964B /* UploadViewController.xib in Resources */,
+				26858FE725522DE800D722A6 /* SignupViewController.xib in Resources */,
+				FEF2947A253BA52F000070AF /* Main.storyboard in Resources */,
+				FEF29477253BA52F000070AF /* Preview Assets.xcassets in Resources */,
+				FE08F56A2550B73000627CFE /* GoogleService-Info.plist in Resources */,
+				FEF29474253BA52F000070AF /* Assets.xcassets in Resources */,
+				FE08F5612550A09600627CFE /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CE8D32FC6923364724CED2E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OCRDataEntryApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2E4126933693C5BC4F50003 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OCRDataEntryApp/Pods-OCRDataEntryApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OCRDataEntryApp/Pods-OCRDataEntryApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OCRDataEntryApp/Pods-OCRDataEntryApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F401A122575F1F700B04947 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26651E532575F90E006A0D5F /* WailUITest.swift in Sources */,
+				4F401A192575F1F700B04947 /* OCRDataEntryAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEF29466253BA52E000070AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE08F5662550B06200627CFE /* LoginViewController.swift in Sources */,
+				9B8F286D2582E25500B59BF0 /* TabBarController.swift in Sources */,
+				9B7801472576063C00EC964B /* UploadViewController.swift in Sources */,
+				26B3E4202579B962008E5611 /* AuthAPI.swift in Sources */,
+				2688493C2583369F007CA780 /* Config.swift in Sources */,
+				4F4DD8AC254A360F00DF0D5D /* DesignableView.swift in Sources */,
+				26858FE825522DE800D722A6 /* SignupViewController.swift in Sources */,
+				FEF2946E253BA52E000070AF /* AppDelegate.swift in Sources */,
+				FEF29470253BA52E000070AF /* SceneDelegate.swift in Sources */,
+				FEF29472253BA52E000070AF /* ContentView.swift in Sources */,
+				FE08F5682550B09400627CFE /* HomeViewController.swift in Sources */,
+				26858FE325522DAA00D722A6 /* Keyboardy.swift in Sources */,
+				FEE4EF5925797A330022193A /* Message.swift in Sources */,
+				4F8A1DF1257B1A0E006FC6AA /* ImageApi.swift in Sources */,
+				FE08F56C2550D26300627CFE /* Constants.swift in Sources */,
+				FEE4EF552579699E0022193A /* APIRequest.swift in Sources */,
+				AA2630402569EC3300237088 /* DocumentsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F401A1C2575F1F700B04947 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEF29469253BA52E000070AF /* OCRDataEntryApp */;
+			targetProxy = 4F401A1B2575F1F700B04947 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FEF29478253BA52F000070AF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEF29479253BA52F000070AF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4F401A1D2575F1F700B04947 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OCRDataEntryAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.OCRDataEntryAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OCRDataEntryApp;
+			};
+			name = Debug;
+		};
+		4F401A1E2575F1F700B04947 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OCRDataEntryAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.OCRDataEntryAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OCRDataEntryApp;
+			};
+			name = Release;
+		};
+		FEF2947C253BA52F000070AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FEF2947D253BA52F000070AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FEF2947F253BA52F000070AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F007B95C6D9E62709AC69B3 /* Pods-OCRDataEntryApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"OCRDataEntryApp/Preview Content\"";
+				DEVELOPMENT_TEAM = T57PG2H24T;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OCRDataEntryApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.1234.OCRDataEntryApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FEF29480253BA52F000070AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 021471A14021E86478E9B724 /* Pods-OCRDataEntryApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"OCRDataEntryApp/Preview Content\"";
+				DEVELOPMENT_TEAM = T57PG2H24T;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OCRDataEntryApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.1234.OCRDataEntryApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F401A1F2575F1F800B04947 /* Build configuration list for PBXNativeTarget "OCRDataEntryAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F401A1D2575F1F700B04947 /* Debug */,
+				4F401A1E2575F1F700B04947 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEF29465253BA52E000070AF /* Build configuration list for PBXProject "OCRDataEntryApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEF2947C253BA52F000070AF /* Debug */,
+				FEF2947D253BA52F000070AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEF2947E253BA52F000070AF /* Build configuration list for PBXNativeTarget "OCRDataEntryApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEF2947F253BA52F000070AF /* Debug */,
+				FEF29480253BA52F000070AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FEF29462253BA52E000070AF /* Project object */;
+}
