@@ -14,21 +14,27 @@ class DocumentsViewController: UIViewController {
     @IBAction func CriminalCompliantFormIsClicked(_ sender: Any) {
         //Make API request that this form is has been selected, then open the scanner
         //https://github.com/weirdindiankid/scdao-api-1/blob/master/backend/app/crud/cc_crud.py
+        self.performSegue(withIdentifier: "UploadViewSegue", sender: self)
     }
     @IBAction func ApplicationForCriminalComplaintFormIsClicked(_ sender: Any) {
         //Make API request that this form is has been selected, then open the scanner
+        self.performSegue(withIdentifier: "UploadViewSegue", sender: self)
     }
     @IBAction func IncidentReportFormIsClicked(_ sender: Any) {
         //Make API request that this form is has been selected, then open the scanner
+        self.performSegue(withIdentifier: "UploadViewSegue", sender: self)
     }
     @IBAction func ArrestBookingFormIsClicked(_ sender: Any) {
         //Make API request that this form is has been selected, then open the scanner
+        self.performSegue(withIdentifier: "UploadViewSegue", sender: self)
     }
     @IBAction func MirandaFormIsClicked(_ sender: Any) {
         //Make API request that this form is has been selected, then open the scanner
+        self.performSegue(withIdentifier: "UploadViewSegue", sender: self)
     }
     @IBAction func ProbationRecordFormIsClicked(_ sender: Any) {
         //Make API request that this form is has been selected, then open the scanner
+        self.performSegue(withIdentifier: "UploadViewSegue", sender: self)
     }
     
     private func toHome() {

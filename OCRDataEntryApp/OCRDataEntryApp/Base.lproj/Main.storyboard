@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -207,20 +208,7 @@
                                 </state>
                                 <connections>
                                     <action selector="test:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="Uwu-WX-Rwn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="p5h-ld-ge0">
-                                <rect key="frame" x="96" y="278" width="214" height="23"/>
-                                <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="n4P-q7-mS4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Application for Criminal Complaint">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="test1:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="0We-CR-8Lw"/>
+                                    <segue destination="9eV-ZQ-1m5" kind="showDetail" identifier="UploadViewSegue" id="U7E-9Y-0IP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0E-wP-4Bb">
@@ -235,6 +223,7 @@
                                 </state>
                                 <connections>
                                     <action selector="test2:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="Zi8-Bt-T6Q"/>
+                                    <segue destination="9eV-ZQ-1m5" kind="showDetail" identifier="UploadViewSegue" id="C5b-Up-feH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-o9-hwi">
@@ -249,6 +238,7 @@
                                 </state>
                                 <connections>
                                     <action selector="test5:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="Czx-0U-WAZ"/>
+                                    <segue destination="9eV-ZQ-1m5" kind="showDetail" identifier="UploadViewSegue" id="qhh-kb-yKk"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JIs-kN-xnb">
@@ -283,6 +273,7 @@
                                 </state>
                                 <connections>
                                     <action selector="test4:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="auo-jp-tdT"/>
+                                    <segue destination="9eV-ZQ-1m5" kind="showDetail" identifier="UploadViewSegue" id="39e-pK-YGq"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2GD-mo-UlQ">
@@ -301,6 +292,22 @@
                                 </state>
                                 <connections>
                                     <action selector="test3:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="vuX-0G-FUf"/>
+                                    <segue destination="9eV-ZQ-1m5" kind="showDetail" identifier="UploadViewSegue" id="Pez-hp-GCv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="p5h-ld-ge0">
+                                <rect key="frame" x="96" y="295" width="214" height="23"/>
+                                <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="n4P-q7-mS4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Application for Criminal Complaint">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="test1:" destination="rZM-3g-5SZ" eventType="touchUpInside" id="0We-CR-8Lw"/>
+                                    <segue destination="9eV-ZQ-1m5" kind="showDetail" identifier="UploadViewSegue" id="tA0-tO-mc8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -391,11 +398,11 @@
             <objects>
                 <viewController id="9eV-ZQ-1m5" customClass="UploadViewController" customModule="OCRDataEntryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ANb-K2-ME2" customClass="UploadViewCOntro">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3h-rG-7dh">
-                                <rect key="frame" x="65" y="718" width="75" height="55.666666666666629"/>
+                                <rect key="frame" x="65" y="713" width="75" height="55.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="PXB-sH-xan"/>
                                     <constraint firstAttribute="height" constant="58" id="h2W-NG-fhb"/>
@@ -406,10 +413,10 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rD8-UB-MX2">
-                                <rect key="frame" x="37" y="64" width="340" height="593"/>
+                                <rect key="frame" x="37" y="20" width="340" height="632"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StW-qL-9cE">
-                                <rect key="frame" x="260" y="717.33333333333337" width="81" height="57.333333333333371"/>
+                                <rect key="frame" x="260" y="712.33333333333337" width="81" height="57.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="81" id="bcW-5Q-7br"/>
                                 </constraints>
@@ -444,6 +451,9 @@
             <point key="canvasLocation" x="2650.7246376811595" y="1419.6428571428571"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qhh-kb-yKk"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemBlueColor"/>
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
