@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A680517261FD8A0005B9074 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A680515261FD8A0005B9074 /* Main.storyboard */; };
+		0AE4BAC226200DBE00A8EA8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE4BAC026200DBE00A8EA8A /* Main.storyboard */; };
 		26651E532575F90E006A0D5F /* WailUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26651E522575F90E006A0D5F /* WailUITest.swift */; };
 		26858FE325522DAA00D722A6 /* Keyboardy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26858FE225522DAA00D722A6 /* Keyboardy.swift */; };
 		26858FE725522DE800D722A6 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26858FE525522DE800D722A6 /* SignupViewController.xib */; };
@@ -48,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		021471A14021E86478E9B724 /* Pods-OCRDataEntryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCRDataEntryApp.release.xcconfig"; path = "Target Support Files/Pods-OCRDataEntryApp/Pods-OCRDataEntryApp.release.xcconfig"; sourceTree = "<group>"; };
-		0A680516261FD8A0005B9074 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../scdao-mobile temp/OCRDataEntryApp/OCRDataEntryApp/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		0AE4BAC126200DBE00A8EA8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26651E522575F90E006A0D5F /* WailUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WailUITest.swift; sourceTree = "<group>"; };
 		26858FE225522DAA00D722A6 /* Keyboardy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboardy.swift; sourceTree = "<group>"; };
 		26858FE525522DE800D722A6 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
@@ -174,9 +174,9 @@
 				FEF2946D253BA52E000070AF /* AppDelegate.swift */,
 				FEF2946F253BA52E000070AF /* SceneDelegate.swift */,
 				FEF29471253BA52E000070AF /* ContentView.swift */,
+				0AE4BAC026200DBE00A8EA8A /* Main.storyboard */,
 				26858FE225522DAA00D722A6 /* Keyboardy.swift */,
 				FEF29473253BA52F000070AF /* Assets.xcassets */,
-				0A680515261FD8A0005B9074 /* Main.storyboard */,
 				FE08F5602550A09600627CFE /* LaunchScreen.storyboard */,
 				FEF2947B253BA52F000070AF /* Info.plist */,
 				FE08F5692550B73000627CFE /* GoogleService-Info.plist */,
@@ -286,9 +286,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE4BAC226200DBE00A8EA8A /* Main.storyboard in Resources */,
 				9B7801482576063C00EC964B /* UploadViewController.xib in Resources */,
 				26858FE725522DE800D722A6 /* SignupViewController.xib in Resources */,
-				0A680517261FD8A0005B9074 /* Main.storyboard in Resources */,
 				FEF29477253BA52F000070AF /* Preview Assets.xcassets in Resources */,
 				FE08F56A2550B73000627CFE /* GoogleService-Info.plist in Resources */,
 				FEF29474253BA52F000070AF /* Assets.xcassets in Resources */,
@@ -385,10 +385,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0A680515261FD8A0005B9074 /* Main.storyboard */ = {
+		0AE4BAC026200DBE00A8EA8A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0A680516261FD8A0005B9074 /* Base */,
+				0AE4BAC126200DBE00A8EA8A /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
