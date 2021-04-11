@@ -668,7 +668,7 @@
         <!--Title-->
         <scene sceneID="TFb-y6-iUi">
             <objects>
-                <viewController id="LE4-nm-YVe" customClass="UploadViewController" customModule="OCRDataEntryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LE4-nm-YVe" customClass="LibraryViewController" customModule="OCRDataEntryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Access Library" id="hG6-fU-OXY"/>
                     <navigationItem key="navigationItem" title="Title" id="qkT-aJ-RTP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -679,7 +679,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ajg-fC-VsI"/>
+        <segue reference="lMW-5u-IqA"/>
         <segue reference="U7E-9Y-0IP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemBlueColor"/>
