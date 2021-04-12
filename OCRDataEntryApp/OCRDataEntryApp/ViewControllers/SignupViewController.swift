@@ -32,10 +32,12 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
     private var confirmedPassword: String = ""
     private var originalBottomHeight: CGFloat = 0.0
     private var originalTopHeight: CGFloat = 0.0
+    private var minPasswordLength: Int = 8
     
     private func isPasswordValid(_ password : String) -> Bool{
 //      let passwordRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,}$"
-        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+//        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{" + String(minPasswordLength) + ",}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
         //  let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         //  return passwordTest.evaluate(with: password)
@@ -50,29 +52,43 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         return emailTest.evaluate(with: email)
     }
     
+    //current assumption assumes password must be over minPassWordLength and include at least 1 number
     private func validate() -> Bool {
         print("Email: " + email)
         print("Username: " + username)
         print("Pass: " + password)
         print("Confirm: " + confirmedPassword)
         
-        if email.isEmpty || !isEmailValid(email)  {
-            showInvalid(field: "Email", error: "Email is invalid")
+        
+        if email.isEmpty {
+            showInvalid(field: "Email", error: "Email is empty")
+            return false
+        }
+        
+        if !isEmailValid(email)  {
+            showInvalid(field: "Email", error: "Enter a valid email, make sure there is an email username followed by an '@' followed by a valid domain name")
             return false
         }
         
         if username.isEmpty {
-            showInvalid(field: "Username", error: "Username shouldn't be empty")
+            showInvalid(field: "Username", error: "Username is empty")
             return false
         }
         
+        //assuming password must be over minPassWordLength and include at least 1 number
         if !isPasswordValid(password) {
-            showInvalid(field: "Password", error: "Password is too short")
+            if password.count < minPasswordLength{
+                showInvalid(field: "Password", error: "Password is too short, must be " + String(minPasswordLength) + " or more characters with at least one number")
+            }
+            // come back and change if we decide different password restrictions
+            else{
+                showInvalid(field: "Password", error: "Password is missing a number or character, must be " + String(minPasswordLength) + " or more characters with at least one number")
+            }
             return false
         }
         
         if confirmedPassword != password {
-            showInvalid(field: "Confirmed password", error: "Password doesn't match")
+            showInvalid(field: "Confirmed password", error: "Password does not match")
             return false
         }
         
