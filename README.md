@@ -32,6 +32,8 @@ Starting from the top, you can create a user from the sign up page. Once the use
 
 response data = {“detail”:“Incorrect username or password”}
 
+As of Spring 2021, this error has been fixed. The bugs in signup have been fixed so that a user can now properly sign up and log in after successfully. 
+
 Once you log in, the document page will show up from which you can upload your image or scan. Currently, the image that is being accepted is a png, jpeg, or pdf however, due to potential issues with the connection or backend, the image upload sends the following response:  
 response data = {“detail”:“Bad uploaded file format”}
 
