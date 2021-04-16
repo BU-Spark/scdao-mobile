@@ -315,14 +315,6 @@
                                     <segue destination="9eV-ZQ-1m5" kind="showDetail" identifier="UploadViewSegue" id="tA0-tO-mc8"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scdaologoRR" id="VP8-J9-Sv6">
-                                <rect key="frame" x="297" y="28" width="80" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="ACu-Vo-4fY"/>
-                                </constraints>
-                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="lUI-o9-hwi">
                                 <rect key="frame" x="98" y="633" width="214" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -340,6 +332,14 @@
                                     <segue destination="9eV-ZQ-1m5" kind="showDetail" identifier="UploadViewSegue" id="qhh-kb-yKk"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="scdaologoRR" id="cuC-MC-ylf">
+                                <rect key="frame" x="314" y="44" width="80" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="PRa-0E-ptD"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xw4-qA-nzO"/>
                         <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -405,6 +405,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemBlueColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="V6t-x1-F3L" kind="relationship" relationship="viewControllers" id="uOv-N0-QoO"/>
@@ -487,13 +488,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items/>
                             </tabBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5K-4m-ce3">
-                                <rect key="frame" x="20" y="78" width="91" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Button" id="fMy-hl-t65">
                                 <rect key="frame" x="10" y="243" width="76" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -627,7 +621,7 @@
                                     <segue destination="LE4-nm-YVe" kind="showDetail" id="Ajg-fC-VsI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="chX-q1-Gez">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="chX-q1-Gez">
                                 <rect key="frame" x="92" y="601" width="153" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1213162765" green="0.17361724379999999" blue="0.35972467060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -644,6 +638,21 @@
                                     <segue destination="LE4-nm-YVe" kind="showDetail" id="lMW-5u-IqA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5K-4m-ce3">
+                                <rect key="frame" x="36" y="59" width="91" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="scdaologoRR" id="Ge9-oh-h8C">
+                                <rect key="frame" x="314" y="44" width="80" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="IUe-hg-UaB"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aOM-x3-WVp"/>
                         <color key="backgroundColor" red="0.12448423359999999" green="0.1679048836" blue="0.36080265049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -658,7 +667,9 @@
                             <constraint firstItem="4ag-un-PPG" firstAttribute="trailing" secondItem="TIU-L4-7Yl" secondAttribute="trailing" id="zzQ-Yx-ldc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Access Library" id="kwX-bV-Xmo"/>
+                    <tabBarItem key="tabBarItem" title="Access Library" image="tray.full.fill" catalog="system" selectedImage="tray.full.fill" id="kwX-bV-Xmo">
+                        <color key="badgeColor" systemColor="systemBlueColor"/>
+                    </tabBarItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qNr-wq-VmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -668,18 +679,27 @@
         <!--Title-->
         <scene sceneID="TFb-y6-iUi">
             <objects>
-                <viewController id="LE4-nm-YVe" customClass="LibraryViewController" customModule="OCRDataEntryApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Access Library" id="hG6-fU-OXY"/>
+                <viewController storyboardIdentifier="formVC" id="LE4-nm-YVe" customClass="FormViewController" customModule="OCRDataEntryApp" propertyAccessControl="none" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a1i-Cy-Kyr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <viewLayoutGuide key="safeArea" id="e0P-c9-r4T"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Access Library" image="tray.full.fill" catalog="system" selectedImage="tray.full.fill" id="hG6-fU-OXY">
+                        <color key="badgeColor" systemColor="systemBlueColor"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Title" id="qkT-aJ-RTP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="414" height="896"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfX-9g-FER" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4380" y="1420"/>
+            <point key="canvasLocation" x="4541" y="1419"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lMW-5u-IqA"/>
+        <segue reference="Pwb-E5-eU1"/>
         <segue reference="U7E-9Y-0IP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemBlueColor"/>
@@ -691,6 +711,7 @@
         <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="scdaologoRR" width="384" height="384"/>
         <image name="tray.and.arrow.up.fill" catalog="system" width="128" height="114"/>
+        <image name="tray.full.fill" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
