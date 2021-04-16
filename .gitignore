@@ -1,4 +1,5 @@
 .DS_Store
+# The rest of the file has been taken from https://github.com/github/gitignore/blob/master/Swift.gitignore
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
