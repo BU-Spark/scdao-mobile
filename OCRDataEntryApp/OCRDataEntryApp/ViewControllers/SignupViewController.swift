@@ -35,8 +35,6 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
     private var minPasswordLength: Int = 8
     
     private func isPasswordValid(_ password : String) -> Bool{
-//      let passwordRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,}$"
-//        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
         let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{" + String(minPasswordLength) + ",}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
         //  let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
@@ -46,7 +44,6 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
     private func isEmailValid(_ email: String) -> Bool {
         
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-//        let emailRegEx = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         
         return emailTest.evaluate(with: email)

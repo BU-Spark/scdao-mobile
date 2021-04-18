@@ -32,9 +32,10 @@ struct ImageAPI {
         self.type = type
     }
     
-    func uploadImage(imageToUpload: UIImage) {
+    func uploadImage(imageToUpload: UIImage) -> String{
         let myUrl = baseURL.appendingPathComponent("v1/uploads/ccf")
         let request = NSMutableURLRequest(url:myUrl)
+        var uploadStatusMessage = ""
         
         request.httpMethod = "POST";
         
@@ -46,7 +47,8 @@ struct ImageAPI {
         request.addValue("\(type) \(token)", forHTTPHeaderField: "Authorization")
 
         guard let imageData = imageToUpload.jpegData(compressionQuality: 1) else {
-            return
+            uploadStatusMessage = "Error"
+            return uploadStatusMessage
         }
 
         request.httpBody = createBodyWithParameters(parameters: param, filePathKey: "file", imageDataKey: imageData, boundary: boundary)
@@ -58,22 +60,69 @@ struct ImageAPI {
                 print("Response: " + plainResponse)
             }
 
-                if error != nil {
-                    print("error=\(error!)")
-                    return
-                }
+            if error != nil {
+                print("error=\(error!)")
+                uploadStatusMessage = "Error"
+            }
 
                 //print response
                 //print("response = \(response!)")
 
                 // print reponse body
-                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print("response data = \(responseString!)")
+            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print("response data = \(responseString!)")
+            
+            let json = try! JSONSerialization.jsonObject(with: data!, options: [])
+            if let responseString = json as? [String: Any], let job_id = responseString["job id"] as? String {
+                print("JOB ID: ", job_id)
+                
+               // keep making apiCall until either a SUCCESS or FAIL (ignore or pass if error or task_state = STARTING)
+               DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { //delay
+                   uploadStatusMessage = uploadStatus(task_id: job_id)
+               }
+                    
+            }
+        }
 
+        task.resume()
+        return uploadStatusMessage
+    }
+    
+    func uploadStatus (task_id: String) -> String {
+        let myUrl = baseURL.appendingPathComponent("v1/tasks/\(task_id)") //add task
+        let request = NSMutableURLRequest(url:myUrl)
+        var statusMessage = "Uploading"
+        
+        request.httpMethod = "GET";
+        request.addValue("\(type) \(token)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+
+            if let responseData = data, let plainResponse = String(data: responseData, encoding: .utf8) {
+                print("Response: " + plainResponse)
             }
 
-            task.resume()
+            if error != nil {
+                print("error=\(error!)")
+                statusMessage = "Error"
+            }
+            
+            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print("response data = \(responseString!)")
+            
+            let json = try! JSONSerialization.jsonObject(with: data!, options: [])
+            if let responseString = json as? [String: Any], let status = responseString["task_state"] as? String{
+                print("TASK STATE: ", status)
+                statusMessage = status
+            }
+
         }
+        task.resume()
+        return statusMessage
+        
+    }
+    
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: Data, boundary: String) -> Data {
             let body = NSMutableData();
 
@@ -104,9 +153,45 @@ struct ImageAPI {
 
     }
 
-    extension NSMutableData {
-        func appendString(string: String) {
-            let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
-            append(data!)
-        }
+//struct StatusAPI {
+//    let baseURL: URL
+//    
+//    func uploadStatus (task_id: String) {
+//        let myUrl = baseURL.appendingPathComponent("v1/tasks/\(task_id)") //add task
+//        print("myURL:", myUrl)
+//        
+//        let request = NSMutableURLRequest(url:myUrl)
+//
+//        request.httpMethod = "GET";
+//
+//        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+//            data, response, error in
+//
+//            if let responseData = data, let plainResponse = String(data: responseData, encoding: .utf8) {
+//                print("Response: " + plainResponse)
+//            }
+//
+//            if error != nil {
+//                print("error=\(error!)")
+//                return
+//            }
+//
+//                //print response
+//                //print("response = \(response!)")
+//
+//                // print reponse body
+//            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+//            print("response data = \(responseString!)")
+//
+//        }
+//        
+//        task.resume()
+//    }
+//}
+
+extension NSMutableData {
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
     }
+}

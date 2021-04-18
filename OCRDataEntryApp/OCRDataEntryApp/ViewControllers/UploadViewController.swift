@@ -38,17 +38,17 @@ final class UploadViewController: UIViewController {
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
     }
-    @IBAction func showAlertButtonTapped() {
-
-        // create the alert
-        let alert = UIAlertController(title: "Upload", message: "Form has been uploaded.", preferredStyle: UIAlertController.Style.alert)
-
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-    }
+//    @IBAction func showAlertButtonTapped() {
+//
+//        // create the alert
+//        let alert = UIAlertController(title: "Upload", message: "Form has been uploaded.", preferredStyle: UIAlertController.Style.alert)
+//
+//        // add an action (button)
+//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+//
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
+//    }
 
     @IBAction func didTapUploadButton(){
         let vc = UIImagePickerController()
@@ -76,8 +76,27 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
                   }
             
             let apiCall = ImageAPI(baseURL: Config.baseURL, token: token, type: type)
-            apiCall.uploadImage(imageToUpload: imageView.image!)
-            showAlertButtonTapped()
+            let status = apiCall.uploadImage(imageToUpload: imageView.image!)
+            // apiCall to check task send back message to be called to showAlertButtonTapped()
+            // create the alert
+            if (status == "SUCCESS"){
+                let alert = UIAlertController(title: "Upload", message: "Form uploaded successfully.", preferredStyle: UIAlertController.Style.alert)
+                
+                // add an action (button)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+                // show the alert
+                self.present(alert, animated: true, completion: nil)
+            }
+            else{
+                let alert = UIAlertController(title: "Upload", message: "Form upload failed.", preferredStyle: UIAlertController.Style.alert)
+                
+                // add an action (button)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+                // show the alert
+                self.present(alert, animated: true, completion: nil)
+            }
         } 
     }
     
