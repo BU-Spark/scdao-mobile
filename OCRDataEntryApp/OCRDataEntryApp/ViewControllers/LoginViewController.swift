@@ -59,14 +59,19 @@ class LoginViewController: UIViewController {
         print("Email: " + email)
         print("Pass: " + password)
         
-        if email.isEmpty || !isEmailValid(email)  {
-            showInvalid(field: "Email", error: "Email is invalid")
+        
+        if email.isEmpty {
+            showInvalid(field: "Email", error: "Email is empty")
             return false
         }
         
+        if !isEmailValid(email)  {
+            showInvalid(field: "Email", error: "Enter a valid email, make sure there is an email username followed by an '@' followed by a valid domain name")
+            return false
+        }
         
         if password.isEmpty {
-            showInvalid(field: "Password", error: "Password is too short")
+            showInvalid(field: "Password", error: "Password is empty")
             return false
         }
         
@@ -120,8 +125,9 @@ class LoginViewController: UIViewController {
             
             if let error = error {
                 DispatchQueue.main.async {
-                    this.errorLabel.text = error.localizedDescription
-                    this.errorLabel.alpha = 1
+                    this.showInvalid(field: "Login Error", error: "Incorrect username or password")
+//                    this.errorLabel.text = error.localizedDescription
+//                    this.errorLabel.alpha = 1
                 }
                 return
             }
