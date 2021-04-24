@@ -76,27 +76,57 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
                   }
             
             let apiCall = ImageAPI(baseURL: Config.baseURL, token: token, type: type)
-            let status = apiCall.uploadImage(imageToUpload: imageView.image!)
+            let _: () = apiCall.uploadImage(imageToUpload: imageView.image!) { status in
+                if let status = status{
+                    let temp = status
+                    print("Alert Value: ", temp)
+                    if (status == "SUCCESS"){
+                        let alert = UIAlertController(title: "Upload", message: "Form uploaded successfully.", preferredStyle: UIAlertController.Style.alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+                        self.present(alert, animated: true, completion: nil)
+                        
+                    }
+                    else if (status == "STARTING"){
+                        let alert = UIAlertController(title: "Upload", message: "Form upload START.", preferredStyle: UIAlertController.Style.alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    else{
+                        let alert = UIAlertController(title: "Upload", message: "Form upload failed.", preferredStyle: UIAlertController.Style.alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    
+                }
+      
+            }
             // apiCall to check task send back message to be called to showAlertButtonTapped()
             // create the alert
-            if (status == "SUCCESS"){
-                let alert = UIAlertController(title: "Upload", message: "Form uploaded successfully.", preferredStyle: UIAlertController.Style.alert)
-                
-                // add an action (button)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-
-                // show the alert
-                self.present(alert, animated: true, completion: nil)
-            }
-            else{
-                let alert = UIAlertController(title: "Upload", message: "Form upload failed.", preferredStyle: UIAlertController.Style.alert)
-                
-                // add an action (button)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-
-                // show the alert
-                self.present(alert, animated: true, completion: nil)
-            }
+//            print("Frontend Status: ", status)
+//            if (status == "SUCCESS"){
+//                let alert = UIAlertController(title: "Upload", message: "Form uploaded successfully.", preferredStyle: UIAlertController.Style.alert)
+//
+//                // add an action (button)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+//
+//                // show the alert
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//            else{
+//                let alert = UIAlertController(title: "Upload", message: "Form upload failed.", preferredStyle: UIAlertController.Style.alert)
+//
+//                // add an action (button)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+//
+//                // show the alert
+//                self.present(alert, animated: true, completion: nil)
+//            }
         } 
     }
     
