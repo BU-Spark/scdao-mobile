@@ -128,6 +128,7 @@ class LoginViewController: UIViewController {
                     this.showInvalid(field: "Login Error", error: "Incorrect username or password")
 //                    this.errorLabel.text = error.localizedDescription
 //                    this.errorLabel.alpha = 1
+                    
                 }
                 return
             }

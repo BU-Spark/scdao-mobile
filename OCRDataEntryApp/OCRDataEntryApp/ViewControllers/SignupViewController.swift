@@ -105,24 +105,6 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    private func showSuccess(field: String, error: String) {
-        let alert = UIAlertController(title: field, message: error, preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-//            self.userCreatedButtonPressed = true
-//            self.toHome()
-            print("please fix")
-        }))
-        
-        //This is where I want to redirect them to Home when they press the okay button.
-        //This is currently buggy.
-        present(alert, animated: true, completion: { () in self.toHome() })
-    }
-    
-    private func showError(_ error: String) {
-        
-    }
-    
     private func toHome() {
         
         DispatchQueue.main.sync {
@@ -250,55 +232,35 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         
         apiCall.signup(user: email, pass: password) { [weak self] (isSuccess, error) in
             guard let this = self else { return }
-            
+            print("HERE")
             if isSuccess {
-                
-                // Go to Home Screen
-                DispatchQueue.main.async {
-                    this.showSuccess(field: "Success", error: "User created")
-                }
-//                sleep(3)
-//                this.toHome()
-                /*
-                // Go to Home Screen
-                DispatchQueue.main.async {     //Do UI Code here.
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? TabBarController
+                DispatchQueue.main.async{
+                    let alert = UIAlertController(title: "Successful Signup", message: "Please login", preferredStyle: UIAlertController.Style.alert)
 
-                    this.view.window?.rootViewController = homeViewController
-                    this.view.window?.makeKeyAndVisible()
-                    
-                }*/
+
+                    let loginAction = UIAlertAction(title: "Ok", style: .default){action in
+              
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let homeViewController = storyboard.instantiateViewController(identifier: "LoginVC") as? LoginViewController
+                                    
+                                    if homeViewController != nil {
+                                        self?.view.window?.rootViewController = homeViewController
+                                        self?.view.window?.makeKeyAndVisible()
+                                    }
+                            }
+
+                        
+                    alert.addAction(loginAction)
+
+                    self?.present(alert, animated: true, completion: nil)
+                }
+
             } else {
-                //this.showError("Error creating user")
                 DispatchQueue.main.async {
                     this.showAlert(field: "User already exists", error: "Enter a new email")
                 }
             }
         }
-        
-        /*
-        Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-            // Check for errors
-            if err != nil {
-                // There was a error
-                self.showError("Error creating user")
-            }
-            else {
-                // User was created successfully, store fields
-                let db = Firestore.firestore()
-                
-                db.collection("users").addDocument(data: ["username":self.username, "uid" : result!.user.uid ]) { (error) in
-                    if err != nil {
-                        // Show error
-                        self.showError("Error saving user data")
-                    }
-                }
-                // Go to Home Screen
-                self.toHome()
-            }
-        }
- */
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
