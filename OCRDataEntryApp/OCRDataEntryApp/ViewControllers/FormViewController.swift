@@ -14,10 +14,7 @@ class FormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Form screen loaded")
-//        Api2().getData() { (records) in
-//            print("Entered")
-//            print(records)
-//        }
+        
         controller.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChild(controller)
         self.view.addSubview(controller.view)

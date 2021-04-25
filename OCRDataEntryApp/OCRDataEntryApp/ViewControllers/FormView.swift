@@ -150,18 +150,19 @@ struct FormView: View {
     var body: some View {
         List(records) { record in
             VStack{
-                Spacer()
-//                    var name: String? = record.defen_name
-////                    name = nil // Set name to nil, the absence of a value
-//                    var text = "NA"
-//                    if name != nil {
-//                        text = record.defen_name
-//                    }
-//                    var text: String? = record.defen_name
-                Text(record.defen_name).frame(alignment: .leading)
-//                    Text(record.police_dept).frame(alignment: .leading)
-//                Text(record.title).frame(alignment: .leading)
-//                Text(record.body).frame(alignment: .leading)
+                let name: String? = record.defen_name
+                let date: String? = record.offense_date
+                let id: Int? = record.cc_id
+                if name != nil {
+                    Text("Defendant: " + name!)
+
+                }
+                if date != nil {
+                    Text("Offense Date: " + date!)
+                }
+                if id != nil {
+                    Text("CC Id: " + "\(id!)")
+                }
             }
         }
 //            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 80, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: .infinity, maxHeight: 700, alignment: .topLeading)
