@@ -50,7 +50,6 @@ class ImageAPI {
         request.addValue("\(type) \(token)", forHTTPHeaderField: "Authorization")
 
         guard let imageData = imageToUpload.jpegData(compressionQuality: 1) else {
-//            uploadStatusMessage = "Error"
             return completion(nil)
         }
 
@@ -75,44 +74,7 @@ class ImageAPI {
             }
         }.resume()
     }
-    
-    //                            while (uploadStatusMessage != "SUCCESS"){
-    //                                print("here")
-    //                                uploadStatus(task_id: job_id){ status in
-    //                                    print("STATUS: ", status)
-    //                                    if let status = status{
-    //                                        uploadStatusMessage = status
-    //                                        print("uploadStatusMessage: ", uploadStatusMessage)
-    //                                    }
-    //                                }
-    //                            }
-    //                            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { //delay
-    //                                    uploadStatus(task_id: job_id){ status in
-    //                                        if let status = status{
-    //                                            uploadStatusMessage = status
-    //                                            print("uploadStatusMessage: ", uploadStatusMessage)
-    //                                        }
-    //                                }
-    //                            }
-    
-    
-    //            if error != nil {
-    //                print("error=\(error!)")
-    //                uploadStatusMessage = error?.localizedDescription ?? "Error"
-    //            }
-    //
-    //            let json = try! JSONSerialization.jsonObject(with: data!, options: [])
-    //            if let responseString = json as? [String: Any], let job_id = responseString["job id"] as? String
-    //            {
-    //                print("JOB ID: ", job_id)
-    //
-    //               // keep making apiCall until either a SUCCESS or FAIL (ignore or pass if error or task_state = STARTING)
-    //               DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { //delay
-    //                uploadStatus(task_id: job_id){ status in
-    //                    print("uploadStatusMessage: ", uploadStatusMessage)
-    //                }
-    //               }
-    //            }
+
     
     @objc func uploadStatus (task_id: String, completion: @escaping (String?)->()){
         let myUrl = baseURL.appendingPathComponent("v1/tasks/\(task_id)") //add task id
@@ -125,6 +87,7 @@ class ImageAPI {
             data, response, error in
             if let data = data{
                 print(data)
+             
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
                 if let responseString = json as? [String: Any], let status = responseString["task_state"] as? String{
                     print("TASK STATE: ", status)
@@ -139,36 +102,10 @@ class ImageAPI {
         }.resume()
     }
 
-//    @objc func statusHandler(timer:Timer) {
-//        let taskID = timer.userInfo as! String
-//        print("Helper taskID: ", taskID)
-//
-////        self.uploadStatus(id: job_id){ status in
-////            if let status = status{
-////                print("Intermediate Function: ", status)
-////            }
-////        }
-////
-////        fetchDatabase(completion: { (result) in
-////            // Stuff in here
-////        })
-//    }
-    
-//    @objc func updateCounter() {
-//        //example functionality
-//        if counter > 0 {
-//            print("\(counter) seconds")
-//            counter -= 1
-//        }
-//    }
-    
-//    @objc func iGotCall(sender: Timer) {
-//        print((sender.userInfo)!)
-//    }
-
         @objc func statusHandler(sender: Timer) {
             print((sender.userInfo)!)
             let jobID = sender.userInfo
+//            let pending = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
             uploadStatus(task_id: jobID as! String){ status in
                 print("STATUS: ", status!)
                 if let status = status{
@@ -176,14 +113,38 @@ class ImageAPI {
                         print("Timer: ", status)
                         self.uploadStatus = status
                         self.timer?.invalidate()
+                        
+                        print("Alert Value: ", status)
+                        
+                        DispatchQueue.main.async {
+    
+                            let topMostViewController = UIApplication.shared.topMostViewController()
+                            let alert = UIAlertController(title: "Upload Success", message: "Form uploaded successfully.", preferredStyle: UIAlertController.Style.alert)
+                        
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                           
+                            topMostViewController!.present(alert, animated: true, completion: nil)
+                        }
+                        
                     }
                     if (status == "AWS_FAIL" || status == "OCR_FAIL"){
                         print("Timer: ", status)
                         self.uploadStatus = status
                         self.timer?.invalidate()
+                        
+                        print("Alert Value: ", status)
+                        
+                        let topMostViewController = UIApplication.shared.topMostViewController()
+                        let alert = UIAlertController(title: "Upload Fail", message: "Form upload failed. Please try again.", preferredStyle: UIAlertController.Style.alert)
+                       
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                       
+                        topMostViewController?.present(alert, animated: true, completion: nil)
+                        }
                     }
                     else{
-                        print("Timer: ", status)
+                       // popup while waiting for image to process
+
                     }
                 }
             }
@@ -208,7 +169,7 @@ class ImageAPI {
             return "Boundary-\(NSUUID().uuidString)"
         }
 
-    }
+    
 
 extension NSMutableData {
     func appendString(string: String) {
@@ -216,3 +177,29 @@ extension NSMutableData {
         append(data!)
     }
 }
+
+//Based off of: https://gist.github.com/db0company/369bfa43cb84b145dfd8
+extension UIViewController {
+    func topMostViewController() -> UIViewController {
+        if self.presentedViewController == nil {
+            return self
+        }
+        if let navigation = self.presentedViewController as? UINavigationController {
+            return (navigation.visibleViewController?.topMostViewController())!
+        }
+        if let tab = self.presentedViewController as? UITabBarController {
+            if let selectedTab = tab.selectedViewController {
+                return selectedTab.topMostViewController()
+            }
+            return tab.topMostViewController()
+        }
+        return self.presentedViewController!.topMostViewController()
+    }
+}
+
+extension UIApplication {
+  func topMostViewController() -> UIViewController? {
+    return UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController?.topMostViewController()
+  }
+}
+
