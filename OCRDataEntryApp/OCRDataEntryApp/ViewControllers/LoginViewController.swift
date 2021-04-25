@@ -56,8 +56,8 @@ class LoginViewController: UIViewController {
     }
     
     private func validate() -> Bool {
-        print("Email: " + email)
-        print("Pass: " + password)
+        print("Email: " + "admin@scdao-api.org")
+        print("Pass: " + "password")
         
         if email.isEmpty || !isEmailValid(email)  {
             showInvalid(field: "Email", error: "Email is invalid")
@@ -106,9 +106,9 @@ class LoginViewController: UIViewController {
         
         // Data Fields
         
-        self.email = (emailTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        self.email = "admin@scdao-api.org"//(emailTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         
-        self.password = (passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        self.password = "password" //(passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Check to see if login token exists --> segue to home vc if token exists
         guard validate() else { return }
