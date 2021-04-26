@@ -94,7 +94,9 @@ struct Form: Codable, Identifiable {
 //}
 
 
-class Api2 {
+class Api2 : FormViewController{
+    
+    
     func getData(completion: @escaping ([Form]) -> ()) {
         struct RetrieveCcfAPI2 {
             let baseURL: URL
@@ -126,17 +128,21 @@ class Api2 {
         request.addValue("\(type) \(token)", forHTTPHeaderField: "Authorization")
 
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
-            print("Entered")
-//            print(response)
-//            print(data)
-            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            let decoder = JSONDecoder()
-//            let records = try! decoder.decode([Form].self, from: data!)
-//            print(records)
-            let rec = try! JSONDecoder().decode([Form].self, from: data!)
-                DispatchQueue.main.async {
-                    completion(rec)
-                }
+            
+            if(data == nil){
+                
+                let test = Form(docket: "Nil return")
+                
+                    DispatchQueue.main.async {
+                        completion([test])
+                    }
+            }
+            else{
+                let rec = try! JSONDecoder().decode([Form].self, from: data!)
+                    DispatchQueue.main.async {
+                        completion(rec)
+                    }
+            }
         }
         .resume()
         }
@@ -148,6 +154,7 @@ class Api2 {
 struct FormView: View {
     @State var records: [Form] = []
     var body: some View {
+        
         List(records) { record in
             VStack{
                 let name: String? = record.defen_name
@@ -164,19 +171,14 @@ struct FormView: View {
                     Text("CC Id: " + "\(id!)")
                 }
             }
+            
         }
 //            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 80, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: .infinity, maxHeight: 700, alignment: .topLeading)
         .onAppear {
             Api2().getData() { (records) in
                 self.records = records
             }
+            
         }
     }
 }
-
-//struct FormView_Previews: PreviewProvider {
-//    static var previews: some View {
-////        FormView()
-//    }
-//}
-
