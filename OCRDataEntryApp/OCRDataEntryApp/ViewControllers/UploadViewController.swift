@@ -74,10 +74,10 @@ final class UploadViewController: UIViewController {
 extension UploadViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true, completion:nil)
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             imageView.image = image
+            picker.dismiss(animated: true, completion:nil)
             
             guard let token = UserDefaults.standard.string(forKey: "tokenValue"),
                   let type = UserDefaults.standard.string(forKey: "tokenType") else {
@@ -85,13 +85,18 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
                   }
             
             let apiCall = ImageAPI(baseURL: Config.baseURL, token: token, type: type)
+            
             let _: () = apiCall.uploadImage(imageToUpload: imageView.image!) { status in
+                
+    
                 if let status = status{
                     print("Value", status)
                 }
             }
+            
         } 
     }
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
