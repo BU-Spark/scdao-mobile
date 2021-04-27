@@ -87,8 +87,7 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
             let apiCall = ImageAPI(baseURL: Config.baseURL, token: token, type: type)
             
             let _: () = apiCall.uploadImage(imageToUpload: imageView.image!) { status in
-                
-    
+                apiCall
                 if let status = status{
                     print("Value", status)
                 }

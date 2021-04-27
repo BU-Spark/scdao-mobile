@@ -23,6 +23,7 @@ class ImageAPI {
     let type: String
     var timer: Timer?
     var uploadStatus: String
+    var count = 0
     
     var activityIndicator = UIActivityIndicatorView()
 
@@ -75,6 +76,7 @@ class ImageAPI {
                     
                     DispatchQueue.main.async{
                         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(statusHandler(sender:)), userInfo: (job_id), repeats: true)
+                        print("Multiple calls")
                     }
                     return completion("VALUE")
                 }
@@ -117,14 +119,20 @@ class ImageAPI {
     }
 
         @objc func statusHandler(sender: Timer) {
+            print("Called!")
             print((sender.userInfo)!)
+            count = count+1
+            print("Count: ",count)
             let jobID = sender.userInfo
-            let pending = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-
+            let pending = UIAlertController(title: nil, message: "Image Processing...", preferredStyle: .alert)
+            if (count != 1){
+                getTopMostViewController()?.dismiss(animated: false, completion: nil)
+            }
             uploadStatus(task_id: jobID as! String){ status in
                 print("STATUS: ", status!)
                 if let status = status{
                     if (status == "SUCCESS"){
+                        self.count = 0
                         self.timer?.invalidate()
                         self.timer = nil
                         print("Timer: ", status)
@@ -134,12 +142,12 @@ class ImageAPI {
                         print("Alert Value: ", status)
                    
                         DispatchQueue.main.async {
-                            getTopMostViewController()?.dismiss(animated: false, completion: nil)
                             showAlert(field: "Upload Successful", info: "Document uploaded successfully.")
                         }
                         
                     }
                     if (status == "AWS_FAIL" || status == "OCR_FAIL"){
+                        self.count = 0
                         self.timer?.invalidate()
                         self.timer = nil
                         print("Timer: ", status)
@@ -217,7 +225,7 @@ func getTopMostViewController() -> UIViewController? {
     while let presentedViewController = topMostViewController?.presentedViewController {
         topMostViewController = presentedViewController
     }
-
+    print("VC: ", topMostViewController)
     return topMostViewController
 }
 

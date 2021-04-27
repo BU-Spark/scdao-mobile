@@ -107,8 +107,8 @@ class LoginViewController: UIViewController {
         // Data Fields
         
         self.email = (emailTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-        
         self.password = (passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        
         
         // Check to see if login token exists --> segue to home vc if token exists
         guard validate() else { return }
