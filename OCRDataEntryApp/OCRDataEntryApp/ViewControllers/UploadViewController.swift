@@ -1,11 +1,10 @@
-//
 //  UploadViewController.swift
 //  OCRDataEntryApp
 //
 //  Created by Artemis Chen on 12/1/20.
 //  Copyright © 2020 SparkBU. All rights reserved.
 //  resource:https://www.youtube.com/watch?v=hg-6sOOxeHA
-//
+
 import SwiftUI
 import UIKit
 
@@ -15,20 +14,20 @@ final class UploadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func didTapCameraButton(){
         #if !targetEnvironment(simulator)
         var button = sender as UIButton
         
-//        if sender.isOn {
-//                    button.isOn = true  //   MyButton(sender: UIBarButtonItem) = true
-//                }
-//                else {
-//                   button.isOn = false  //  MyButton(sender: UIBarButtonItem) = false
-//                }
-//
+        //        if sender.isOn {
+        //                    button.isOn = true  //   MyButton(sender: UIBarButtonItem) = true
+        //                }
+        //                else {
+        //                   button.isOn = false  //  MyButton(sender: UIBarButtonItem) = false
+        //                }
+        //
         let vc = UIImagePickerController()
         vc.sourceType = .camera
         vc.delegate = self
@@ -47,18 +46,7 @@ final class UploadViewController: UIViewController {
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
     }
-//    @IBAction func showAlertButtonTapped() {
-//
-//        // create the alert
-//        let alert = UIAlertController(title: "Upload", message: "Form has been uploaded.", preferredStyle: UIAlertController.Style.alert)
-//
-//        // add an action (button)
-//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-//
-//        // show the alert
-//        self.present(alert, animated: true, completion: nil)
-//    }
-
+    
     @IBAction func didTapUploadButton(){
         let vc = UIImagePickerController()
         present(vc, animated: true, completion: nil )
@@ -81,15 +69,15 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
             
             guard let token = UserDefaults.standard.string(forKey: "tokenValue"),
                   let type = UserDefaults.standard.string(forKey: "tokenType") else {
-                    return
-                  }
+                return
+            }
             
             let apiCall = ImageAPI(baseURL: Config.baseURL, token: token, type: type)
             
-            let _: () = apiCall.uploadImage(imageToUpload: imageView.image!) { status in
-                apiCall
-                if let status = status{
-                    print("Value", status)
+            let _: () = apiCall.uploadImage(imageToUpload: imageView.image!) { didUpload in
+                
+                if let didUpload = didUpload{
+                    print("Uploaded", didUpload)
                 }
             }
             

@@ -1,4 +1,3 @@
-//
 //  ImageApi.swift
 //  OCRDataEntryApp
 //  Code borrowed from https://stackoverflow.com/questions/37474265/swift-2-how-do-you-add-authorization-header-to-post-request 
@@ -21,12 +20,9 @@ class ImageAPI {
     let baseURL: URL
     let token: String
     let type: String
-    var timer: Timer?
-    var uploadStatus: String
-    var count = 0
+    private var timer: Timer?
+    private var statusCheckedFirst = false
     
-    var activityIndicator = UIActivityIndicatorView()
-
     init(baseURL: String, token: String, type: String) {
         let resourceString = "http://\(baseURL)/api/"
         
@@ -35,11 +31,10 @@ class ImageAPI {
         self.baseURL = resourceURL
         self.token = token
         self.type = type
-        self.uploadStatus = ""
-      
     }
     
-    func uploadImage(imageToUpload: UIImage, completion: @escaping (String?)->()){
+    // uploads image
+    func uploadImage(imageToUpload: UIImage, completion: @escaping (Bool?)->()){
         let myUrl = baseURL.appendingPathComponent("v1/uploads/ccf")
         let request = NSMutableURLRequest(url:myUrl)
         
@@ -47,38 +42,37 @@ class ImageAPI {
         
         let param: [String: String] = [:]
         let boundary = generateBoundaryString()
-
+        
         
         request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("\(type) \(token)", forHTTPHeaderField: "Authorization")
-
+        
         guard let imageData = imageToUpload.jpegData(compressionQuality: 1) else {
             return completion(nil)
         }
-
+        
         request.httpBody = createBodyWithParameters(parameters: param, filePathKey: "file", imageDataKey: imageData, boundary: boundary)
-
+        
         URLSession.shared.dataTask(with: request as URLRequest) { [self]
             data, response, error in
             guard let serverResponse = response as? HTTPURLResponse, (200...299).contains(serverResponse.statusCode)  else {
-                serverErrorHandler(response: response as! HTTPURLResponse)
+                serverErrorHandler(response: response as! HTTPURLResponse) // handle status codes with errors
                 return completion(nil)
             }
             if error != nil || data == nil {
                 print(error.debugDescription)
-                return
+                print("Not connected to backend")
+                return completion(nil)
             }
             if let data = data{
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
                 if let responseString = json as? [String: Any], let job_id = responseString["job id"] as? String {
-                    print("here")
-                    
                     DispatchQueue.main.async{
+                        //timer calls statusHandler() function repeatedly until task state returns a Success or Fail
                         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(statusHandler(sender:)), userInfo: (job_id), repeats: true)
-                        print("Multiple calls")
                     }
-                    return completion("VALUE")
+                    return completion(true)
                 }
                 return completion(nil)
             }
@@ -87,9 +81,9 @@ class ImageAPI {
             }
         }.resume()
     }
-
     
-    @objc func uploadStatus (task_id: String, completion: @escaping (String?)->()){
+    // retrieves upload status (SUCCESS, AWS_FAIL, OCR_FAIL, STARTING)
+    @objc private func uploadStatus (task_id: String, completion: @escaping (String?)->()){
         let myUrl = baseURL.appendingPathComponent("v1/tasks/\(task_id)") //add task id
         let request = NSMutableURLRequest(url:myUrl)
         
@@ -98,16 +92,10 @@ class ImageAPI {
         
         URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
-//            print("E", error.debugDescription)
-//            print("R", response)
-//            print("D", data)
             if let data = data{
-                print(data)
-             
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
                 if let responseString = json as? [String: Any], let status = responseString["task_state"] as? String{
                     print("TASK STATE: ", status)
-                    print("status: ", status)
                     return completion(status)
                 }
                 return completion(nil)
@@ -117,132 +105,94 @@ class ImageAPI {
             }
         }.resume()
     }
-
-        @objc func statusHandler(sender: Timer) {
-            print("Called!")
-            print((sender.userInfo)!)
-            count = count+1
-            print("Count: ",count)
-            let jobID = sender.userInfo
-            let pending = UIAlertController(title: nil, message: "Image Processing...", preferredStyle: .alert)
-            if (count != 1){
-                getTopMostViewController()?.dismiss(animated: false, completion: nil)
+    
+    // called by timer to fetch upload status until SUCCESS or FAIL (timer invalidates upon SUCCESS or FAIL)
+    @objc private func statusHandler(sender: Timer) {
+        let jobID = sender.userInfo
+        
+        if (statusCheckedFirst == true){ //if loading alert already displayed
+            DispatchQueue.main.async {
+                getTopMostViewController()?.dismiss(animated: false, completion: nil) //remove loading alert
             }
-            uploadStatus(task_id: jobID as! String){ status in
-                print("STATUS: ", status!)
-                if let status = status{
-                    if (status == "SUCCESS"){
-                        self.count = 0
-                        self.timer?.invalidate()
-                        self.timer = nil
-                        print("Timer: ", status)
-                        
-                        self.uploadStatus = status
-                        
-                        print("Alert Value: ", status)
-                   
-                        DispatchQueue.main.async {
-                            showAlert(field: "Upload Successful", info: "Document uploaded successfully.")
-                        }
-                        
+        }
+        statusCheckedFirst = true
+        
+        uploadStatus(task_id: jobID as! String){ status in // get status using job_id
+            print("STATUS: ", status!)
+            if let status = status{
+                if (status == "SUCCESS"){
+                    self.statusCheckedFirst = false
+                    self.timer?.invalidate()
+                    self.timer = nil
+                    DispatchQueue.main.async {
+                        showAlert(field: "Upload Successful", info: "Document uploaded successfully.")
                     }
-                    if (status == "AWS_FAIL" || status == "OCR_FAIL"){
-                        self.count = 0
-                        self.timer?.invalidate()
-                        self.timer = nil
-                        print("Timer: ", status)
-                        self.uploadStatus = status
-                        
-                        print("Alert Value: ", status)
-                        
-                        DispatchQueue.main.async {
-  
-                            pending.dismiss(animated: false, completion: nil)
-                                
-                            showAlert(field: "Upload Failed", info: "Document upload failed. Please try again.")
-                        }
-            
+                }
+                if (status == "AWS_FAIL" || status == "OCR_FAIL"){
+                    self.statusCheckedFirst = false
+                    self.timer?.invalidate()
+                    self.timer = nil
+                    DispatchQueue.main.async {
+                        showAlert(field: "Upload Failed", info: "Document upload failed. Please try again.")
                     }
-                    if (status == "STARTING"){
-                        print("VALID")
-                        
-                        DispatchQueue.main.async {
-                            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-                            loadingIndicator.hidesWhenStopped = true
-                            loadingIndicator.style = UIActivityIndicatorView.Style.medium
-                            loadingIndicator.startAnimating();
-                            
-                            pending.view.addSubview(loadingIndicator)
-                            getTopMostViewController()?.present(pending, animated: true, completion: nil)
-                        }
+                }
+                if (status == "STARTING"){
+                    DispatchQueue.main.async {
+                        pendingAlert(info: "Uploading Image ...") //display loading alert
                     }
                 }
             }
         }
+    }
     
-   @objc func serverErrorHandler(response: HTTPURLResponse){
+    @objc private func serverErrorHandler(response: HTTPURLResponse){
         let statusCode = response.statusCode
         switch statusCode{
-            case 400:
-                showAlert(field: "400 Error", info: "Please upload a document with the valid parameters")
-                print("400: File param error")
+        case 400:
+            showAlert(field: "400 Error", info: "Please upload a document with the valid parameters")
+            print("400: File param error")
             
-            case 403:
-                showAlert(field: "403 Forbidden", info: "User not authorized to upload documents.")
-                print("403: Forbidden")
+        case 403:
+            showAlert(field: "403 Forbidden", info: "User not authorized to upload documents.")
+            print("403: Forbidden")
             
-            default:
-                showAlert(field: "Server Error", info: "Please try again.")
-                print("Server Error")
+        default:
+            showAlert(field: "Server Error", info: "Please try again.")
+            print("Server Error")
         }
     }
 }
 
+
+func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: Data, boundary: String) -> Data {
+    let body = NSMutableData();
     
-    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: Data, boundary: String) -> Data {
-            let body = NSMutableData();
+    let mimetype = "image/jpeg"
+    
+    body.appendString(string: "--\(boundary)\r\n")
+    body.appendString(string: "Content-Disposition: form-data; file=\"\(filePathKey!).jpg\"; filename=\"file\"; name=\"file\"; type=\"\(mimetype)\"\r\n")
+    body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+    body.append(imageDataKey)
+    body.appendString(string: "\r\n")
+    body.appendString(string: "--\(boundary)--\r\n")
+    
+    return body as Data
+}
 
-            let mimetype = "image/jpeg"
+func generateBoundaryString() -> String {
+    return "Boundary-\(NSUUID().uuidString)"
+}
 
-            body.appendString(string: "--\(boundary)\r\n")
-            body.appendString(string: "Content-Disposition: form-data; file=\"\(filePathKey!).jpg\"; filename=\"file\"; name=\"file\"; type=\"\(mimetype)\"\r\n")
-            body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
-            body.append(imageDataKey)
-            body.appendString(string: "\r\n")
-            body.appendString(string: "--\(boundary)--\r\n")
-
-            return body as Data
-        }
-
-        func generateBoundaryString() -> String {
-            return "Boundary-\(NSUUID().uuidString)"
-        }
-
-////Based off of: https://www.javaer101.com/en/article/11613040.html
+//  Code borrowed from: https://www.javaer101.com/en/article/11613040.html (Published 10/19/2020)
 func getTopMostViewController() -> UIViewController? {
     var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
-
+    
     while let presentedViewController = topMostViewController?.presentedViewController {
         topMostViewController = presentedViewController
     }
-    print("VC: ", topMostViewController)
+    //    print("VC: ", topMostViewController)
     return topMostViewController
 }
-
-//extension UIApplication {
-//  class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
-//    if let tabController = controller as? UITabBarController {
-//      return topViewController(controller: tabController.selectedViewController)
-//    }
-//    if let navController = controller as? UINavigationController {
-//      return topViewController(controller: navController.visibleViewController)
-//    }
-//    if let presented = controller?.presentedViewController {
-//      return topViewController(controller: presented)
-//    }
-//    return controller
-//  }
-//}
 
 func showAlert(field: String, info: String) {
     let alert = UIAlertController(title: field, message: info, preferredStyle: .alert)
@@ -252,21 +202,17 @@ func showAlert(field: String, info: String) {
     getTopMostViewController()?.present(alert, animated: false, completion: nil) 
 }
 
-
-//func showPendingAlert(sender: UIViewController){
-//    let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-//
-//    let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-//    loadingIndicator.hidesWhenStopped = true
-//    loadingIndicator.style = UIActivityIndicatorView.Style.medium
-//    loadingIndicator.startAnimating();
-//
-//    alert.view.addSubview(loadingIndicator)
-//    getTopMostViewController()!.present(alert, animated: true, completion: nil)
-//}
-
-func dismissAlert(alert: UIAlertController) {
-    alert.dismiss(animated: true, completion: nil)
+//  Code borrowed from: https://stackoverflow.com/questions/27960556/loading-an-overlay-when-running-long-tasks-in-ios (Published 12/14/15 by user Ajinkya Patil)
+func pendingAlert(info: String) {
+    let pending = UIAlertController(title: nil, message: info, preferredStyle: .alert) //loading alert
+    
+    let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+    loadingIndicator.hidesWhenStopped = true
+    loadingIndicator.style = UIActivityIndicatorView.Style.medium
+    loadingIndicator.startAnimating();
+    
+    pending.view.addSubview(loadingIndicator)
+    getTopMostViewController()?.present(pending, animated: false, completion: nil)
 }
 
 extension NSMutableData {
@@ -275,29 +221,3 @@ extension NSMutableData {
         append(data!)
     }
 }
-
-////Based off of: https://gist.github.com/db0company/369bfa43cb84b145dfd8
-//extension UIViewController {
-//    func topMostViewController() -> UIViewController {
-//        if self.presentedViewController == nil {
-//            return self
-//        }
-//        if let navigation = self.presentedViewController as? UINavigationController {
-//            return (navigation.visibleViewController?.topMostViewController())!
-//        }
-//        if let tab = self.presentedViewController as? UITabBarController {
-//            if let selectedTab = tab.selectedViewController {
-//                return selectedTab.topMostViewController()
-//            }
-//            return tab.topMostViewController()
-//        }
-//        return self.presentedViewController!.topMostViewController()
-//    }
-//}
-
-//extension UIApplication {
-//  func topMostViewController() -> UIViewController? {
-//    return UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController?.topMostViewController()
-//  }
-//}
-
