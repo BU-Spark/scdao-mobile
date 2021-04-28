@@ -33,59 +33,63 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
     private var originalBottomHeight: CGFloat = 0.0
     private var originalTopHeight: CGFloat = 0.0
     private var minPasswordLength: Int = 8
+    private var userCreatedButtonPressed: Bool = false
+    
     
     private func isPasswordValid(_ password : String) -> Bool{
         let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{" + String(minPasswordLength) + ",}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
-        //  let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
-        //  return passwordTest.evaluate(with: password)
     }
     
     private func isEmailValid(_ email: String) -> Bool {
         
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        
         return emailTest.evaluate(with: email)
     }
     
     //current assumption assumes password must be over minPassWordLength and include at least 1 number
     private func validate() -> Bool {
-        print("Email: " + email)
-        print("Username: " + username)
-        print("Pass: " + password)
-        print("Confirm: " + confirmedPassword)
+        //helps with debugging
+//        print("Email: " + email)
+//        print("Username: " + username)
+//        print("Pass: " + password)
+//        print("Confirm: " + confirmedPassword)
         
-        
+        //email is empty
         if email.isEmpty {
-            showInvalid(field: "Email", error: "Email is empty")
+            showAlert(field: "Email", error: "Email is empty")
             return false
         }
         
+        //email is not following email format, abc@xxx.zzz
         if !isEmailValid(email)  {
-            showInvalid(field: "Email", error: "Enter a valid email, make sure there is an email username followed by an '@' followed by a valid domain name")
+            showAlert(field: "Email", error: "Enter a valid email, make sure there is an email username followed by an '@' followed by a valid domain name")
             return false
         }
         
+        //username field is empty
         if username.isEmpty {
-            showInvalid(field: "Username", error: "Username is empty")
+            showAlert(field: "Username", error: "Username is empty")
             return false
         }
         
         //assuming password must be over minPassWordLength and include at least 1 number
         if !isPasswordValid(password) {
             if password.count < minPasswordLength{
-                showInvalid(field: "Password", error: "Password is too short, must be " + String(minPasswordLength) + " or more characters with at least one number")
+                showAlert(field: "Password", error: "Password is too short, must be " + String(minPasswordLength) + " or more characters with at least one number")
             }
-            // come back and change if we decide different password restrictions
+            // can edit the alert to display different messages depending on how password
+            // requirements are set up
             else{
-                showInvalid(field: "Password", error: "Password is missing a number or character, must be " + String(minPasswordLength) + " or more characters with at least one number")
+                showAlert(field: "Password", error: "Password is missing a number or character, must be " + String(minPasswordLength) + " or more characters with at least one number")
             }
             return false
         }
         
+        //passwords dont match
         if confirmedPassword != password {
-            showInvalid(field: "Confirmed password", error: "Password does not match")
+            showAlert(field: "Confirmed password", error: "Password does not match")
             return false
         }
         
@@ -93,31 +97,13 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    private func showInvalid(field: String, error: String) {
+    //function that shows an alert, allows us to save code at various other points
+    private func showAlert(field: String, error: String) {
         let alert = UIAlertController(title: field, message: error, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         present(alert, animated: true, completion: nil)
-    }
-    
-    private func showError(_ error: String) {
-        
-    }
-    
-    private func toHome() {
-        
-        DispatchQueue.main.sync {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeViewController = storyboard.instantiateViewController(identifier: "LoginVC") as? LoginViewController
-            
-            if homeViewController != nil {
-                view.window?.rootViewController = homeViewController
-                view.window?.makeKeyAndVisible()
-            }
-            
-        }
-        
     }
     
     @IBOutlet
@@ -182,9 +168,7 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
             iconView.image = UIImage(named: image)
             iconView.contentMode = .scaleAspectFit
         }
-        //leftView.backgroundColor = .blue
-        
-        //textField.leftView = leftView
+
         textField.leftViewMode = .always
     }
 
@@ -210,7 +194,6 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction
     private func onLoginButtonTap(_ button: UIButton) {
-        // TODO: navigate to login
         dismiss(animated: true, completion: nil)
     }
     
@@ -230,49 +213,48 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         // Create User
         let apiCall = AuthAPI(baseURL: Config.baseURL)
         
-        apiCall.signup(user: email, pass: password) { [weak self] (isSuccess, error) in
+
+        apiCall.signup(user: email, pass: password) { [weak self] (isSuccess, error, response)  in
             guard let this = self else { return }
             
+            //if successful, display successful message and move to home screen
             if isSuccess {
-                // Go to Home Screen
-                this.toHome()
-                /*
-                // Go to Home Screen
-                DispatchQueue.main.async {     //Do UI Code here.
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? TabBarController
+                DispatchQueue.main.async{
+                    let alert = UIAlertController(title: "Successful Signup", message: "Please login", preferredStyle: UIAlertController.Style.alert)
 
-                    this.view.window?.rootViewController = homeViewController
-                    this.view.window?.makeKeyAndVisible()
-                    
-                }*/
-            } else {
-                this.showError("Error creating user")
-            }
-        }
-        
-        /*
-        Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-            // Check for errors
-            if err != nil {
-                // There was a error
-                self.showError("Error creating user")
-            }
-            else {
-                // User was created successfully, store fields
-                let db = Firestore.firestore()
-                
-                db.collection("users").addDocument(data: ["username":self.username, "uid" : result!.user.uid ]) { (error) in
-                    if err != nil {
-                        // Show error
-                        self.showError("Error saving user data")
-                    }
+
+                    let loginAction = UIAlertAction(title: "Ok", style: .default){action in
+              
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let homeViewController = storyboard.instantiateViewController(identifier: "LoginVC") as? LoginViewController
+                                    
+                                    if homeViewController != nil {
+                                        self?.view.window?.rootViewController = homeViewController
+                                        self?.view.window?.makeKeyAndVisible()
+                                    }
+                            }
+
+                        
+                    alert.addAction(loginAction)
+
+                    self?.present(alert, animated: true, completion: nil)
                 }
-                // Go to Home Screen
-                self.toHome()
+
+            } else {
+                //either backend is not running or the email already exists
+                DispatchQueue.main.async {
+                    //testing if backend is not running
+                    if response == "Backend not running"{
+                        this.showAlert(field: "Connection error", error: "Backend is not running")
+                    }
+                    else{
+                        this.showAlert(field: "User already exists", error: "Enter a new email")
+                    }
+                    
+                    
+                }
             }
         }
- */
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
