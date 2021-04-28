@@ -22,6 +22,7 @@ class ImageAPI {
     let type: String
     private var timer: Timer?
     private var statusCheckedFirst = false
+    private var timeout = 40 //number of API calls until timeout
     
     init(baseURL: String, token: String, type: String) {
         let resourceString = "http://\(baseURL)/api/"
@@ -56,13 +57,16 @@ class ImageAPI {
         
         URLSession.shared.dataTask(with: request as URLRequest) { [self]
             data, response, error in
-            guard let serverResponse = response as? HTTPURLResponse, (200...299).contains(serverResponse.statusCode)  else {
+            if response == nil{
+                print("Error: Not connected to backend")
+                return completion(nil)
+            }
+            if let serverResponse = response as? HTTPURLResponse, !(200...299).contains(serverResponse.statusCode) {
                 serverErrorHandler(response: response as! HTTPURLResponse) // handle status codes with errors
                 return completion(nil)
             }
             if error != nil || data == nil {
-                print(error.debugDescription)
-                print("Not connected to backend")
+                print("Error: ", error.debugDescription)
                 return completion(nil)
             }
             if let data = data{
@@ -70,7 +74,7 @@ class ImageAPI {
                 if let responseString = json as? [String: Any], let job_id = responseString["job id"] as? String {
                     DispatchQueue.main.async{
                         //timer calls statusHandler() function repeatedly until task state returns a Success or Fail
-                        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(statusHandler(sender:)), userInfo: (job_id), repeats: true)
+                        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(statusHandler(sender:)), userInfo: (job_id), repeats: true)
                     }
                     return completion(true)
                 }
@@ -92,6 +96,17 @@ class ImageAPI {
         
         URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
+            if response == nil{
+                print("Error: Not connected to backend")
+                return completion(nil)
+            }
+            if let serverResponse = response as? HTTPURLResponse, !(200...299).contains(serverResponse.statusCode) {
+                return completion(nil)
+            }
+            if error != nil || data == nil {
+                print("Error: ", error.debugDescription)
+                return completion(nil)
+            }
             if let data = data{
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
                 if let responseString = json as? [String: Any], let status = responseString["task_state"] as? String{
@@ -109,7 +124,7 @@ class ImageAPI {
     // called by timer to fetch upload status until SUCCESS or FAIL (timer invalidates upon SUCCESS or FAIL)
     @objc private func statusHandler(sender: Timer) {
         let jobID = sender.userInfo
-        
+        timeout = timeout - 1
         if (statusCheckedFirst == true){ //if loading alert already displayed
             DispatchQueue.main.async {
                 getTopMostViewController()?.dismiss(animated: false, completion: nil) //remove loading alert
@@ -118,12 +133,14 @@ class ImageAPI {
         statusCheckedFirst = true
         
         uploadStatus(task_id: jobID as! String){ status in // get status using job_id
-            print("STATUS: ", status!)
+            print(self.timeout)
             if let status = status{
+                print("STATUS: ", status)
                 if (status == "SUCCESS"){
                     self.statusCheckedFirst = false
                     self.timer?.invalidate()
                     self.timer = nil
+                    self.timeout = 40 //reset number of API calls until timeout to 20
                     DispatchQueue.main.async {
                         showAlert(field: "Upload Successful", info: "Document uploaded successfully.")
                     }
@@ -132,17 +149,37 @@ class ImageAPI {
                     self.statusCheckedFirst = false
                     self.timer?.invalidate()
                     self.timer = nil
+                    self.timeout = 40
                     DispatchQueue.main.async {
                         showAlert(field: "Upload Failed", info: "Document upload failed. Please try again.")
                     }
                 }
                 if (status == "STARTING"){
-                    DispatchQueue.main.async {
-                        pendingAlert(info: "Uploading Image ...") //display loading alert
+                    if (self.timeout == 0){
+                        self.statusCheckedFirst = false
+                        self.timer?.invalidate()
+                        self.timer = nil
+                        self.timeout = 40
+                        print("error here")
+                        DispatchQueue.main.async {
+                            showAlert(field: "Upload Timeout", info: "Please try again.")
+                        }
+                    }
+                    else{
+                        DispatchQueue.main.async {
+                            pendingAlert(info: "Uploading Image ...") //display loading alert
+                        }
                     }
                 }
             }
+            if (self.timeout == 0){
+                self.timeout = 40
+                DispatchQueue.main.async {
+                  showAlert(field: "Upload Timeout", info: "Please try again.")
+                }
+            }
         }
+        print("Error getting image upload status")
     }
     
     @objc private func serverErrorHandler(response: HTTPURLResponse){
