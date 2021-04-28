@@ -37,14 +37,26 @@ struct AuthAPI {
         self.baseURL = resourceURL
     }
     
-    func signup(user: String, pass: String, completion handler: @escaping(Bool, AUTHError?) -> Void) {
+//    func signup(user: String, pass: String, completion handler: @escaping(Bool, AUTHError?) -> Void) {
+//        let data = ["username": user.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
+//                    "password": pass.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
+//                    "grant_type": "", "scope": "", "client_id": "", "client_secret": ""]
+//
+//        perform(endpoint: "signup", data: data, completion: { (data, error) in
+//            handler(data != nil, error)
+//        })
+//
+//    }
+    
+    func signup(user: String, pass: String, completion handler: @escaping(Bool, AUTHError?, String) -> Void) {
         let data = ["username": user.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
                     "password": pass.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
                     "grant_type": "", "scope": "", "client_id": "", "client_secret": ""]
         
-        perform(endpoint: "signup", data: data, completion: { (data, error) in
-            handler(data != nil, error)
+        responseString(endpoint: "signup", data: data, completion: { (data, error, response) in
+            handler(data != nil, error, response)
         })
+        
     }
     
     func signin(user: String, pass: String, completion handler: @escaping(LoginResponse?, AUTHError?) -> Void) {
@@ -125,5 +137,46 @@ struct AuthAPI {
             
         return string.addingPercentEncoding(
             withAllowedCharacters: allowedCharacters as CharacterSet)!
+    }
+    
+    
+    private func responseString(endpoint: String, data: [String: String], completion: @escaping(Data?, AUTHError?, String) -> Void) {
+        let fullURL = baseURL.appendingPathComponent(endpoint)
+        
+        var urlRequest = URLRequest(url: fullURL)
+        
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        do {
+            // "username=111&password=3333"
+            
+            let body = data.map { $0 + "=" + $1 }.joined(separator: "&")
+            let bodyData = body.data(using: .utf8, allowLossyConversion: false)
+            
+            urlRequest.httpBody = bodyData
+            
+            print("Request: " + fullURL.absoluteString)
+            print("Body: " + body)
+            
+            URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+                if data == nil {
+                    completion(nil, .HTTPValidationError, "Backend not running")
+                    return
+                }
+                let plainResponse = String(data: (data)!, encoding: .utf8)
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    completion(nil, .HTTPValidationError, plainResponse!)
+                    return
+                }
+                
+                completion(data, nil, plainResponse!)
+            }
+    
+            .resume()
+        } catch {
+            completion(nil, .ValidationError, "" )
+        }
     }
 }
