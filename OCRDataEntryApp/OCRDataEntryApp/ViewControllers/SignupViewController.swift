@@ -213,6 +213,7 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         // Create User
         let apiCall = AuthAPI(baseURL: Config.baseURL)
         
+
         apiCall.signup(user: email, pass: password) { [weak self] (isSuccess, error, response)  in
             guard let this = self else { return }
             

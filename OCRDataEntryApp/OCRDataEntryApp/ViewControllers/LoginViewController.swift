@@ -52,9 +52,12 @@ class LoginViewController: UIViewController {
     
     //helper function to help validate login info
     private func validate() -> Bool {
+
         //helps with debugging
 //        print("Email: " + email)
 //        print("Pass: " + password)
+
+
         
         //email is empty
         if email.isEmpty {
@@ -101,8 +104,9 @@ class LoginViewController: UIViewController {
     @IBAction func loginPressed(_ button: UIButton) {
         
         self.email = (emailTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+
         
-        self.password = (passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        self.password = "password" //(passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Check to see if login token exists --> segue to home vc if token exists
         guard validate() else { return }

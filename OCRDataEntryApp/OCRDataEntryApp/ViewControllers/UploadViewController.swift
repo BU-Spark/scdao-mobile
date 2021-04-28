@@ -15,6 +15,7 @@ final class UploadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Upload screen loaded")
 
         // Do any additional setup after loading the view.
     }
