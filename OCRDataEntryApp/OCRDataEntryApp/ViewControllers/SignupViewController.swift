@@ -230,9 +230,9 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         // Create User
         let apiCall = AuthAPI(baseURL: Config.baseURL)
         
-        apiCall.signup(user: email, pass: password) { [weak self] (isSuccess, error) in
+        apiCall.signup(user: email, pass: password) { [weak self] (isSuccess, error, response)  in
             guard let this = self else { return }
-            print("HERE")
+            
             if isSuccess {
                 DispatchQueue.main.async{
                     let alert = UIAlertController(title: "Successful Signup", message: "Please login", preferredStyle: UIAlertController.Style.alert)
@@ -257,7 +257,14 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
 
             } else {
                 DispatchQueue.main.async {
-                    this.showAlert(field: "User already exists", error: "Enter a new email")
+                    if response == "Backend not running"{
+                        this.showAlert(field: "Connection error", error: "Backend is not running")
+                    }
+                    else{
+                        this.showAlert(field: "User already exists", error: "Enter a new email")
+                    }
+                    
+                    
                 }
             }
         }

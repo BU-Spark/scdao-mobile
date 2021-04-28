@@ -120,12 +120,18 @@ class LoginViewController: UIViewController {
         // Signing in User
         let apiCall = AuthAPI(baseURL: Config.baseURL)
         
-        apiCall.signin(user: email, pass: password) { [weak self] (response, error) in
+        apiCall.signin(user: email, pass: password) { [weak self] (response, error, apiResponse) in
             guard let this = self else { return }
             
             if let error = error {
                 DispatchQueue.main.async {
-                    this.showInvalid(field: "Login Error", error: "Incorrect username or password")
+                    if apiResponse == "Backend not running"{
+                        this.showInvalid(field: "Connection error", error: "Backend is not running")
+                    }
+                    else{
+                        this.showInvalid(field: "Login Error", error: "Incorrect username or password")
+                    }
+//                    this.showInvalid(field: "Login Error", error: "Incorrect username or password")
 //                    this.errorLabel.text = error.localizedDescription
 //                    this.errorLabel.alpha = 1
                     
