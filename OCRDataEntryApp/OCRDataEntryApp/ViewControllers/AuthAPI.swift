@@ -37,16 +37,6 @@ struct AuthAPI {
         self.baseURL = resourceURL
     }
     
-//    func signup(user: String, pass: String, completion handler: @escaping(Bool, AUTHError?) -> Void) {
-//        let data = ["username": user.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
-//                    "password": pass.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
-//                    "grant_type": "", "scope": "", "client_id": "", "client_secret": ""]
-//
-//        perform(endpoint: "signup", data: data, completion: { (data, error) in
-//            handler(data != nil, error)
-//        })
-//
-//    }
     
     func signup(user: String, pass: String, completion handler: @escaping(Bool, AUTHError?, String) -> Void) {
         let data = ["username": user.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
@@ -86,46 +76,6 @@ struct AuthAPI {
             }
         })
     }
-    
-    private func perform(endpoint: String, data: [String: String], completion: @escaping(Data?, AUTHError?) -> Void) {
-        let fullURL = baseURL.appendingPathComponent(endpoint)
-        
-        var urlRequest = URLRequest(url: fullURL)
-        
-        urlRequest.httpMethod = "POST"
-        urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        do {
-            // "username=111&password=3333"
-            
-            let body = data.map { $0 + "=" + $1 }.joined(separator: "&")
-            let bodyData = body.data(using: .utf8, allowLossyConversion: false)
-            
-            urlRequest.httpBody = bodyData
-            
-            print("Request: " + fullURL.absoluteString)
-            print("Body: " + body)
-            
-            let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-                if let responseData = data, let plainResponse = String(data: responseData, encoding: .utf8) {
-                    print("Response: " + plainResponse)
-                }
-                
-                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                    completion(nil, .HTTPValidationError)
-                    return
-                }
-                
-                completion(data, nil)
-            }
-            
-            dataTask.resume()
-        } catch {
-            completion(nil, .ValidationError)
-        }
-    }
-    
     private func escape(_ string: String) -> String {
         let escapingCharacters = ":#[]@!$&'()*+,;="
 
@@ -139,7 +89,6 @@ struct AuthAPI {
             withAllowedCharacters: allowedCharacters as CharacterSet)!
     }
     
-    
     private func responseString(endpoint: String, data: [String: String], completion: @escaping(Data?, AUTHError?, String) -> Void) {
         let fullURL = baseURL.appendingPathComponent(endpoint)
         
@@ -150,8 +99,6 @@ struct AuthAPI {
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         
         do {
-            // "username=111&password=3333"
-            
             let body = data.map { $0 + "=" + $1 }.joined(separator: "&")
             let bodyData = body.data(using: .utf8, allowLossyConversion: false)
             

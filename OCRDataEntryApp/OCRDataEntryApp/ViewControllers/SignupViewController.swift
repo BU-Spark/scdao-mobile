@@ -35,21 +35,16 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
     private var minPasswordLength: Int = 8
     private var userCreatedButtonPressed: Bool = false
     
+    
     private func isPasswordValid(_ password : String) -> Bool{
-//      let passwordRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,}$"
-//        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
         let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{" + String(minPasswordLength) + ",}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
-        //  let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
-        //  return passwordTest.evaluate(with: password)
     }
     
     private func isEmailValid(_ email: String) -> Bool {
         
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-//        let emailRegEx = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        
         return emailTest.evaluate(with: email)
     }
     
@@ -81,7 +76,8 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
             if password.count < minPasswordLength{
                 showAlert(field: "Password", error: "Password is too short, must be " + String(minPasswordLength) + " or more characters with at least one number")
             }
-            // come back and change if we decide different password restrictions
+            // can edit the alert to display different messages depending on how password
+            // requirements are set up
             else{
                 showAlert(field: "Password", error: "Password is missing a number or character, must be " + String(minPasswordLength) + " or more characters with at least one number")
             }
@@ -103,21 +99,6 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         present(alert, animated: true, completion: nil)
-    }
-    
-    private func toHome() {
-        
-        DispatchQueue.main.sync {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeViewController = storyboard.instantiateViewController(identifier: "LoginVC") as? LoginViewController
-            
-            if homeViewController != nil {
-                view.window?.rootViewController = homeViewController
-                view.window?.makeKeyAndVisible()
-            }
-            
-        }
-        
     }
     
     @IBOutlet
@@ -182,9 +163,7 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
             iconView.image = UIImage(named: image)
             iconView.contentMode = .scaleAspectFit
         }
-        //leftView.backgroundColor = .blue
-        
-        //textField.leftView = leftView
+
         textField.leftViewMode = .always
     }
 
@@ -210,7 +189,6 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction
     private func onLoginButtonTap(_ button: UIButton) {
-        // TODO: navigate to login
         dismiss(animated: true, completion: nil)
     }
     
@@ -233,6 +211,7 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         apiCall.signup(user: email, pass: password) { [weak self] (isSuccess, error, response)  in
             guard let this = self else { return }
             
+            //if successful, display successful message and move to home screen
             if isSuccess {
                 DispatchQueue.main.async{
                     let alert = UIAlertController(title: "Successful Signup", message: "Please login", preferredStyle: UIAlertController.Style.alert)
@@ -256,7 +235,9 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
                 }
 
             } else {
+                //either backend is not running or the email already exists
                 DispatchQueue.main.async {
+                    //testing if backend is not running
                     if response == "Backend not running"{
                         this.showAlert(field: "Connection error", error: "Backend is not running")
                     }

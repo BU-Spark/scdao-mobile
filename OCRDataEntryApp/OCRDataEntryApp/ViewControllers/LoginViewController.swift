@@ -103,14 +103,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginPressed(_ button: UIButton) {
         
-        // Check Text Fields
-        
-        
-        // Still need to vaildate text fields [email,username]
-        
-        
-        // Data Fields
-        
         self.email = (emailTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         
         self.password = (passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
@@ -124,6 +116,8 @@ class LoginViewController: UIViewController {
             guard let this = self else { return }
             
             if let error = error {
+                //first check if backend is not running, otherwise the username or password
+                //is incorrect
                 DispatchQueue.main.async {
                     if apiResponse == "Backend not running"{
                         this.showInvalid(field: "Connection error", error: "Backend is not running")
@@ -131,10 +125,6 @@ class LoginViewController: UIViewController {
                     else{
                         this.showInvalid(field: "Login Error", error: "Incorrect username or password")
                     }
-//                    this.showInvalid(field: "Login Error", error: "Incorrect username or password")
-//                    this.errorLabel.text = error.localizedDescription
-//                    this.errorLabel.alpha = 1
-                    
                 }
                 return
             }
