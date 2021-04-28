@@ -9,48 +9,7 @@
 import UIKit
 import SwiftUI
 
-//struct Post: Codable, Identifiable {
-//    let id = UUID()
-//    var title: String
-//    var body: String
-//
-//}
-//
-//class Api2 {
-//    func getData(completion: @escaping ([Post]) -> ()) {
-//        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else {return}
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//            let records = try! JSONDecoder().decode([Post].self, from: data!)
-//            DispatchQueue.main.async {
-//                completion(records)
-//            }
-//        }
-//        .resume()
-//    }
-//
-//}
-//struct FormView: View {
-//    @State var records: [Post] = []
-//    var body: some View {
-//        List(records) { record in
-//            VStack{
-//                Spacer()
-////                            Text(record.defen_name).frame(alignment: .leading)
-////                            Text(record.police_dept).frame(alignment: .leading)
-//                Text(record.title).frame(alignment: .leading)
-//                Text(record.body).frame(alignment: .leading)
-//            }
-//        }
-////            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 80, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: .infinity, maxHeight: 700, alignment: .topLeading)
-//        .onAppear {
-//            Api2().getData() { (records) in
-//                self.records = records
-//            }
-//        }
-//    }
-//}
-
-
+//Structure to hold the CCF form
 struct Form: Codable, Identifiable {
     let id = UUID()
     var docket: String?
@@ -82,21 +41,8 @@ struct Form: Codable, Identifiable {
     var img_key: String?
     var aws_bucket: String?
 }
-
-//struct Form: Codable
-//{
-//    var returnedForms: form
-//
-//    init(from decoder: Decoder) throws {
-//        var container = try decoder.unkeyedContainer()
-//        returnedForms = try container.decode(form.self)
-//    }
-//}
-
-
+//Class to make the API Call that retrieves all the CCF records.
 class Api2 : FormViewController{
-    
-    
     func getData(completion: @escaping ([Form]) -> ()) {
         struct RetrieveCcfAPI2 {
             let baseURL: URL
@@ -114,7 +60,6 @@ class Api2 : FormViewController{
             }
         }
         guard let token = UserDefaults.standard.string(forKey: "tokenValue"), let type = UserDefaults.standard.string(forKey: "tokenType") else {return}
-        print("PASSED")
         let apiCall = RetrieveCcfAPI2(baseURL: Config.baseURL, token: token, type: type)
         let myUrl = apiCall.baseURL.appendingPathComponent("v1/records/ccf")
         let request = NSMutableURLRequest(url:myUrl)
@@ -150,7 +95,7 @@ class Api2 : FormViewController{
         return "Boundary-\(NSUUID().uuidString)"
     }
 }
-//
+//Structure to check CCF forms for information we want to display in access library. 
 struct FormView: View {
     @State var records: [Form] = []
     var body: some View {
@@ -173,7 +118,6 @@ struct FormView: View {
             }
             
         }
-//            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 80, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: .infinity, maxHeight: 700, alignment: .topLeading)
         .onAppear {
             Api2().getData() { (records) in
                 self.records = records
