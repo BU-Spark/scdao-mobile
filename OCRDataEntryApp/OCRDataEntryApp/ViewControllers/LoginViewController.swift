@@ -22,13 +22,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-//        #if DEBUG
-//        emailTextField.text = "admin@scdao-api.org"
-//        passwordTextField.text = "password"
-//        #endif
     }
     
     @IBAction func signup() {
@@ -39,6 +32,7 @@ class LoginViewController: UIViewController {
         
         present(singupController, animated: true, completion: nil)
     }
+    
     @IBAction func up() {
         let singupController = UploadViewController()
         
@@ -48,6 +42,7 @@ class LoginViewController: UIViewController {
         present(singupController, animated: true, completion: nil)
     }
     
+    //tests if email is valid
     private func isEmailValid(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
@@ -55,21 +50,25 @@ class LoginViewController: UIViewController {
         return emailTest.evaluate(with: email)
     }
     
+    //helper function to help validate login info
     private func validate() -> Bool {
-        print("Email: " + email)
-        print("Pass: " + password)
+        //helps with debugging
+//        print("Email: " + email)
+//        print("Pass: " + password)
         
-        
+        //email is empty
         if email.isEmpty {
             showInvalid(field: "Email", error: "Email is empty")
             return false
         }
         
+        //email does not follow abc@xxx.zzz format
         if !isEmailValid(email)  {
             showInvalid(field: "Email", error: "Enter a valid email, make sure there is an email username followed by an '@' followed by a valid domain name")
             return false
         }
         
+        //password field is empty
         if password.isEmpty {
             showInvalid(field: "Password", error: "Password is empty")
             return false
@@ -78,6 +77,7 @@ class LoginViewController: UIViewController {
         return true
     }
     
+    //function that shows alerts, allows us to save code at various points
     private func showInvalid(field: String, error: String) {
         let alert = UIAlertController(title: field, message: error, preferredStyle: .alert)
         
@@ -85,10 +85,6 @@ class LoginViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    
-    private func showError(_ error: String) {
-         
-     }
     
     @IBAction
     private func onEmailTextChanged(_ textField: UITextField) {
@@ -101,6 +97,7 @@ class LoginViewController: UIViewController {
         self.password = textField.text ?? ""
     }
     
+    //check login credentials and create authentication token to login if successful
     @IBAction func loginPressed(_ button: UIButton) {
         
         self.email = (emailTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)

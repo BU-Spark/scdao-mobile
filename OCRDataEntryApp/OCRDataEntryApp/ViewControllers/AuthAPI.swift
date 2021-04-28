@@ -104,8 +104,9 @@ struct AuthAPI {
             
             urlRequest.httpBody = bodyData
             
-            print("Request: " + fullURL.absoluteString)
-            print("Body: " + body)
+            //helps with debugging request responses by printing in console
+//            print("Request: " + fullURL.absoluteString)
+//            print("Body: " + body)
             
             URLSession.shared.dataTask(with: urlRequest) { data, response, error in
                 if data == nil {

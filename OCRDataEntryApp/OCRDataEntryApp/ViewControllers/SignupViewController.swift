@@ -50,22 +50,25 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
     
     //current assumption assumes password must be over minPassWordLength and include at least 1 number
     private func validate() -> Bool {
-        print("Email: " + email)
-        print("Username: " + username)
-        print("Pass: " + password)
-        print("Confirm: " + confirmedPassword)
+        //helps with debugging
+//        print("Email: " + email)
+//        print("Username: " + username)
+//        print("Pass: " + password)
+//        print("Confirm: " + confirmedPassword)
         
-        
+        //email is empty
         if email.isEmpty {
             showAlert(field: "Email", error: "Email is empty")
             return false
         }
         
+        //email is not following email format, abc@xxx.zzz
         if !isEmailValid(email)  {
             showAlert(field: "Email", error: "Enter a valid email, make sure there is an email username followed by an '@' followed by a valid domain name")
             return false
         }
         
+        //username field is empty
         if username.isEmpty {
             showAlert(field: "Username", error: "Username is empty")
             return false
@@ -84,6 +87,7 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         
+        //passwords dont match
         if confirmedPassword != password {
             showAlert(field: "Confirmed password", error: "Password does not match")
             return false
@@ -93,6 +97,7 @@ final class SignupViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    //function that shows an alert, allows us to save code at various other points
     private func showAlert(field: String, error: String) {
         let alert = UIAlertController(title: field, message: error, preferredStyle: .alert)
         
