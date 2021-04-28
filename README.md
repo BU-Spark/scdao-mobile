@@ -40,5 +40,5 @@ response data = {“detail”:“Bad uploaded file format”}
 As of Spring 2021, this error has been fixed. The app will now accept uploads and return the job id as supposed to.
 
 ### Known bugs (Spring 2021)
-Since the API is running locally on our computers, having the app run on our actual mobile phone is not possible as the phone cannot connect to the API on the computer. 
+Since the API is running locally on our computers, having the app run on our actual mobile phone is not possible as the phone cannot connect to the local API that is running on the computer. 
 
