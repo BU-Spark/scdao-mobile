@@ -83,6 +83,7 @@ class Api2 : FormViewController{
                         completion([test])
                     }
             }
+            else{
             let res = response as! HTTPURLResponse
             if (response != nil && res.statusCode == 403) {
                 DispatchQueue.main.async {
@@ -95,6 +96,7 @@ class Api2 : FormViewController{
                     DispatchQueue.main.async {
                         completion(rec)
                     }
+            }
             }
         }
         .resume()
