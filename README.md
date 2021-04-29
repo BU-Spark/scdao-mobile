@@ -42,3 +42,7 @@ As of Spring 2021, this error has been fixed. The app will now accept uploads an
 ### Known bugs (Spring 2021)
 Since the API is running locally on our computers, having the app run on our actual mobile phone is not possible as the phone cannot connect to the local API that is running on the computer. 
 
+The app allows gif file types to be uploaded to the API and have a job ID returned, despite this not being an acceptable file type on the backend. Sending a gif through the app returns a successful 200 response instead of a 400 invalid file type response.
+
+Occasionally when uploading an image, the app returns the error “terminating with uncaught exception of type NSException
+*** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'Application tried to present modally a view controller <UIAlertController: 0x7f98df861a00> that is already being presented by <OCRDataEntryApp.UploadViewController: 0x7f98dde14090>.'". The bug is not reproducible consistently and only happens occasionally. This error most often occurs with the specific image of pink flowers found as a default in the iPhone simulator’s photo library.
