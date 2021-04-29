@@ -363,7 +363,7 @@
         <scene sceneID="rB7-zK-aoY">
             <objects>
                 <viewController id="9eV-ZQ-1m5" customClass="UploadViewController" customModule="OCRDataEntryApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ANb-K2-ME2" customClass="UploadViewCOntro">
+                    <view key="view" contentMode="scaleToFill" id="ANb-K2-ME2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
