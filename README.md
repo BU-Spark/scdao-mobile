@@ -41,11 +41,11 @@ response data = {“detail”:“Bad uploaded file format”}
 
 As of Spring 2021, this error has been fixed. The app will now accept uploads and return the job id as supposed to.
 
-Note: When uploading an image and waiting for success or for it to timeout, the amount of time it takes for the OCR to scan the uploaded image depends heavily on various factors such as network bandwidth and computer hardware. The same picture could be successfully uploaded on one person's computer and timeout on another persons due to these factors. Increase max API calls in UploadViewController.swift (line 19) to give maximum chance for the parser to succeed. This feature can be extended upon in the future to account for variable internet speeds and hardware limitations while also insuring users are notified that their documents have uploaded successfully. 
-
 ### Known bugs (Spring 2021)
 Since the API is running locally on our computers, having the app run on our actual mobile phone is not possible as the phone cannot connect to the local API that is running on the computer. 
 
 The app allows gif file types to be uploaded to the API and have a job ID returned, despite this not being an acceptable file type on the backend. Sending a gif through the app returns a successful 200 response instead of a 400 invalid file type response. We believe this is due to iPhones automatically converting gifs to jpegs.
 
-The app times out after a certain number of API requests are made to get the image status, but a DELETE route doesn't exist yet on the backend for the uploaded image to be removed so it is possible that a user can upload the same image multiple times if it times out.
+The app times out after a certain number of API requests are made to get the image status, but a DELETE route doesn't exist yet on the backend for the uploaded image to be removed so it is possible that a user can upload the same image multiple times regardless of whether there is a time out request.
+
+Note: When uploading an image and waiting for success or for it to timeout, the amount of time it takes for the OCR to scan the uploaded image depends heavily on various factors such as network bandwidth and computer hardware. The same picture could be successfully uploaded on one person's computer and timeout on another persons due to these factors. Increase max API calls in UploadViewController.swift (line 19) to give maximum chance for the parser to succeed. This feature can be extended upon in the future to account for variable internet speeds and hardware limitations while also insuring users are notified that their documents have uploaded successfully. If running on slow internet speeds, it will either display a time out alert or there is a server error alert depending on internet connection speeds. 
