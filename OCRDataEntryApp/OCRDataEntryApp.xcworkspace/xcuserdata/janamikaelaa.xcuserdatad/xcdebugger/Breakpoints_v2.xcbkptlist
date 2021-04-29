@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D4241007-CC02-4AD1-B85B-F5258B3E97D1"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1083086-8747-4D3C-81B4-974DB0385710"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCRDataEntryApp/ViewControllers/RetrieveCcfAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "RetrieveCcfAPI"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "B1083086-8747-4D3C-81B4-974DB0385710 - d84de34d9b78fd63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OCRDataEntryApp.RetrieveCcfAPI.retrieveFiles() -&gt; ()"
+                  moduleName = "OCRDataEntryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/janamikaelaa/Desktop/scdao/scdao-mobile/OCRDataEntryApp/OCRDataEntryApp/ViewControllers/RetrieveCcfAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "2036">
+               </Location>
+               <Location
+                  uuid = "B1083086-8747-4D3C-81B4-974DB0385710 - ec03d200cbdcb3e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in OCRDataEntryApp.RetrieveCcfAPI.retrieveFiles() -&gt; ()"
+                  moduleName = "OCRDataEntryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/janamikaelaa/Desktop/scdao/scdao-mobile/OCRDataEntryApp/OCRDataEntryApp/ViewControllers/RetrieveCcfAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63729371-1C2F-4D08-9E6B-616C366B7113"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCRDataEntryApp/ViewControllers/data.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45A94381-2B95-4FD7-A67D-1165338049C5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCRDataEntryApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "application(_:configurationForConnecting:options:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

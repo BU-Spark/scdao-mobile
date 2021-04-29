@@ -1,4 +1,3 @@
-//
 //  ImageApi.swift
 //  OCRDataEntryApp
 //  Code borrowed from https://stackoverflow.com/questions/37474265/swift-2-how-do-you-add-authorization-header-to-post-request 
@@ -7,7 +6,8 @@
 //
 //  Created by Eesha Gholap on 12/4/20.
 //  Copyright © 2020 SparkBU. All rights reserved.
-//  reference :https://www.donnywals.com/uploading-images-and-forms-to-a-server-using-urlsession/ 
+//  reference :https://www.donnywals.com/uploading-images-and-forms-to-a-server-using-urlsession/
+//            :https://www.freecodecamp.org/news/how-to-make-your-first-api-call-in-swift/ (11/29/2019 by Ai-Lyn Tang)
 
 import Foundation
 import UIKit
@@ -17,11 +17,11 @@ enum ImageError: Error {
     case ValidationError
 }
 
-struct ImageAPI {
+class ImageAPI {
     let baseURL: URL
     let token: String
     let type: String
-
+    
     init(baseURL: String, token: String, type: String) {
         let resourceString = "http://\(baseURL)/api/"
         
@@ -32,7 +32,8 @@ struct ImageAPI {
         self.type = type
     }
     
-    func uploadImage(imageToUpload: UIImage) {
+    // uploads image and gets back job_id or API response
+    func uploadImage(imageToUpload: UIImage, completion: @escaping (String?)->()){
         let myUrl = baseURL.appendingPathComponent("v1/uploads/ccf")
         let request = NSMutableURLRequest(url:myUrl)
         
@@ -44,69 +45,111 @@ struct ImageAPI {
         request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("\(type) \(token)", forHTTPHeaderField: "Authorization")
-
+        
+        
         guard let imageData = imageToUpload.jpegData(compressionQuality: 1) else {
-            return
+            return completion(nil)
         }
-
+        
         request.httpBody = createBodyWithParameters(parameters: param, filePathKey: "file", imageDataKey: imageData, boundary: boundary)
-
-        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+        
+        URLSession.shared.dataTask(with: request as URLRequest) { [self]
             data, response, error in
+            if response == nil{
+                return completion("Not connected to API")
+            }
+            if let serverResponse = response as? HTTPURLResponse, !(200...299).contains(serverResponse.statusCode) {
+                return(completion(serverErrorHandler(response: response as! HTTPURLResponse))) // handle status codes with errors
+            }
+            if error != nil || data == nil {
+                return completion(nil)
+            }
+            if let data = data{
+                let json = try! JSONSerialization.jsonObject(with: data, options: [])
+                if let responseString = json as? [String: Any], let job_id = responseString["job id"] as? String {
+                    return completion(job_id)
+                }
+                return completion(nil)
+            }
+            else{
+                return completion(nil)
+            }
+        }.resume()
+    }
+    
+    // retrieves upload status (SUCCESS, AWS_FAIL, OCR_FAIL, STARTING)
+    @objc func uploadStatus (task_id: String, completion: @escaping (String?)->()){
+        let myUrl = baseURL.appendingPathComponent("v1/tasks/\(task_id)")
+        let request = NSMutableURLRequest(url:myUrl)
+        
+        request.httpMethod = "GET";
+        request.addValue("\(type) \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            if response == nil{
+                return completion(nil)
+            }
+            if let serverResponse = response as? HTTPURLResponse, !(200...299).contains(serverResponse.statusCode) {
+                //                print("Error Code: ", (completion(self.serverErrorHandler(response: response as! HTTPURLResponse))))
+                return completion(nil)
+            }
+            if error != nil || data == nil {
+                return completion(nil)
+            }
+            if let data = data{
+                let json = try! JSONSerialization.jsonObject(with: data, options: [])
+                if let responseString = json as? [String: Any], let status = responseString["task_state"] as? String{
+                    //                    print("TASK STATE: ", status) //useful for debugging
+                    return completion(status)
+                }
+                return completion(nil)
+            }
+            else{
+                return completion(nil)
+            }
+        }.resume()
+    }
+    
+    // returns API response codes for specific errors
+    @objc private func serverErrorHandler(response: HTTPURLResponse) -> String{
+        let statusCode = response.statusCode
+        switch statusCode{
+        case 400:
+            return "Invalid Params"
             
-            if let responseData = data, let plainResponse = String(data: responseData, encoding: .utf8) {
-                print("Response: " + plainResponse)
-            }
-
-                if error != nil {
-                    print("error=\(error!)")
-                    return
-                }
-
-                //print response
-                //print("response = \(response!)")
-
-                // print reponse body
-                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print("response data = \(responseString!)")
-
-            }
-
-            task.resume()
-        }
-    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: Data, boundary: String) -> Data {
-            let body = NSMutableData();
-
-        /*
-            if parameters != nil {
-                for (key, value) in parameters! {
-                    body.appendString(string: "--\(boundary)\r\n")
-                    body.appendString(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-                    body.appendString(string: "\(value)\r\n")
-                }
-            }*/
-
-            let mimetype = "image/jpeg"
-
-            body.appendString(string: "--\(boundary)\r\n")
-        body.appendString(string: "Content-Disposition: form-data; file=\"\(filePathKey!).jpg\"; filename=\"file\"; name=\"file\"; type=\"\(mimetype)\"\r\n")
-            body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
-            body.append(imageDataKey)
-            body.appendString(string: "\r\n")
-            body.appendString(string: "--\(boundary)--\r\n")
-
-            return body as Data
-        }
-
-        func generateBoundaryString() -> String {
-            return "Boundary-\(NSUUID().uuidString)"
-        }
-
-    }
-
-    extension NSMutableData {
-        func appendString(string: String) {
-            let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
-            append(data!)
+        case 403:
+            return "Unauthorized Access"
+            
+        default:
+            return "Server Error"
         }
     }
+}
+
+
+func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: Data, boundary: String) -> Data {
+    let body = NSMutableData();
+    
+    let mimetype = "image/jpeg"
+    
+    body.appendString(string: "--\(boundary)\r\n")
+    body.appendString(string: "Content-Disposition: form-data; file=\"\(filePathKey!).jpg\"; filename=\"file\"; name=\"file\"; type=\"\(mimetype)\"\r\n")
+    body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+    body.append(imageDataKey)
+    body.appendString(string: "\r\n")
+    body.appendString(string: "--\(boundary)--\r\n")
+    
+    return body as Data
+}
+
+func generateBoundaryString() -> String {
+    return "Boundary-\(NSUUID().uuidString)"
+}
+
+extension NSMutableData {
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
+    }
+}
