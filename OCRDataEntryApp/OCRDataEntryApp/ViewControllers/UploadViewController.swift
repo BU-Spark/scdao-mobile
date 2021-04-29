@@ -18,7 +18,7 @@ final class UploadViewController: UIViewController {
     let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
     let maxAPICalls = 30 //max number of API calls to check upload status
     var apiCallCount = 0
-    var disableUpload = false
+    var disableUpload = false //prevent users from pressing image multiple times
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +48,9 @@ final class UploadViewController: UIViewController {
     
     @IBAction func didTapUploadButton(){
         let vc = UIImagePickerController()
-
-        present(vc, animated: true, completion: nil )
         
+        present(vc, animated: true, completion: nil )
     }
-    
-    
 }
 
 extension UploadViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
@@ -109,76 +106,19 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-//        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-//            imageView.image = image
-//            picker.dismiss(animated: true, completion:nil)
-//
-        
-        //https://stackoverflow.com/questions/44153941/prevent-picking-the-same-photo-twice-in-uiimagepickercontroller
+        //Based on https://stackoverflow.com/questions/44153941/prevent-picking-the-same-photo-twice-in-uiimagepickercontroller (5/24/17 by JozeRi)
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             if self.disableUpload == true {
-                print("entered condition")
                 return
             }
             self.disableUpload = true
             guard !picker.isBeingDismissed else {
-                print("Multiple taps to a single photo")
                 return
             }
             imageView.image = image
             self.disableUpload = false
             imageApiCaller(image: image)
             picker.dismiss(animated: true)
-            
-        
-//            guard let token = UserDefaults.standard.string(forKey: "tokenValue"),
-//                  let type = UserDefaults.standard.string(forKey: "tokenType") else {
-//                return
-//            }
-//
-//            let apiCall = ImageAPI(baseURL: Config.baseURL, token: token, type: type)
-//
-//            let _: () = apiCall.uploadImage(imageToUpload: imageView.image!) { status in //upload image and get job_id or API response
-//                if (status == nil){
-//                    DispatchQueue.main.async {
-//                        self.showAlert(field: "Error Uploading Image", info: "Please try again.")
-//                    }
-//                    return
-//                }
-//                if (status == "Unauthorized Access"){
-//                    DispatchQueue.main.async {
-//                        self.showAlert(field: "Unauthorized Access", info: "You do not have authorization to upload documents.")
-//                    }
-//                    return
-//                }
-//                if (status == "Invalid Params"){
-//                    DispatchQueue.main.async {
-//                        self.showAlert(field: "Invalid File Upload", info: "Uploaded file does not match the valid parameters.")
-//                    }
-//                    return
-//                }
-//                if (status == "Server Error"){
-//                    DispatchQueue.main.async {
-//                        self.showAlert(field: "Server Error", info: "")
-//                    }
-//                    return
-//                }
-//
-//                else{ // return job_id
-//                    DispatchQueue.main.async {
-//                        self.loadingIndicator.hidesWhenStopped = true
-//                        self.loadingIndicator.style = UIActivityIndicatorView.Style.medium
-//                        self.loadingIndicator.startAnimating();
-//
-//                        self.pending.view.addSubview(self.loadingIndicator)
-//                        self.present(self.pending, animated: false, completion: nil)
-//
-//                        //timer function calls statusHandler() repeatedly until upload returns SUCCESS, FAIL, or max number of requests exceeded
-//                        self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.statusHandler(sender:)), userInfo: status, repeats: true)
-//                    }
-//                }
-//            }
-            
         }
     }
     
