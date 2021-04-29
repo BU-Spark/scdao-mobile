@@ -41,6 +41,9 @@ struct Form: Codable, Identifiable {
     var img_key: String?
     var aws_bucket: String?
 }
+
+
+
 //Class to make the API Call that retrieves all the CCF records.
 class Api2 : FormViewController{
     func getData(completion: @escaping ([Form]) -> ()) {
@@ -63,7 +66,6 @@ class Api2 : FormViewController{
         let apiCall = RetrieveCcfAPI2(baseURL: Config.baseURL, token: token, type: type)
         let myUrl = apiCall.baseURL.appendingPathComponent("v1/records/ccf")
         let request = NSMutableURLRequest(url:myUrl)
-
         request.httpMethod = "GET";
 
         let boundary = generateBoundaryString()
@@ -73,7 +75,6 @@ class Api2 : FormViewController{
         request.addValue("\(type) \(token)", forHTTPHeaderField: "Authorization")
 
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
-            
             if(data == nil){
                 
                 let test = Form(docket: "Nil return")
@@ -81,6 +82,13 @@ class Api2 : FormViewController{
                     DispatchQueue.main.async {
                         completion([test])
                     }
+            }
+            let res = response as! HTTPURLResponse
+            if (response != nil && res.statusCode == 403) {
+                DispatchQueue.main.async {
+                    completion([])
+                }
+
             }
             else{
                 let rec = try! JSONDecoder().decode([Form].self, from: data!)
@@ -94,8 +102,12 @@ class Api2 : FormViewController{
     func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().uuidString)"
     }
+    
 }
-//Structure to check CCF forms for information we want to display in access library. 
+//Structure to check CCF forms for information we want to display in access library.
+
+
+
 struct FormView: View {
     @State var records: [Form] = []
     var body: some View {

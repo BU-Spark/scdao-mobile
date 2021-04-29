@@ -13,15 +13,21 @@ class FormViewController: UIViewController {
     @State var records: [Form] = []
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         Api2().getData() { (records) in
             self.records = records
-            if(records[0].docket == "Nil return"){
-                    
-                    let alert = UIAlertController(title: "Backend error", message: "Not connected to backend", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+            if (records.isEmpty) {
+                let alert = UIAlertController(title: "Unauthorized Access", message: "You are not authorized to view previous uploads.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
             }
+            else if(records[0].docket == "Nil return"){
+                let alert = UIAlertController(title: "Backend error", message: "Not connected to backend", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+    
         }
 
         controller.view.translatesAutoresizingMaskIntoConstraints = false
