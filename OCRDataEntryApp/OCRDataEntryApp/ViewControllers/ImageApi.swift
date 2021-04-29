@@ -46,6 +46,7 @@ class ImageAPI {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("\(type) \(token)", forHTTPHeaderField: "Authorization")
         
+        
         guard let imageData = imageToUpload.jpegData(compressionQuality: 1) else {
             return completion(nil)
         }
