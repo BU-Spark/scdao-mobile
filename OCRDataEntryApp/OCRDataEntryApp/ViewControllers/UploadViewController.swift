@@ -23,7 +23,7 @@ final class UploadViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    @IBAction func didTapCameraButton(){
+    @IBAction func didTapCameraButton(){ //option to use camera when using actual device to test
         #if !targetEnvironment(simulator)
         var button = sender as UIButton
         let vc = UIImagePickerController()
@@ -32,7 +32,7 @@ final class UploadViewController: UIViewController {
         present(vc, animated: true)
         #endif
     }
-    @IBAction func didTapLibraryButton(){
+    @IBAction func didTapLibraryButton(){ //button to open up iPhone library
         let vc = UIImagePickerController()
         vc.sourceType = .photoLibrary
         vc.delegate = self
@@ -47,8 +47,11 @@ final class UploadViewController: UIViewController {
     
     @IBAction func didTapUploadButton(){
         let vc = UIImagePickerController()
+
         present(vc, animated: true, completion: nil )
+        
     }
+    
     
 }
 
@@ -56,10 +59,22 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+//        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+//            imageView.image = image
+//            picker.dismiss(animated: true, completion:nil)
+//
+
+        
+        //https://stackoverflow.com/questions/44153941/prevent-picking-the-same-photo-twice-in-uiimagepickercontroller
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            guard !picker.isBeingDismissed else {
+                print("Multiple taps to a single photo")
+                return
+            }
             imageView.image = image
-            picker.dismiss(animated: true, completion:nil)
+            picker.dismiss(animated: true)
             
+        
             guard let token = UserDefaults.standard.string(forKey: "tokenValue"),
                   let type = UserDefaults.standard.string(forKey: "tokenType") else {
                 return

@@ -103,8 +103,8 @@ class LoginViewController: UIViewController {
     //check login credentials and create authentication token to login if successful
     @IBAction func loginPressed(_ button: UIButton) {
         
-        self.email = (emailTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-        self.password = (passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)  
+        self.email = "admin@scdao-api.org"//(emailTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        self.password = "password" //(passwordTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)  
         
         // Check to see if login token exists --> segue to home vc if token exists
         guard validate() else { return }
