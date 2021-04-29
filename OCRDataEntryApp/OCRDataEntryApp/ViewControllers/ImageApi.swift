@@ -6,7 +6,8 @@
 //
 //  Created by Eesha Gholap on 12/4/20.
 //  Copyright © 2020 SparkBU. All rights reserved.
-//  reference :https://www.donnywals.com/uploading-images-and-forms-to-a-server-using-urlsession/ 
+//  reference :https://www.donnywals.com/uploading-images-and-forms-to-a-server-using-urlsession/
+//            :https://www.freecodecamp.org/news/how-to-make-your-first-api-call-in-swift/ (11/29/2019 by Ai-Lyn Tang)
 
 import Foundation
 import UIKit
@@ -31,7 +32,7 @@ class ImageAPI {
         self.type = type
     }
     
-    // uploads image and gets back job_id
+    // uploads image and gets back job_id or API response
     func uploadImage(imageToUpload: UIImage, completion: @escaping (String?)->()){
         let myUrl = baseURL.appendingPathComponent("v1/uploads/ccf")
         let request = NSMutableURLRequest(url:myUrl)
@@ -60,7 +61,6 @@ class ImageAPI {
                 return(completion(serverErrorHandler(response: response as! HTTPURLResponse))) // handle status codes with errors
             }
             if error != nil || data == nil {
-                print("Error ", error?.localizedDescription ?? "")
                 return completion(nil)
             }
             if let data = data{
@@ -87,21 +87,19 @@ class ImageAPI {
         URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
             if response == nil{
-                print("Error: Not connected to backend")
                 return completion(nil)
             }
             if let serverResponse = response as? HTTPURLResponse, !(200...299).contains(serverResponse.statusCode) {
-                print("Error Code: ", (completion(self.serverErrorHandler(response: response as! HTTPURLResponse))))
+                //                print("Error Code: ", (completion(self.serverErrorHandler(response: response as! HTTPURLResponse))))
                 return completion(nil)
             }
             if error != nil || data == nil {
-                print("Error ", error?.localizedDescription ?? "")
                 return completion(nil)
             }
             if let data = data{
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
                 if let responseString = json as? [String: Any], let status = responseString["task_state"] as? String{
-                    print("TASK STATE: ", status)
+                    //                    print("TASK STATE: ", status) //useful for debugging
                     return completion(status)
                 }
                 return completion(nil)

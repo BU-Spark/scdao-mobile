@@ -67,7 +67,7 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
             
             let apiCall = ImageAPI(baseURL: Config.baseURL, token: token, type: type)
             
-            let _: () = apiCall.uploadImage(imageToUpload: imageView.image!) { status in //
+            let _: () = apiCall.uploadImage(imageToUpload: imageView.image!) { status in //upload image and get job_id or API response
                 if (status == nil){
                     DispatchQueue.main.async {
                         self.showAlert(field: "Error Uploading Image", info: "Please try again.")
@@ -93,8 +93,7 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
                     return
                 }
                 
-                else{
-                    print("JobID:", status!)
+                else{ // return job_id
                     DispatchQueue.main.async {
                         self.loadingIndicator.hidesWhenStopped = true
                         self.loadingIndicator.style = UIActivityIndicatorView.Style.medium
@@ -102,6 +101,7 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
                         
                         self.pending.view.addSubview(self.loadingIndicator)
                         self.present(self.pending, animated: false, completion: nil)
+                        
                         //timer function calls statusHandler() repeatedly until upload returns SUCCESS, FAIL, or max number of requests exceeded
                         self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.statusHandler(sender:)), userInfo: status, repeats: true)
                     }
@@ -124,7 +124,7 @@ extension UploadViewController: UIImagePickerControllerDelegate,UINavigationCont
         
         apiCall.uploadStatus(task_id: jobID as! String){ status in // get status using job_id
             if let status = status{
-                print("STATUS: ", status)
+                //                print("STATUS: ", status) // returns status (useful for debugging)
                 if (status == "SUCCESS"){
                     self.timer?.invalidate()
                     self.timer = nil
