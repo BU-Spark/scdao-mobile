@@ -16,11 +16,13 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     private var email: String = ""
     private var user: String = ""
     private var password: String = ""
     private var passwordConf: String = ""
+    private var minPasswordLength: Int = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +44,42 @@ class SignupViewController: UIViewController {
     @IBAction func onPasswordConfTextChanged(_ textField: UITextField) {
         self.passwordConf = textField.text ?? ""
     }
+    
+    private func isPasswordValid(_ password : String) -> Bool{
+        // password has to be at least 8 characters and can only be alphanumeric
+        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{" + String(minPasswordLength) + ",}$"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
+    }
+    
     @IBAction func onSignupPressed(_ sender: UIButton) {
 
         let params: [String: Any] = ["username": self.email, "password": self.password]
-        
         let signupRoute = Config.baseURL + "/api/signup"
         
         AF.request(signupRoute, method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: nil)
             .responseJSON {
                 response in
                 do {
-                    debugPrint(response)
+                    print(response)
+                    switch response.result {
+                    case .failure(let error):
+                        throw(error)
+                    case .success(let JSON):
+                        let res = JSON as! NSDictionary
+                        let details = res.object(forKey: "detail")
+                        if details == nil {
+                            //handle login given successful sign in
+                            let access_token = res.object(forKey: "access_token")!
+                            let token_type = res.object(forKey: "token_type")!
+                            let defaults = UserDefaults.standard
+                            defaults.set(access_token, forKey: "tokenValue")
+                            defaults.set(token_type, forKey: "tokenType")
+                            
+                            //change screen to main screen
+                        } else {
+                            self.errorLabel.text = "Account already exists"
+                        }
+                    }
                 } catch {
                     
                 }
