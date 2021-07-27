@@ -1,0 +1,678 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00EA90402694F5EB00615A19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EA903F2694F5EB00615A19 /* AppDelegate.swift */; };
+		00EA90422694F5EB00615A19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EA90412694F5EB00615A19 /* SceneDelegate.swift */; };
+		00EA90442694F5EB00615A19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EA90432694F5EB00615A19 /* ViewController.swift */; };
+		00EA90472694F5EB00615A19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00EA90452694F5EB00615A19 /* Main.storyboard */; };
+		00EA90492694F5EC00615A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00EA90482694F5EC00615A19 /* Assets.xcassets */; };
+		00EA904C2694F5EC00615A19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00EA904A2694F5EC00615A19 /* LaunchScreen.storyboard */; };
+		00EA90572694F5EC00615A19 /* SCDAO_MobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EA90562694F5EC00615A19 /* SCDAO_MobileTests.swift */; };
+		00EA90622694F5EC00615A19 /* SCDAO_MobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EA90612694F5EC00615A19 /* SCDAO_MobileUITests.swift */; };
+		00FE2E72269B78E6004AB862 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE2E71269B78E6004AB862 /* Login.swift */; };
+		00FE2E74269E0222004AB862 /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE2E73269E0222004AB862 /* Signup.swift */; };
+		40345D01E61E0A3F4CC5EF2C /* Pods_SCDAO_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7023049EA420BBB39E7C8F /* Pods_SCDAO_Mobile.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00EA90532694F5EC00615A19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00EA90342694F5EB00615A19 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00EA903B2694F5EB00615A19;
+			remoteInfo = "SCDAO-Mobile";
+		};
+		00EA905E2694F5EC00615A19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00EA90342694F5EB00615A19 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00EA903B2694F5EB00615A19;
+			remoteInfo = "SCDAO-Mobile";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00EA903C2694F5EB00615A19 /* SCDAO-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SCDAO-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00EA903F2694F5EB00615A19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		00EA90412694F5EB00615A19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		00EA90432694F5EB00615A19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		00EA90462694F5EB00615A19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		00EA90482694F5EC00615A19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00EA904B2694F5EC00615A19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		00EA904D2694F5EC00615A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00EA90522694F5EC00615A19 /* SCDAO-MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SCDAO-MobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00EA90562694F5EC00615A19 /* SCDAO_MobileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDAO_MobileTests.swift; sourceTree = "<group>"; };
+		00EA90582694F5EC00615A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00EA905D2694F5EC00615A19 /* SCDAO-MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SCDAO-MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00EA90612694F5EC00615A19 /* SCDAO_MobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDAO_MobileUITests.swift; sourceTree = "<group>"; };
+		00EA90632694F5EC00615A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00FE2E71269B78E6004AB862 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		00FE2E73269E0222004AB862 /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
+		3C7023049EA420BBB39E7C8F /* Pods_SCDAO_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SCDAO_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BB57856209F09FCA47F3C82 /* Pods-SCDAO-Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCDAO-Mobile.release.xcconfig"; path = "Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile.release.xcconfig"; sourceTree = "<group>"; };
+		4CFF2BD935DD65F066AA42F1 /* Pods-SCDAO-Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCDAO-Mobile.debug.xcconfig"; path = "Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00EA90392694F5EB00615A19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40345D01E61E0A3F4CC5EF2C /* Pods_SCDAO_Mobile.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00EA904F2694F5EC00615A19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00EA905A2694F5EC00615A19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00EA90332694F5EB00615A19 = {
+			isa = PBXGroup;
+			children = (
+				00EA903E2694F5EB00615A19 /* SCDAO-Mobile */,
+				00EA90552694F5EC00615A19 /* SCDAO-MobileTests */,
+				00EA90602694F5EC00615A19 /* SCDAO-MobileUITests */,
+				00EA903D2694F5EB00615A19 /* Products */,
+				109F332066A325E4E20B2172 /* Pods */,
+				AB99C2DD458556ACE11BBEB7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		00EA903D2694F5EB00615A19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00EA903C2694F5EB00615A19 /* SCDAO-Mobile.app */,
+				00EA90522694F5EC00615A19 /* SCDAO-MobileTests.xctest */,
+				00EA905D2694F5EC00615A19 /* SCDAO-MobileUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00EA903E2694F5EB00615A19 /* SCDAO-Mobile */ = {
+			isa = PBXGroup;
+			children = (
+				00EA906F2694F60200615A19 /* ViewControllers */,
+				00EA903F2694F5EB00615A19 /* AppDelegate.swift */,
+				00EA90412694F5EB00615A19 /* SceneDelegate.swift */,
+				00EA90432694F5EB00615A19 /* ViewController.swift */,
+				00EA90452694F5EB00615A19 /* Main.storyboard */,
+				00EA90482694F5EC00615A19 /* Assets.xcassets */,
+				00EA904A2694F5EC00615A19 /* LaunchScreen.storyboard */,
+				00EA904D2694F5EC00615A19 /* Info.plist */,
+			);
+			path = "SCDAO-Mobile";
+			sourceTree = "<group>";
+		};
+		00EA90552694F5EC00615A19 /* SCDAO-MobileTests */ = {
+			isa = PBXGroup;
+			children = (
+				00EA90562694F5EC00615A19 /* SCDAO_MobileTests.swift */,
+				00EA90582694F5EC00615A19 /* Info.plist */,
+			);
+			path = "SCDAO-MobileTests";
+			sourceTree = "<group>";
+		};
+		00EA90602694F5EC00615A19 /* SCDAO-MobileUITests */ = {
+			isa = PBXGroup;
+			children = (
+				00EA90612694F5EC00615A19 /* SCDAO_MobileUITests.swift */,
+				00EA90632694F5EC00615A19 /* Info.plist */,
+			);
+			path = "SCDAO-MobileUITests";
+			sourceTree = "<group>";
+		};
+		00EA906F2694F60200615A19 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				00FE2E71269B78E6004AB862 /* Login.swift */,
+				00FE2E73269E0222004AB862 /* Signup.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		109F332066A325E4E20B2172 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CFF2BD935DD65F066AA42F1 /* Pods-SCDAO-Mobile.debug.xcconfig */,
+				4BB57856209F09FCA47F3C82 /* Pods-SCDAO-Mobile.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AB99C2DD458556ACE11BBEB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C7023049EA420BBB39E7C8F /* Pods_SCDAO_Mobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00EA903B2694F5EB00615A19 /* SCDAO-Mobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00EA90662694F5EC00615A19 /* Build configuration list for PBXNativeTarget "SCDAO-Mobile" */;
+			buildPhases = (
+				2FFFE0B882EB9FF46CDE80D5 /* [CP] Check Pods Manifest.lock */,
+				00EA90382694F5EB00615A19 /* Sources */,
+				00EA90392694F5EB00615A19 /* Frameworks */,
+				00EA903A2694F5EB00615A19 /* Resources */,
+				5B3C7BBD38E36A2E53FDD5D1 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SCDAO-Mobile";
+			productName = "SCDAO-Mobile";
+			productReference = 00EA903C2694F5EB00615A19 /* SCDAO-Mobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00EA90512694F5EC00615A19 /* SCDAO-MobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00EA90692694F5EC00615A19 /* Build configuration list for PBXNativeTarget "SCDAO-MobileTests" */;
+			buildPhases = (
+				00EA904E2694F5EC00615A19 /* Sources */,
+				00EA904F2694F5EC00615A19 /* Frameworks */,
+				00EA90502694F5EC00615A19 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00EA90542694F5EC00615A19 /* PBXTargetDependency */,
+			);
+			name = "SCDAO-MobileTests";
+			productName = "SCDAO-MobileTests";
+			productReference = 00EA90522694F5EC00615A19 /* SCDAO-MobileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		00EA905C2694F5EC00615A19 /* SCDAO-MobileUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00EA906C2694F5EC00615A19 /* Build configuration list for PBXNativeTarget "SCDAO-MobileUITests" */;
+			buildPhases = (
+				00EA90592694F5EC00615A19 /* Sources */,
+				00EA905A2694F5EC00615A19 /* Frameworks */,
+				00EA905B2694F5EC00615A19 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00EA905F2694F5EC00615A19 /* PBXTargetDependency */,
+			);
+			name = "SCDAO-MobileUITests";
+			productName = "SCDAO-MobileUITests";
+			productReference = 00EA905D2694F5EC00615A19 /* SCDAO-MobileUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00EA90342694F5EB00615A19 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					00EA903B2694F5EB00615A19 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					00EA90512694F5EC00615A19 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 00EA903B2694F5EB00615A19;
+					};
+					00EA905C2694F5EC00615A19 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 00EA903B2694F5EB00615A19;
+					};
+				};
+			};
+			buildConfigurationList = 00EA90372694F5EB00615A19 /* Build configuration list for PBXProject "SCDAO-Mobile" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00EA90332694F5EB00615A19;
+			productRefGroup = 00EA903D2694F5EB00615A19 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00EA903B2694F5EB00615A19 /* SCDAO-Mobile */,
+				00EA90512694F5EC00615A19 /* SCDAO-MobileTests */,
+				00EA905C2694F5EC00615A19 /* SCDAO-MobileUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00EA903A2694F5EB00615A19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00EA904C2694F5EC00615A19 /* LaunchScreen.storyboard in Resources */,
+				00EA90492694F5EC00615A19 /* Assets.xcassets in Resources */,
+				00EA90472694F5EB00615A19 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00EA90502694F5EC00615A19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00EA905B2694F5EC00615A19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FFFE0B882EB9FF46CDE80D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SCDAO-Mobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B3C7BBD38E36A2E53FDD5D1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00EA90382694F5EB00615A19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00EA90442694F5EB00615A19 /* ViewController.swift in Sources */,
+				00FE2E74269E0222004AB862 /* Signup.swift in Sources */,
+				00EA90402694F5EB00615A19 /* AppDelegate.swift in Sources */,
+				00EA90422694F5EB00615A19 /* SceneDelegate.swift in Sources */,
+				00FE2E72269B78E6004AB862 /* Login.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00EA904E2694F5EC00615A19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00EA90572694F5EC00615A19 /* SCDAO_MobileTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00EA90592694F5EC00615A19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00EA90622694F5EC00615A19 /* SCDAO_MobileUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00EA90542694F5EC00615A19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00EA903B2694F5EB00615A19 /* SCDAO-Mobile */;
+			targetProxy = 00EA90532694F5EC00615A19 /* PBXContainerItemProxy */;
+		};
+		00EA905F2694F5EC00615A19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00EA903B2694F5EB00615A19 /* SCDAO-Mobile */;
+			targetProxy = 00EA905E2694F5EC00615A19 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		00EA90452694F5EB00615A19 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00EA90462694F5EB00615A19 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		00EA904A2694F5EC00615A19 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00EA904B2694F5EC00615A19 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		00EA90642694F5EC00615A19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		00EA90652694F5EC00615A19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00EA90672694F5EC00615A19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CFF2BD935DD65F066AA42F1 /* Pods-SCDAO-Mobile.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "SCDAO-Mobile/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SPARK.SCDAO-Mobile";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00EA90682694F5EC00615A19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BB57856209F09FCA47F3C82 /* Pods-SCDAO-Mobile.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "SCDAO-Mobile/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SPARK.SCDAO-Mobile";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		00EA906A2694F5EC00615A19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "SCDAO-MobileTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SPARK.SCDAO-MobileTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SCDAO-Mobile.app/SCDAO-Mobile";
+			};
+			name = Debug;
+		};
+		00EA906B2694F5EC00615A19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "SCDAO-MobileTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SPARK.SCDAO-MobileTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SCDAO-Mobile.app/SCDAO-Mobile";
+			};
+			name = Release;
+		};
+		00EA906D2694F5EC00615A19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "SCDAO-MobileUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SPARK.SCDAO-MobileUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SCDAO-Mobile";
+			};
+			name = Debug;
+		};
+		00EA906E2694F5EC00615A19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "SCDAO-MobileUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SPARK.SCDAO-MobileUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SCDAO-Mobile";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00EA90372694F5EB00615A19 /* Build configuration list for PBXProject "SCDAO-Mobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00EA90642694F5EC00615A19 /* Debug */,
+				00EA90652694F5EC00615A19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00EA90662694F5EC00615A19 /* Build configuration list for PBXNativeTarget "SCDAO-Mobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00EA90672694F5EC00615A19 /* Debug */,
+				00EA90682694F5EC00615A19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00EA90692694F5EC00615A19 /* Build configuration list for PBXNativeTarget "SCDAO-MobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00EA906A2694F5EC00615A19 /* Debug */,
+				00EA906B2694F5EC00615A19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00EA906C2694F5EC00615A19 /* Build configuration list for PBXNativeTarget "SCDAO-MobileUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00EA906D2694F5EC00615A19 /* Debug */,
+				00EA906E2694F5EC00615A19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 00EA90342694F5EB00615A19 /* Project object */;
+}
