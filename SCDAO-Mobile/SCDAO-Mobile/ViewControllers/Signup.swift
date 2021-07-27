@@ -56,6 +56,21 @@ class SignupViewController: UIViewController {
         let params: [String: Any] = ["username": self.email, "password": self.password]
         let signupRoute = Config.baseURL + "/api/signup"
         
+        guard isPasswordValid(self.password) else {
+            self.errorLabel.text = "Passwords can only contain alphanumeric characters"
+            return
+        }
+        
+        guard self.password.count >= 8 else {
+            self.errorLabel.text = "Passwords have to be at least 8 characters long."
+            return
+        }
+        
+        guard self.password == self.passwordConf else {
+            self.errorLabel.text = "Passwords do not match"
+            return
+        }
+        
         AF.request(signupRoute, method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: nil)
             .responseJSON {
                 response in
@@ -77,11 +92,11 @@ class SignupViewController: UIViewController {
                             
                             //change screen to main screen
                         } else {
-                            self.errorLabel.text = "Account already exists"
+                            self.errorLabel.text = details as? String
                         }
                     }
                 } catch {
-                    
+                    self.errorLabel.text = "Connectivity issues or server may be down."
                 }
             }
         
