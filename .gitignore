@@ -29,7 +29,7 @@ tmp
 
 # Examples
 /**/Podfile.lock
-Pods
+Pods/
 **/Pods
 
 # IDEs
