@@ -7,9 +7,6 @@ target 'OCRDataEntryApp' do
 
   # Pods for OCRDataEntryApp
 
-    pod 'Firebase/Analytics'
-    pod 'Firebase/Auth'
-    pod 'Firebase/Core'
     pod 'Firebase/Firestore'
     #pod 'Keyboardy'
 end
