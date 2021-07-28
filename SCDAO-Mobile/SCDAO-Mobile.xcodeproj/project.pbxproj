@@ -17,6 +17,7 @@
 		00EA90622694F5EC00615A19 /* SCDAO_MobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EA90612694F5EC00615A19 /* SCDAO_MobileUITests.swift */; };
 		00FE2E72269B78E6004AB862 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE2E71269B78E6004AB862 /* Login.swift */; };
 		00FE2E74269E0222004AB862 /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE2E73269E0222004AB862 /* Signup.swift */; };
+		00FE2E7E26A6547F004AB862 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE2E7D26A6547F004AB862 /* Config.swift */; };
 		40345D01E61E0A3F4CC5EF2C /* Pods_SCDAO_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7023049EA420BBB39E7C8F /* Pods_SCDAO_Mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		00EA90632694F5EC00615A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00FE2E71269B78E6004AB862 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		00FE2E73269E0222004AB862 /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
+		00FE2E7D26A6547F004AB862 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3C7023049EA420BBB39E7C8F /* Pods_SCDAO_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SCDAO_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB57856209F09FCA47F3C82 /* Pods-SCDAO-Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCDAO-Mobile.release.xcconfig"; path = "Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		4CFF2BD935DD65F066AA42F1 /* Pods-SCDAO-Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCDAO-Mobile.debug.xcconfig"; path = "Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				00EA90482694F5EC00615A19 /* Assets.xcassets */,
 				00EA904A2694F5EC00615A19 /* LaunchScreen.storyboard */,
 				00EA904D2694F5EC00615A19 /* Info.plist */,
+				00FE2E7D26A6547F004AB862 /* Config.swift */,
 			);
 			path = "SCDAO-Mobile";
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				00EA90402694F5EB00615A19 /* AppDelegate.swift in Sources */,
 				00EA90422694F5EB00615A19 /* SceneDelegate.swift in Sources */,
 				00FE2E72269B78E6004AB862 /* Login.swift in Sources */,
+				00FE2E7E26A6547F004AB862 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
