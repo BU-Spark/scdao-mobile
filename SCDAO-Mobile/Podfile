@@ -7,5 +7,5 @@ target 'SCDAO-Mobile' do
 
   # Pods for SCDAO-Mobile
 
-    pod 'Alamofire', '~> 5.4'
+   pod 'Alamofire', '~> 5.4'
 end
