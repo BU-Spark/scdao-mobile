@@ -17,7 +17,7 @@
 		00EA90622694F5EC00615A19 /* SCDAO_MobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EA90612694F5EC00615A19 /* SCDAO_MobileUITests.swift */; };
 		00FE2E72269B78E6004AB862 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE2E71269B78E6004AB862 /* Login.swift */; };
 		00FE2E74269E0222004AB862 /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE2E73269E0222004AB862 /* Signup.swift */; };
-		40345D01E61E0A3F4CC5EF2C /* Pods_SCDAO_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7023049EA420BBB39E7C8F /* Pods_SCDAO_Mobile.framework */; };
+		C6A6D911CF078B6297FD7280 /* Pods_SCDAO_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22DD770E61422E04E72E1D7 /* Pods_SCDAO_Mobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +54,9 @@
 		00EA90632694F5EC00615A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00FE2E71269B78E6004AB862 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		00FE2E73269E0222004AB862 /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
-		3C7023049EA420BBB39E7C8F /* Pods_SCDAO_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SCDAO_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BB57856209F09FCA47F3C82 /* Pods-SCDAO-Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCDAO-Mobile.release.xcconfig"; path = "Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile.release.xcconfig"; sourceTree = "<group>"; };
-		4CFF2BD935DD65F066AA42F1 /* Pods-SCDAO-Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCDAO-Mobile.debug.xcconfig"; path = "Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		675452FF4FC1D8B94C6196B0 /* Pods-SCDAO-Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCDAO-Mobile.debug.xcconfig"; path = "Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		BFEE972155971BF24F06C73C /* Pods-SCDAO-Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCDAO-Mobile.release.xcconfig"; path = "Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile.release.xcconfig"; sourceTree = "<group>"; };
+		F22DD770E61422E04E72E1D7 /* Pods_SCDAO_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SCDAO_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40345D01E61E0A3F4CC5EF2C /* Pods_SCDAO_Mobile.framework in Frameworks */,
+				C6A6D911CF078B6297FD7280 /* Pods_SCDAO_Mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +93,7 @@
 				00EA90602694F5EC00615A19 /* SCDAO-MobileUITests */,
 				00EA903D2694F5EB00615A19 /* Products */,
 				109F332066A325E4E20B2172 /* Pods */,
-				AB99C2DD458556ACE11BBEB7 /* Frameworks */,
+				288E69A1868E71D901C3EFF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,16 +152,16 @@
 		109F332066A325E4E20B2172 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4CFF2BD935DD65F066AA42F1 /* Pods-SCDAO-Mobile.debug.xcconfig */,
-				4BB57856209F09FCA47F3C82 /* Pods-SCDAO-Mobile.release.xcconfig */,
+				675452FF4FC1D8B94C6196B0 /* Pods-SCDAO-Mobile.debug.xcconfig */,
+				BFEE972155971BF24F06C73C /* Pods-SCDAO-Mobile.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		AB99C2DD458556ACE11BBEB7 /* Frameworks */ = {
+		288E69A1868E71D901C3EFF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3C7023049EA420BBB39E7C8F /* Pods_SCDAO_Mobile.framework */,
+				F22DD770E61422E04E72E1D7 /* Pods_SCDAO_Mobile.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,11 +173,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00EA90662694F5EC00615A19 /* Build configuration list for PBXNativeTarget "SCDAO-Mobile" */;
 			buildPhases = (
-				2FFFE0B882EB9FF46CDE80D5 /* [CP] Check Pods Manifest.lock */,
+				F55287BE8B71E133B80F1881 /* [CP] Check Pods Manifest.lock */,
 				00EA90382694F5EB00615A19 /* Sources */,
 				00EA90392694F5EB00615A19 /* Frameworks */,
 				00EA903A2694F5EB00615A19 /* Resources */,
-				5B3C7BBD38E36A2E53FDD5D1 /* [CP] Embed Pods Frameworks */,
+				E1125A0B431EE4D39CD89E95 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,7 +294,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2FFFE0B882EB9FF46CDE80D5 /* [CP] Check Pods Manifest.lock */ = {
+		E1125A0B431EE4D39CD89E95 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F55287BE8B71E133B80F1881 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -314,23 +331,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5B3C7BBD38E36A2E53FDD5D1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SCDAO-Mobile/Pods-SCDAO-Mobile-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -517,7 +517,7 @@
 		};
 		00EA90672694F5EC00615A19 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CFF2BD935DD65F066AA42F1 /* Pods-SCDAO-Mobile.debug.xcconfig */;
+			baseConfigurationReference = 675452FF4FC1D8B94C6196B0 /* Pods-SCDAO-Mobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -536,7 +536,7 @@
 		};
 		00EA90682694F5EC00615A19 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BB57856209F09FCA47F3C82 /* Pods-SCDAO-Mobile.release.xcconfig */;
+			baseConfigurationReference = BFEE972155971BF24F06C73C /* Pods-SCDAO-Mobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

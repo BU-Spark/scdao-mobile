@@ -7,9 +7,5 @@ target 'SCDAO-Mobile' do
 
   # Pods for SCDAO-Mobile
 
-    pod 'Firebase/Analytics'
-    pod 'Firebase/Auth'
-    pod 'Firebase/Core'
-    pod 'Firebase/Firestore'
-    #pod 'Keyboardy'
+   pod 'Alamofire', '~> 5.4'
 end
