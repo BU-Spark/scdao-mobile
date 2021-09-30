@@ -1,6 +1,9 @@
 # scdao-new
 [![Build Status](https://travis-ci.com/eeshagholap/scdao-new.svg?token=uYKifbxq8pLi7ixxvyaZ&branch=master)](https://travis-ci.com/eeshagholap/scdao-new)
 
+# Current Branch
+A re-write of the Swift code occured during Summer 21'. It's located in the branch `new-app`
+
 # Suffolk County District Attorney's Office OCR iOS App
 Front End developed by Eesha Gholap, Wail Attauabi, Neilkaran Rawal, Victor Figueroa, Dingjie Chen 
 
